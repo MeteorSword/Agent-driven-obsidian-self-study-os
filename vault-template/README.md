@@ -30,3 +30,6 @@
 3. 把 `CourseOS/ExampleCourse` 复制或重命名为你的主线课程。
 4. 用 `prompts/01_general_start.md` 启动 agent。
 
+## 引用和致谢说明
+参考了知乎@Erber 大佬的文章：https://zhuanlan.zhihu.com/p/2033334385555010512
+以及Karpathy大佬的gist：https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
