@@ -39,6 +39,8 @@ SelfStudyOS/
 
 更详细的步骤见 [`docs/getting-started.md`](docs/getting-started.md)。
 
+Windows 用户可以从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始，里面包含 Obsidian、Git、Codex/Claude Code 和路径配置说明。
+
 ## 三条主线
 
 - **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。

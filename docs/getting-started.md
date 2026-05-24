@@ -2,6 +2,8 @@
 
 这份指南适合第一次使用 SelfStudyOS 的用户。
 
+如果你使用 Windows，先读 [`windows-setup.md`](windows-setup.md)。那份指南覆盖 Obsidian、Git、Codex/Claude Code、PowerShell 和 Windows 路径写法。
+
 ## 1. 复制模板
 
 把 [`vault-template/`](../vault-template/) 复制到你的 Obsidian Vault，或把里面的目录合并进现有 Vault。
@@ -56,4 +58,3 @@
 ## 6. 逐步扩展
 
 当一门课跑通后，再增加下一门课、论文阅读或项目能力树。SelfStudyOS 的重点是稳定闭环，不是一次性建完整知识图谱。
-
