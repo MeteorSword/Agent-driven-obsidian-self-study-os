@@ -1,0 +1,44 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+.agents/
+.codex/
+
+# Local secrets and runtime files
+.env
+*.log
+*.tmp
+*.bak
+
+# Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/
+.obsidian/cache/
+.trash/
+
+# Private vault material that should not enter this public template
+private/
+vault-private/
+agent_ignore/
+
+# Heavy or copyrighted study materials
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.zip
+*.rar
+*.7z
+
+# Attachments are intentionally excluded unless a README keeps the folder visible.
+80_Attachments/**
+vault-template/80_Attachments/**
+!vault-template/80_Attachments/README.md
