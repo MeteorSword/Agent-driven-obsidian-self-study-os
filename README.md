@@ -84,6 +84,13 @@ examples/       # 脱敏学习闭环示例
 
 [`examples/calculus-loop/`](examples/calculus-loop/) 提供了一个脱敏的“高数学习闭环”示例，展示从学习 session 到 problem loop、错因归纳、概念卡更新的最小流程。
 
+## Acknowledgements 
+
+Inspired by Erber&#39;s [如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建](https://zhuanlan.zhihu.com/p/2033334385555010512) by [Erber102](https://github.com/Erber102).  
+
+## Citations
+Erber. (2026). 如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建. Zhihu. https://zhuanlan.zhihu.com/p/2033334385555010512  
+
 ## License
 
 MIT License. See [`LICENSE`](LICENSE).
