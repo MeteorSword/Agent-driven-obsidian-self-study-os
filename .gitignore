@@ -42,3 +42,7 @@ agent_ignore/
 80_Attachments/**
 vault-template/80_Attachments/**
 !vault-template/80_Attachments/README.md
+
+# Real Daily Notes are personal learning records. The template ships a README
+# and the canonical template; do not commit actual dated daily notes.
+vault-template/50_LifeOps/Logs/Daily/2*.md

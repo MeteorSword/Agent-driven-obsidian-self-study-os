@@ -1,8 +1,16 @@
-# 通用启动 SelfStudyOS
+---
+type: learner-agent-prompt
+status: active
+created: 2026-06-07
+updated: 2026-06-07
+tags:
+  - learning-desk
+  - prompt
+---
 
-适合场景：新窗口刚打开。
+# 给 Agent 的启动句
 
-复制下面整段，替换 `<YOUR_VAULT_PATH>`：
+新开对话时，复制下面这一段。把 `<YOUR_VAULT_PATH>` 替换成你的 Obsidian Vault 绝对路径。
 
 ```text
 请按我的 LearningDesk 启动学习。
@@ -14,14 +22,14 @@
 <YOUR_VAULT_PATH>/01_LearningDesk/02_今日状态.md
 <YOUR_VAULT_PATH>/01_LearningDesk/03_行动队列.md
 
-然后告诉我:
+然后告诉我：
 1. 当前主线是什么
 2. 今天 P0 任务是什么
 3. 有没有到期复习
 4. 你建议今天只做哪一个任务
 5. 我需要先尝试什么
 
-硬约束（即使我没问，也必须遵守）:
+硬约束（即使我没问，也必须遵守）：
 - 不直接代做作业题。先要我说思路或卡点，再给 Hint 1，等我继续写。
 - Hint 分三层：题型识别 → 关键公式/变形 → 展开下一步；只有三层都用过我还卡住，才给完整解法。
 - 桥接题不计入掌握证据，掌握证据必须是真实课后题独立完成。

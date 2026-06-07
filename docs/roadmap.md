@@ -1,6 +1,6 @@
 # Roadmap
 
-## 0.1
+## 0.1（已完成）
 
 - 建立中文主文档。
 - 提供 Vault 模板。
@@ -8,16 +8,33 @@
 - 提供脱敏 CourseOS 示例。
 - 提供公开版 agent workflow skill。
 
-## 0.2
+## 0.2（已完成）
 
-- 增加英文 README。
-- 增加更多课程示例：线性代数、大学物理、计算机。
-- 增加 weekly review 示例。
-- 增加 Obsidian 插件最小配置建议。
+- **入口分离**：新增 `01_LearningDesk/` 五张学生侧入口页面。
+- **5 行收口仪式**：新增 `99_Meta/Templates/learning_close_5lines.md` 和 `daily_note.md`，替代手动维护多文件。
+- **Hint 1/2/3 分层 + 学习/作业模式 + 掌握等级**：写进 `operating_rules.md`。
+- **stale 规则**：行动队列里 review 逾期 ≥ 3 天 / homework 逾期 ≥ 7 天自动处理。
+- **占位卡机制**：候选概念卡显式标 `·占位`，防止 AI 乱填。
+- 新增设计说明：`docs/entry-separation.md` / `docs/close-ritual.md`。
 
 ## 0.3
 
-- 增加 lint 脚本，检查绝对路径、未索引页面和缺少学习证据的 wiki 页面。
-- 增加可选 Dataview 查询模板。
-- 增加项目作品集复盘示例。
+- 增加英文 README。
+- 增加更多课程示例（线性代数、计算机基础）。
+- 提供一份"跑通一次完整闭环"的最小演示视频或图文。
+- 增加 weekly review 示例（基于一周 Daily Note 5 行的自动汇总）。
 
+## 0.4
+
+- 增加 lint 脚本：
+  - 检查绝对路径泄漏。
+  - 检查 wiki 页面是否有学习证据。
+  - 检查行动队列是否有未应用 stale 规则的僵尸 P0。
+  - 检查 Daily Note 是否每天有 5 行收口落盘。
+- 增加可选 Dataview 查询模板（统计 Hint 层级分布、反复"仍然不懂"项）。
+
+## 0.5
+
+- 增加 Obsidian 插件最小配置建议。
+- 增加项目作品集复盘示例。
+- 探索 ResearchWiki 与 Reading Mission 队列的最小流水线脚本。

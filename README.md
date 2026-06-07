@@ -6,25 +6,54 @@ An AI-agent-driven Obsidian self-study system for university learning, research 
 
 ## 这个项目解决什么问题
 
-很多 AI 学习工作流的问题不是“AI 不够强”，而是缺少边界：
+很多 AI 学习工作流的问题不是"AI 不够强"，而是缺少边界：
 
 - 资料被批量总结，但没有练习证据。
 - 笔记越来越多，但不知道下一步该学什么。
 - 项目 demo 能跑，但基础能力没有沉淀。
 - AI 直接给答案，学习者没有形成可复用能力。
+- 系统结构越搭越大，学生每天打开后被一堆"agent 配置"吓退，不知从哪开始。
 
-SelfStudyOS 的核心目标是：让 AI agent 成为学习系统的执行伙伴，同时保留学习者自己的尝试、判断、错因和复盘。
+SelfStudyOS 的核心目标是：让 AI agent 成为学习系统的执行伙伴，同时**保留学习者自己的尝试、判断、错因和复盘**，并把日常入口压缩到学生看一眼就知道做什么。
+
+## 核心设计
+
+四个相互独立又互相支撑的机制：
+
+1. **入口分离（Entry Separation）** — 学生只打开 `01_LearningDesk/` 五张页面；`70_AgentSystems/` 是 agent 后台读的，不入日常视野。详见 [`docs/entry-separation.md`](docs/entry-separation.md)。
+2. **Hint 分层 + 模式区分** — 作业模式严格按 Hint 1 → 2 → 3 → Solution；学习模式可以用桥接题但**桥接不计掌握**。详见 [`docs/agent-rules.md`](docs/agent-rules.md)。
+3. **5 行收口仪式（Close Ritual）** — 每次 session 结束 agent 只写 5 行进当天 Daily Note，替代手动维护 02/03/05/progress 多个状态文件。详见 [`docs/close-ritual.md`](docs/close-ritual.md)。
+4. **stale 规则 + 占位卡** — 行动队列里逾期任务自动 archive；候选概念卡显式标 `·占位` 防止 AI 为了"补全"乱填。
 
 ## 核心结构
 
 ```text
-SelfStudyOS/
-  CourseOS/        # 课程、作业、错题、概念、题型
-  ResearchWiki/    # 论文、研究概念、连接、开放问题
-  ProjectLab/      # 项目目标、能力树、项目复盘
-  System/          # 运行规则、学习者画像、raw data 流程
-  Templates/       # session、problem loop、reading mission 等模板
-  Review/          # 总进度、复习债务、错题索引
+vault-template/
+  01_LearningDesk/                 # 学生侧唯一入口（每天只打开这里）
+    01_学习首页.md
+    02_今日状态.md
+    03_行动队列.md
+    04_课程入口.md
+    05_复习入口.md
+    06_给Agent的启动句.md
+  50_LifeOps/Logs/Daily/           # 每天一份 Daily Note，5 行收口落盘处
+  70_AgentSystems/
+    AgentBootstrap/
+      START_HERE_FOR_AGENT.md      # agent 新会话必读
+    SelfStudyOS/
+      AGENTS.md
+      home.md
+      System/
+        operating_rules.md         # Hint 分层 / 学习模式 / 作业模式 / stale 规则 / 每日结束
+        learner_profile.md
+        raw_data_pipeline.md
+      CourseOS/                    # 课程、作业、错题、概念、题型
+      ResearchWiki/                # 论文、研究概念、连接、开放问题
+      ProjectLab/                  # 项目目标、能力树、项目复盘
+      Review/                      # 总进度、复习债务、错题索引
+  99_Meta/Templates/
+    learning_close_5lines.md       # 5 行收口模板（canonical）
+    daily_note.md
 ```
 
 完整可复制模板在 [`vault-template/`](vault-template/)。
@@ -32,10 +61,11 @@ SelfStudyOS/
 ## 快速开始
 
 1. 复制 [`vault-template/`](vault-template/) 到你的 Obsidian Vault。
-2. 打开 [`vault-template/70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md`](vault-template/70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md)。
-3. 根据你的实际情况改写 `learner_profile.md` 和 `progress.md`。
-4. 从 [`prompts/01_general_start.md`](prompts/01_general_start.md) 复制启动 prompt 给你的 AI agent。
-5. 只选择一个最小学习任务开始，例如“一节课的一个概念”或“2-5 道题”。
+2. 改 `01_LearningDesk/01_学习首页.md` 的「当前主线」表 + `02_今日状态.md` + `03_行动队列.md`，填你正在学的课。
+3. 改 `70_AgentSystems/SelfStudyOS/System/learner_profile.md` 写你自己的画像。
+4. 改 `70_AgentSystems/SelfStudyOS/Review/progress.md` 写当前真实进度。
+5. 把 [`vault-template/01_LearningDesk/06_给Agent的启动句.md`](vault-template/01_LearningDesk/06_给Agent的启动句.md) 里的启动句复制给 AI agent（替换 `<YOUR_VAULT_PATH>`）。
+6. 只选择一个最小学习任务开始（一节课的一个概念，或 2-5 道题），结束时让 agent 按 5 行收口写进当天 Daily Note。
 
 更详细的步骤见 [`docs/getting-started.md`](docs/getting-started.md)。
 
@@ -43,8 +73,8 @@ Windows 用户可以从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始�
 
 ## 三条主线
 
-- **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。
-- **ResearchWiki**：论文阅读必须先有 Reading Mission，大多数论文只读到 L0/L1，不做无目的深挖。
+- **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。掌握分 4 级：预热通过 / 桥接通过 / 作业题通过 / 变式通过。
+- **ResearchWiki**：论文阅读必须先有 Reading Mission，大多数论文只读到 L0/L1，主线课程未跑通前不启动 L2 深读。
 - **ProjectLab**：项目必须暴露能力债务，记录 AI 代劳部分，并映射回基础课程或具体技能。
 
 ## 硬规则
@@ -52,13 +82,15 @@ Windows 用户可以从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始�
 - 不把 raw 资料直接当成学习成果。
 - 不一次性 ingest 整本书、整门课、整批论文。
 - 不在学习者没有尝试前直接做作业题。
-- 不为了 Obsidian 图谱好看创建空链接。
+- 桥接题不计入掌握证据。
+- 不为了 Obsidian 图谱好看创建空链接；候选卡必须显式标 `·占位`。
 - 不用项目 demo 掩盖基础课训练缺口。
+- 学生不手改 02 / 03 / 05 / 课程 progress；agent 用 5 行收口写进 Daily Note。
 
 ## 仓库内容
 
 ```text
-docs/           # 设计说明、快速开始、工作流、隐私边界
+docs/           # 设计说明、入口分离、5 行收口、快速开始、agent 规则、隐私边界
 prompts/        # 可复制给 AI agent 的 prompt
 templates/      # 可复用 Markdown 模板
 vault-template/ # 可复制到 Obsidian 的 Vault 骨架
@@ -75,6 +107,7 @@ examples/       # 脱敏学习闭环示例
 - 本机绝对路径和外部资料索引
 - API key、token、账号、邮箱列表
 - 未脱敏的学习进度和个人画像
+- 真实 Daily Note 内容（`.gitignore` 已排除 `50_LifeOps/Logs/Daily/2*.md`）
 
 公开前检查清单见 [`docs/publish-checklist.md`](docs/publish-checklist.md)。
 
@@ -82,14 +115,15 @@ examples/       # 脱敏学习闭环示例
 
 ## 示例
 
-[`examples/calculus-loop/`](examples/calculus-loop/) 提供了一个脱敏的“高数学习闭环”示例，展示从学习 session 到 problem loop、错因归纳、概念卡更新的最小流程。
+[`examples/calculus-loop/`](examples/calculus-loop/) 提供了一个脱敏的"高数学习闭环"示例，展示从学习 session 到 problem loop、错因归纳、概念卡更新的最小流程。
 
-## Acknowledgements 
+## Acknowledgements
 
-Inspired by Erber&#39;s [如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建](https://zhuanlan.zhihu.com/p/2033334385555010512) by [Erber102](https://github.com/Erber102).  
+Inspired by Erber's [如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建](https://zhuanlan.zhihu.com/p/2033334385555010512) by [Erber102](https://github.com/Erber102).
 
 ## Citations
-Erber. (2026). 如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建. Zhihu. https://zhuanlan.zhihu.com/p/2033334385555010512  
+
+Erber. (2026). 如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建. Zhihu. https://zhuanlan.zhihu.com/p/2033334385555010512
 
 ## License
 
