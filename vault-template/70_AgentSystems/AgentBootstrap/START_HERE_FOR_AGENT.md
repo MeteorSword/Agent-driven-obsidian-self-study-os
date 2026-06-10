@@ -2,7 +2,7 @@
 type: agent-bootstrap
 status: active
 created: 2026-05-22
-updated: 2026-06-07
+updated: 2026-06-10
 tags:
   - agent-bootstrap
   - selfstudyos
@@ -54,7 +54,7 @@ tags:
 
 1. 先读 [[01_LearningDesk/02_今日状态|今日状态]]。
 2. 再读 [[01_LearningDesk/03_行动队列|行动队列]]。
-3. 报告当前主线、到期复习和 P0 任务。
+3. 报告当前主线、P0 任务，以及是否有到期复习；到期复习只提示存在，不展开，除非用户选择复习模式。
 4. 选择唯一主任务。
 5. 要求用户先解释当前理解或先尝试题目。
 6. 不直接给作业完整答案。
@@ -63,15 +63,14 @@ tags:
 
 ### Daily Start
 
-1. 查看今天的 Daily Note，若没有则先放着，结束时再创建。
+1. 查看今天的 Daily Note，若没有则创建。
 2. 查看 [[01_LearningDesk/02_今日状态|今日状态]]、[[01_LearningDesk/03_行动队列|行动队列]] 和 [[70_AgentSystems/SelfStudyOS/Review/progress|总进度]]。
 3. 检查当前课程中 `status: in-progress` 的 session/problem。
-4. 应用 [[70_AgentSystems/SelfStudyOS/System/operating_rules#行动队列 stale 规则|行动队列 stale 规则]]：review 类逾期 ≥ 3 天先 archive，homework 逾期 ≥ 7 天先和用户确认。不要把过期任务当今天 P0。
-5. 若当前状态、课程 progress、MOC、总进度的下一步冲突，先报告冲突。
-6. 选择唯一主任务。
-7. 若有 15 分钟内可完成的过期复习任务，先作为热身。
-8. 限定最小范围。
-9. 开 learning session / problem loop / reading mission / project ability mapping。
+4. 若当前状态、课程 progress、MOC、总进度的下一步冲突，先报告冲突。
+5. 选择唯一主任务。
+6. 若有到期复习，只提示“有到期复习，可切换复习模式处理”；不要在 Daily Start 中展开复习债务或把它自动变成热身。
+7. 限定最小范围。
+8. 开 learning session / problem loop / course review / reading mission / project ability mapping。
 
 ### Material Intake
 
@@ -84,11 +83,19 @@ tags:
 ### Course Learning
 
 1. 读对应 CourseOS MOC。
-2. 读 raw 接入队列。
-3. **先识别模式**：学习模式 vs 作业模式（见 [[70_AgentSystems/SelfStudyOS/System/operating_rules#学习模式与作业模式|operating_rules]]）。
-4. 让用户先说明理解、尝试或卡点。
-5. 按 Hint 1 → Hint 2 → Hint 3 → Solution 分层提示，不先代做。
-6. 结束时不要让用户手改 progress；按 [[99_Meta/Templates/learning_close_5lines|学习结束 5 行]] 收口。只有发生结构性事件时另开文件。
+2. 先在 MOC 顶部选择本次模式：开始学习模式 / 作业模式 / 复习模式。
+3. 读本模式对应的 prompt、raw 接入队列和 progress；只有复习模式默认读取并展开复习债务。
+4. 让用户先说明理解、尝试或卡点；复习模式先让用户冷复测输出。
+5. 给分层提示，不先代做。
+6. 结束时更新 progress，并在必要时生成概念卡、题型卡、错题卡或复习债务。
+
+### 复习债务路由
+
+- 复习债务默认只在复习模式展开。
+- Daily Start 只报告“有/无到期复习”和是否建议切换复习模式，不读取长债务、不安排热身复习。
+- 开始学习模式不主动处理历史复习债务；只围绕本次主题做诊断和最小教学。
+- 作业模式不主动处理历史复习债务；如果某个债务直接阻塞当前题，最多插入 3-10 分钟「前置工具补丁」，并立刻回到原题。
+- 前置工具补丁不计入作业完成度，也不作为掌握证据。
 
 ### Research Reading
 

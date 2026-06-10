@@ -10,7 +10,7 @@
 
 ## 0.2（已完成）
 
-- **入口分离**：新增 `01_LearningDesk/` 五张学生侧入口页面。
+- **入口分离**：新增 `01_LearningDesk/` 六张学生侧入口页面。
 - **5 行收口仪式**：新增 `99_Meta/Templates/learning_close_5lines.md` 和 `daily_note.md`，替代手动维护多文件。
 - **Hint 1/2/3 分层 + 学习/作业模式 + 掌握等级**：写进 `operating_rules.md`。
 - **stale 规则**：行动队列里 review 逾期 ≥ 3 天 / homework 逾期 ≥ 7 天自动处理。
@@ -38,3 +38,10 @@
 - 增加 Obsidian 插件最小配置建议。
 - 增加项目作品集复盘示例。
 - 探索 ResearchWiki 与 Reading Mission 队列的最小流水线脚本。
+
+## 0.3（已完成）
+
+- **CourseOS 三模式**：开始学习模式 / 作业模式 / 复习模式写入模板、prompt 和 agent 规则。
+- **复习债务路由**：Daily Start 只提示到期复习；复习债务默认只在复习模式展开。
+- **前置工具补丁**：作业或开始学习中只有直接阻塞当前任务时，才允许 3-10 分钟补丁，且不计入掌握证据。
+- **课程复习 prompt**：新增 `prompts/09_course_review.md`，日常复习与 exam sprint 分离。

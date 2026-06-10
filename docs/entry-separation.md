@@ -31,7 +31,7 @@ SelfStudyOS 的一个核心设计是把**用户每日学习入口**和 **AI agen
     AGENTS.md
     home.md
     System/
-      operating_rules.md                # Hint 分层 / 学习模式 / 作业模式 / stale 规则
+      operating_rules.md                # Hint 分层 / 三模式 / 复习债务路由 / stale 规则
       learner_profile.md
       raw_data_pipeline.md
 ```

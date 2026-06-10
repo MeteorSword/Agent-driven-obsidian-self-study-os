@@ -18,12 +18,13 @@ SelfStudyOS 的核心目标是：让 AI agent 成为学习系统的执行伙伴�
 
 ## 核心设计
 
-四个相互独立又互相支撑的机制：
+五个相互独立又互相支撑的机制：
 
-1. **入口分离（Entry Separation）** — 学生只打开 `01_LearningDesk/` 五张页面；`70_AgentSystems/` 是 agent 后台读的，不入日常视野。详见 [`docs/entry-separation.md`](docs/entry-separation.md)。
-2. **Hint 分层 + 模式区分** — 作业模式严格按 Hint 1 → 2 → 3 → Solution；学习模式可以用桥接题但**桥接不计掌握**。详见 [`docs/agent-rules.md`](docs/agent-rules.md)。
+1. **入口分离（Entry Separation）** — 学生只打开 `01_LearningDesk/` 六张页面；`70_AgentSystems/` 是 agent 后台读的，不入日常视野。详见 [`docs/entry-separation.md`](docs/entry-separation.md)。
+2. **Hint 分层 + 三模式区分** — 作业模式严格按 Hint 1 → 2 → 3 → Solution；开始学习模式可以用桥接题但**桥接不计掌握**；复习模式优先冷复测。详见 [`docs/agent-rules.md`](docs/agent-rules.md)。
 3. **5 行收口仪式（Close Ritual）** — 每次 session 结束 agent 只写 5 行进当天 Daily Note，替代手动维护 02/03/05/progress 多个状态文件。详见 [`docs/close-ritual.md`](docs/close-ritual.md)。
-4. **stale 规则 + 占位卡** — 行动队列里逾期任务自动 archive；候选概念卡显式标 `·占位` 防止 AI 为了"补全"乱填。
+4. **stale 规则 + 占位卡** — 行动队列里逾期任务按类型治理；候选概念卡显式标 `·占位` 防止 AI 为了“补全”乱填。
+5. **复习债务路由** — Daily Start 只提示有无到期复习；复习债务默认只在复习模式展开，不打断作业和随堂学习。
 
 ## 核心结构
 
@@ -44,7 +45,7 @@ vault-template/
       AGENTS.md
       home.md
       System/
-        operating_rules.md         # Hint 分层 / 学习模式 / 作业模式 / stale 规则 / 每日结束
+        operating_rules.md         # Hint 分层 / 三模式 / 复习债务路由 / stale 规则 / 每日结束
         learner_profile.md
         raw_data_pipeline.md
       CourseOS/                    # 课程、作业、错题、概念、题型
@@ -65,7 +66,7 @@ vault-template/
 3. 改 `70_AgentSystems/SelfStudyOS/System/learner_profile.md` 写你自己的画像。
 4. 改 `70_AgentSystems/SelfStudyOS/Review/progress.md` 写当前真实进度。
 5. 把 [`vault-template/01_LearningDesk/06_给Agent的启动句.md`](vault-template/01_LearningDesk/06_给Agent的启动句.md) 里的启动句复制给 AI agent（替换 `<YOUR_VAULT_PATH>`）。
-6. 只选择一个最小学习任务开始（一节课的一个概念，或 2-5 道题），结束时让 agent 按 5 行收口写进当天 Daily Note。
+6. 先选择模式（开始学习 / 作业 / 复习），再选择一个最小学习任务开始（一节课的一个概念、2-5 道题，或一个复习对象），结束时让 agent 按 5 行收口写进当天 Daily Note。
 
 更详细的步骤见 [`docs/getting-started.md`](docs/getting-started.md)。
 
@@ -73,7 +74,7 @@ Windows 用户可以从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始�
 
 ## 三条主线
 
-- **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。掌握分 4 级：预热通过 / 桥接通过 / 作业题通过 / 变式通过。
+- **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。进入课程先区分开始学习模式 / 作业模式 / 复习模式。掌握分 4 级：预热通过 / 桥接通过 / 作业题通过 / 变式通过。
 - **ResearchWiki**：论文阅读必须先有 Reading Mission，大多数论文只读到 L0/L1，主线课程未跑通前不启动 L2 深读。
 - **ProjectLab**：项目必须暴露能力债务，记录 AI 代劳部分，并映射回基础课程或具体技能。
 
@@ -83,6 +84,7 @@ Windows 用户可以从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始�
 - 不一次性 ingest 整本书、整门课、整批论文。
 - 不在学习者没有尝试前直接做作业题。
 - 桥接题不计入掌握证据。
+- 复习债务默认只在复习模式展开；作业模式和开始学习模式只在直接阻塞当前任务时插入 3-10 分钟前置工具补丁。
 - 不为了 Obsidian 图谱好看创建空链接；候选卡必须显式标 `·占位`。
 - 不用项目 demo 掩盖基础课训练缺口。
 - 学生不手改 02 / 03 / 05 / 课程 progress；agent 用 5 行收口写进 Daily Note。

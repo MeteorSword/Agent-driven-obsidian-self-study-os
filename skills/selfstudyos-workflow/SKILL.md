@@ -1,6 +1,6 @@
 ---
 name: selfstudyos-workflow
-description: Use this skill when working in an Obsidian SelfStudyOS vault, starting a self-study session, ingesting course/research/project materials, updating a learning knowledge base, or running CourseOS, ResearchWiki, ProjectLab, problem-loop, reading-mission, or weekly-review workflows.
+description: Use this skill when working in an Obsidian SelfStudyOS vault, starting a self-study session, ingesting course/research/project materials, updating a learning knowledge base, or running CourseOS, ResearchWiki, ProjectLab, problem-loop, course-review, reading-mission, or weekly-review workflows.
 ---
 
 # SelfStudyOS Workflow
@@ -28,12 +28,14 @@ Then choose the smallest relevant workflow.
 Use when the user wants to study, start the day, review progress, or asks what to do next.
 
 1. Check `Review/progress.md`.
-2. Choose one main task.
-3. Default to the current main course unless the user names another course.
-4. Open the matching CourseOS MOC and raw queue.
-5. Ask for the user's current understanding or first attempt.
-6. Use layered hints before answers.
-7. End by updating progress and next action.
+2. Read `01_LearningDesk/02_今日状态.md` and `01_LearningDesk/03_行动队列.md`.
+3. Choose one main task.
+4. Report whether due review exists, but do not expand review debts unless the learner chooses review mode.
+5. Default to the current main course unless the user names another course.
+6. Open the matching CourseOS MOC and raw queue.
+7. Ask for the user's current understanding, first attempt, or cold-recall output.
+8. Use layered hints before answers.
+9. End by updating progress and next action only when meaningful.
 
 ### Material Intake
 
@@ -51,12 +53,20 @@ Use when the user gives raw material, external folders, PDFs, PPTs, papers, code
 
 ### CourseOS
 
+First identify the mode:
+
+- Start-learning mode: new concept, new section, or not ready for full homework.
+- Homework mode: real assigned problems, textbook exercises, screenshots, or a specified problem set.
+- Review mode: cold recall, mistake replay, spaced review, or concept gap checks.
+
 For homework or exercises:
 
 1. Ask the learner to attempt first.
 2. Identify the stuck point: concept, formula, calculation, modeling, or pattern recognition.
 3. Give Hint 1, Hint 2, Hint 3 before a full solution.
-4. Record mistakes only when there is evidence.
+4. Do not expand `Review/revision_notes.md` by default.
+5. If a review debt directly blocks the current problem, insert only a 3-10 minute prerequisite patch, then return to the original problem.
+6. Record mistakes only when there is evidence.
 
 For a learning session:
 
@@ -64,8 +74,16 @@ For a learning session:
 2. Narrow the task to one small unit.
 3. Ask 2-5 diagnostic questions.
 4. Teach only after the learner responds.
-5. Require a recap, example, or minimal exercise.
-6. Update progress.
+5. Do not expand review debts unless they directly block the current topic.
+6. Require a recap, example, or minimal exercise.
+7. Update progress only when meaningful.
+
+For review:
+
+1. Read `01_LearningDesk/05_复习入口.md`, due review rows in `03_行动队列.md`, and `Review/revision_notes.md`.
+2. Start with cold recall or mistake replay before explanation.
+3. Record the pass mode: no hint / Hint 1 / Hint 2 / Hint 3 / after solution correction.
+4. Update revision notes only when repeated evidence justifies it.
 
 ### ResearchWiki
 
@@ -92,6 +110,7 @@ Use when working on projects, portfolios, demos, or ability trees.
 - Do not turn sources into long summaries without practice evidence.
 - Do not create decorative Obsidian links.
 - Do not treat old notes as proof of current mastery.
+- Do not expand review debts in homework or start-learning mode unless they directly block the current task.
 - If the user drifts into projects to avoid foundations, point it out.
 
 ## Closeout
@@ -106,4 +125,3 @@ At the end of every session, report:
 - Files updated
 
 Update the relevant `progress.md`, queue, concept index, problem index, mistake index, or review note when meaningful.
-

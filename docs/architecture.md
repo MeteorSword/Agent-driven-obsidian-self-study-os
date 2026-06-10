@@ -38,7 +38,7 @@ SelfStudyOS 是一个 agent-first 的 Obsidian 学习系统，但它不要求复
   AgentBootstrap/START_HERE_FOR_AGENT.md
   SelfStudyOS/
     AGENTS.md / home.md
-    System/operating_rules.md        # Hint 分层 / 模式 / stale / 每日结束
+    System/operating_rules.md        # Hint 分层 / 三模式 / 复习债务路由 / stale / 每日结束
     System/learner_profile.md
     System/raw_data_pipeline.md
 ```
@@ -67,6 +67,8 @@ SelfStudyOS 是一个 agent-first 的 Obsidian 学习系统，但它不要求复
 ```
 
 桥接题**不计入掌握证据**。
+
+复习债务默认只在复习模式展开；作业模式和开始学习模式不主动读取 `Review/revision_notes.md`，除非某个债务直接阻塞当前任务。
 
 ### ResearchWiki
 
@@ -118,8 +120,8 @@ Agent 负责：
 - 压缩范围
 - 提问诊断
 - 分层提示（Hint 1 / 2 / 3 / Solution）
-- 识别模式（学习模式 vs 作业模式）
-- 应用 stale 规则（review 类逾期 ≥ 3 天 archive，homework 类逾期 ≥ 7 天先确认）
+- 识别模式（开始学习模式 / 作业模式 / 复习模式）
+- 应用复习债务路由和 stale 规则（Daily Start 只提示到期复习；review 类 archive 只在复习模式或明确队列维护时执行；homework 类逾期 ≥ 7 天先确认）
 - 写 5 行收口进 Daily Note
 - 仅在结构性事件发生时更新 02 / 03 / 05 / progress
 
