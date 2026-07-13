@@ -1,0 +1,12 @@
+- [feedback_completion_standard](feedback_completion_standard.md) — 用户要求每个主题必须全做对才算过关，不允许粗略放过
+- [feedback_exam_priority](feedback_exam_priority.md) — 练习优先用原题、考点优先考过的
+- [feedback_no_spoiler](feedback_no_spoiler.md) — 不要提前给答案，等用户先尝试
+- [feedback_migration_log](feedback_migration_log.md) — 版本迁移必须在 99_Meta/migration_<YYYY-MM-DD>.md 留档，不污染 Review/progress.md
+- [feedback_learning_approach](feedback_learning_approach.md) — 学习方式：真题驱动 + 概念拓展，做完题要对知识点做延伸讲解
+- [feedback_memory_execution](feedback_memory_execution.md) — 新对话必须完整读取所有 feedback 文件，不能只读 MEMORY.md
+- [user_profile](user_profile.md) — 用户基本画像：USTC 学生，备考 DS/数分/分析化学，电路已暂停
+- [feedback_启动句维护规则](feedback_启动句维护规则.md) — 06_给Agent的启动句 只追加不删改
+- [feedback_speaker_markers](feedback_speaker_markers.md) — AI 消息开头用轻量标签区分说话方，便于复盘
+- [feedback_absolute_paths](feedback_absolute_paths.md) — 新建或修改文件时必须在回复中写绝对路径
+- [feedback_circuit_topology](feedback_circuit_topology.md) — 电路题必须先重述拓扑+逐元件标方向，禁止心算 KVL 符号
+- [feedback_answer_check_mode](feedback_answer_check_mode.md) — 对答案模式：用户主导节奏，AI 只讲卡点+套路，不追问不多归档
