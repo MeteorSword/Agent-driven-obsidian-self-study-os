@@ -68,9 +68,19 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 ---
 
+## 2026-07-11 23:00 — 新增 agent-material-intake skill
+
+- 路径：`skills/agent-material-intake/SKILL.md`
+- 定位：文件归档的唯一入口
+- 触发词：归档、把这个资料放进去、新增资料、材料入库
+- 流程：判断类型 → 路由（课程→10_Courses，非课程→Raw）→ 建工单 → 报告 → Daily Note 记录
+- 硬约束：实体文件不进 CourseOS/raw、不进 Raw/courses、每次必须走流程、不猜课程归属、不重命名
+- 边界：只管归档，不管学习处理/写记忆/出题
+
+---
+
 ## 待办（已讨论但未执行）
 
-- [ ] agent-material-intake skill（文件归档的执行者 skill，含四路决策树）
 - [ ] 06_启动句 加 agent-memory-write 和 agent-material-intake 的指针
 - [ ] 三处启动入口合并（COLD_START / START_HERE_FOR_AGENT / 06_启动句）
 - [ ] 状态文件重叠清理（02/03/04/05 功能交叉）
