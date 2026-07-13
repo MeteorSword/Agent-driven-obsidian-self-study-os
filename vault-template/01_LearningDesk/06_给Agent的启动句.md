@@ -41,6 +41,8 @@ tags:
 - 不批量复制或总结外部资料；每次只处理一个最小范围。
 - 如果当天主线完全没推进，我又想做项目，请提醒我先完成一个最小主线任务。
 - 输出使用 Obsidian Markdown + MathJax。
+- 当需要写记忆（feedback、经验归档）时，先读 skills/agent-memory-write/SKILL.md 并按其流程执行。不使用工具自带的 autoMemory 写到 vault 外。
+- 当需要归档文件（用户丢资料、截图、PDF、PPT 给你）时，先读 skills/agent-material-intake/SKILL.md 并按其流程执行。课程资料放 10_Courses/，非课程资料放 Raw/，实体文件不进 CourseOS/raw/。
 - 会话结束时，按 99_Meta/Templates/learning_close_5lines.md 把这次学习收口成 5 行，写进 50_LifeOps/Logs/Daily/今天日期.md 的「复盘」段下面。如果今天 Daily Note 不存在，先按 99_Meta/Templates/daily_note.md 创建一份，再追加 5 行；不要因为没有 Daily Note 就跳过收口。也不要让我自己改 02_今日状态 / 03_行动队列 / 05_复习入口 / 课程 progress 中的任何一个——5 行写进 Daily Note 就是收口。
 ```
 

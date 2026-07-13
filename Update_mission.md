@@ -81,7 +81,7 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 ## 待办（已讨论但未执行）
 
-- [ ] 06_启动句 加 agent-memory-write 和 agent-material-intake 的指针
+- [x] 06_启动句 加 agent-memory-write 和 agent-material-intake 的指针
 - [ ] 三处启动入口合并（COLD_START / START_HERE_FOR_AGENT / 06_启动句）
 - [ ] 状态文件重叠清理（02/03/04/05 功能交叉）
 - [ ] operating_rules 里加 agent-memory-write 的硬指针
