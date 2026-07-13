@@ -79,10 +79,34 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 ---
 
+## 2026-07-11 23:15 — 新增 selfstudyos-course-workflow skill
+
+- 路径：`skills/selfstudyos-course-workflow/SKILL.md`
+- 定位：课程执行的入口，覆盖四个子模式
+- 合并来源：prompts/02_course_session + 03_problem_loop + 09_course_review + 08_exam_sprint
+- 四个子模式：开始学习 / 作业 / 复习 / 考试冲刺
+- 不重复 operating_rules 里的规则定义，只定义执行步骤
+- 考试冲刺模式已内置 study_plan 读取逻辑
+
+---
+
+## 2026-07-11 23:30 — 新增 study_plan 模板
+
+- 路径：`vault-template/99_Meta/Templates/study_plan_template.md`
+- 原因：用户实际使用中 study_plan 格式不统一（上午下午分不清、状态标记不一致），导致 AI 读取歧义
+- 不是 skill，是模板。解决格式问题而非执行流程问题
+- 统一：时段用 AM/PM/EVE + 24小时制、状态用 todo/in-progress/done/skip、重排记录单独一段、风险提示单独一段
+- 使用场景：期末突击（不是学期日常学习），需要按日甚至按时段安排
+
+---
+
 ## 待办（已讨论但未执行）
 
 - [x] 06_启动句 加 agent-memory-write 和 agent-material-intake 的指针
+- [x] agent-material-intake skill
+- [x] selfstudyos-course-workflow skill
+- [x] study_plan 模板（不是 skill，是模板）
+- [ ] prompts/ 目录清理（01/06 已被覆盖，其余被 skill 覆盖）
 - [ ] 三处启动入口合并（COLD_START / START_HERE_FOR_AGENT / 06_启动句）
 - [ ] 状态文件重叠清理（02/03/04/05 功能交叉）
-- [ ] operating_rules 里加 agent-memory-write 的硬指针
-- [ ] 09_course_review.md 从 v0.3 补充进 SS_OS（或确认不需要）
+- [ ] operating_rules 精简（只留规则定义，执行步骤移入 skill）
