@@ -1,12 +1,12 @@
 ---
-name: feedback_circuit_topology
-description: 电路题必须先用文字重述拓扑+方向，禁止心算 KVL 符号
+name: feedback_circuit_methodology
+description: 电路题必须先重述拓扑+逐元件标方向，禁止心算 KVL 符号
 type: feedback
 ---
 
 # 电路题硬约束
 
-由 2026-06-30 图 1-1 题暴露：我在做电路题时容易（1）不先重述拓扑直接算，导致漏元件、错节点；（2）凭语感判断电压源方向，KVL 符号搞反。
+由某次电路图题暴露：AI 在做电路题时容易（1）不先重述拓扑直接算，导致漏元件、错节点；（2）凭语感判断电压源方向，KVL 符号搞反。
 
 ## Rules
 

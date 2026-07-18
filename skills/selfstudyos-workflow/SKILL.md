@@ -1,6 +1,6 @@
 ---
 name: selfstudyos-workflow
-description: Use this skill when working in an Obsidian SelfStudyOS vault, starting a self-study session, ingesting course/research/project materials, updating a learning knowledge base, or running CourseOS, ResearchWiki, ProjectLab, problem-loop, course-review, reading-mission, or weekly-review workflows.
+description: Use this skill when working in an Obsidian SelfStudyOS vault, starting a self-study session, running daily learning scheduling, or checking what to do next. Covers Daily Learning scheduling; ResearchWiki and ProjectLab are v1.0 placeholders. Material intake is handled by the agent-material-intake skill; course execution (learning/homework/review/exam-sprint) is handled by the selfstudyos-course-workflow skill.
 ---
 
 # SelfStudyOS Workflow
@@ -23,90 +23,29 @@ Then choose the smallest relevant workflow.
 
 ## Workflow Selection
 
-### Daily Learning
+### 日常学习（Daily Learning）
 
-Use when the user wants to study, start the day, review progress, or asks what to do next.
+用户想学习、开始新的一天、查看进度，或问"今天干什么"时使用。
 
-1. Check `Review/progress.md`.
-2. Read `01_LearningDesk/02_今日状态.md` and `01_LearningDesk/03_行动队列.md`.
-3. Choose one main task.
-4. Report whether due review exists, but do not expand review debts unless the learner chooses review mode.
-5. Default to the current main course unless the user names another course.
-6. Open the matching CourseOS MOC and raw queue.
-7. Ask for the user's current understanding, first attempt, or cold-recall output.
-8. Use layered hints before answers.
-9. End by updating progress and next action only when meaningful.
+1. 读 `Review/progress.md`。
+2. 读 `01_LearningDesk/02_今日状态.md` 和 `01_LearningDesk/03_行动队列.md`。
+3. 选一个主任务。
+4. 检查 `03_行动队列` 的 review 类任务，如有到期的，提示"有到期复习，可在今天结束时处理"，不立即展开，不打断当前模式。
+5. 默认当前主线课程，除非用户指定别的课程。
+6. 打开对应 CourseOS MOC 和 `material_queue.md`。
+7. 问用户当前理解、第一次尝试或冷复测输出，然后交接给 selfstudyos-course-workflow skill 的"开始学习模式"执行。
+8. 结束时半强制复习触发：检查 `03_行动队列` review 类任务，有到期的提出"现在做复习还是明天"。用户选"明天"才能跳过，在 `Review/revision_notes.md` 对应条目标记延期和下次提醒日期（仅标记延期，不触发 archive；archive 规则以 `System/operating_rules.md` 的 stale 规则为准）。用户选"现在"则交接给 selfstudyos-course-workflow skill 的复习模式。
 
-### Material Intake
-
-Use when the user gives raw material, external folders, PDFs, PPTs, papers, code, or screenshots.
-
-1. Classify the material: course, assignment, paper, project, direction, reference.
-2. Route the file:
-   - Course material → `10_Courses/<CourseName>/<Type>/` (真题/PPT/教材/作业)
-   - Non-course material → `70_AgentSystems/SelfStudyOS/Raw/<Type>/` (papers/books/clips)
-   - Large external file → keep outside vault, index in `60_Resources/ExternalIndexes/external_material_index.md`
-   - Do not put entity files in `CourseOS/<CourseName>/raw/` — that folder only holds `material_queue.md`
-3. Update the material queue: add a row in `CourseOS/<CourseName>/raw/material_queue.md` with the file path.
-4. Choose processing mode:
-   - `external-link`: path or URL only
-   - `session-raw`: referenced in a learning session
-   - `vault-copy`: small file copied for repeated annotation
-   - `wiki-distilled`: stable knowledge after evidence
-5. Never bulk-copy or bulk-summarize external folders.
-6. Create or update the relevant course/project/research queue.
-
-### CourseOS
-
-First identify the mode:
-
-- Start-learning mode: new concept, new section, or not ready for full homework.
-- Homework mode: real assigned problems, textbook exercises, screenshots, or a specified problem set.
-- Review mode: cold recall, mistake replay, spaced review, or concept gap checks.
-
-For homework or exercises:
-
-1. Ask the learner to attempt first.
-2. Identify the stuck point: concept, formula, calculation, modeling, or pattern recognition.
-3. Give Hint 1, Hint 2, Hint 3 before a full solution.
-4. Do not expand `Review/revision_notes.md` by default.
-5. If a review debt directly blocks the current problem, insert only a 3-10 minute prerequisite patch, then return to the original problem.
-6. Record mistakes only when there is evidence.
-
-For a learning session:
-
-1. Read the course MOC and raw queue.
-2. Narrow the task to one small unit.
-3. Ask 2-5 diagnostic questions.
-4. Teach only after the learner responds.
-5. Do not expand review debts unless they directly block the current topic.
-6. Require a recap, example, or minimal exercise.
-7. Update progress only when meaningful.
-
-For review:
-
-1. Read `01_LearningDesk/05_复习入口.md`, due review rows in `03_行动队列.md`, and `Review/revision_notes.md`.
-2. Start with cold recall or mistake replay before explanation.
-3. Record the pass mode: no hint / Hint 1 / Hint 2 / Hint 3 / after solution correction.
-4. Update revision notes only when repeated evidence justifies it.
+> 资料归档（用户丢文件、截图、PDF、PPT 等）由 agent-material-intake skill 处理，不在本工作流展开。
+> 课程执行（开始学习/作业/复习/考试冲刺）由 selfstudyos-course-workflow skill 处理，本工作流只负责调度与交接。
 
 ### ResearchWiki
 
-Use when reading papers or exploring research directions.
-
-1. Write a Reading Mission before reading deeply.
-2. Pick target level L0-L4.
-3. Most papers stop at L0/L1.
-4. Only create paper/concept/connection/question pages after the mission has evidence.
+此模块待 v1.0 实现。当前版本不提供研究工作流支持。
 
 ### ProjectLab
 
-Use when working on projects, portfolios, demos, or ability trees.
-
-1. Read `ProjectLab/project_lab.md`.
-2. Record the real problem, user, demo state, AI-assisted parts, and missing abilities.
-3. If foundation-course work is being avoided, say so directly and require a minimal course task first.
-4. Map every project push to a skill or ability debt.
+此模块待 v1.0 实现。当前版本不提供项目工作流支持。
 
 ## Hard Rules
 
