@@ -46,3 +46,6 @@ vault-template/80_Attachments/**
 # Real Daily Notes are personal learning records. The template ships a README
 # and the canonical template; do not commit actual dated daily notes.
 vault-template/50_LifeOps/Logs/Daily/2*.md
+
+# Agent workflow transit folder (inter-agent handoff records, not template content)
+临时中转站/

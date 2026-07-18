@@ -6,7 +6,7 @@
 
 | Skill | 用途 |
 |---|---|
-| selfstudyos-workflow | SelfStudyOS 启动、资料接入、CourseOS/ResearchWiki/ProjectLab 工作流 |
+| selfstudyos-workflow | SelfStudyOS 启动、日常学习调度、ResearchWiki/ProjectLab（v1.0 占位）；资料归档见 agent-material-intake，课程执行见 selfstudyos-course-workflow |
 | pdf | 读取、抽取、检查 PDF；适合教材、论文、课件 |
 | math-reasoning | 推导、证明、公式解释、数学符号整理 |
 | exam-prep | 期末复习计划、复习材料、弱点诊断 |

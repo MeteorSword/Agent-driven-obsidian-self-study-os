@@ -2,10 +2,11 @@
 
 > 记录所有在 v0.3 模板上做的改动，按时间顺序排列。
 > 基线：v0.3 原版模板（kk 的 Agent-driven-obsidian-self-study-os v0.3）
+> 对话时间跨度：2026-07-11 21:47 ~ 2026-07-13 18:31
 
 ---
 
-## 2026-07-11 21:47 — 基线建立
+## 2026-07-11 ~ 07-12 — 基线建立
 
 - 从 SS_OS\SelfStudyOS（实际使用版）中分离出 184 个学习数据文件到 00_DataBackup/
 - 数据分类：daily_notes(29) + sessions(29) + progress(8) + mistakes(8) + revision(3) + external_assets(107)
@@ -13,7 +14,7 @@
 
 ---
 
-## 2026-07-11 22:15 — 新增 agent-memory-write skill
+## 2026-07-12 — 新增 agent-memory-write skill
 
 - 路径：`skills/agent-memory-write/SKILL.md`
 - 定位：写记忆的唯一入口，不是约束别人的旁观者
@@ -24,7 +25,7 @@
 
 ---
 
-## 2026-07-11 22:40 — 10_Courses / Raw / CourseOS 三层分工重构
+## 2026-07-12 — 10_Courses / Raw / CourseOS 三层分工重构
 
 ### 改动原因
 - TEST_ISSUE #13：外层 Raw/ 和 CourseOS 内 raw/ 功能混淆
@@ -68,7 +69,7 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 ---
 
-## 2026-07-11 23:00 — 新增 agent-material-intake skill
+## 2026-07-12 ~ 07-13 — 新增 agent-material-intake skill
 
 - 路径：`skills/agent-material-intake/SKILL.md`
 - 定位：文件归档的唯一入口
@@ -79,7 +80,15 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 ---
 
-## 2026-07-11 23:15 — 新增 selfstudyos-course-workflow skill
+## 2026-07-13 — 06_启动句加 skill 指针
+
+- 在 `01_LearningDesk/06_给Agent的启动句.md` 的硬约束段加了两行指针
+- agent-memory-write：写记忆时先读对应 skill，不使用工具自带 autoMemory
+- agent-material-intake：归档文件时先读对应 skill，课程资料放 10_Courses
+
+---
+
+## 2026-07-13 — 新增 selfstudyos-course-workflow skill
 
 - 路径：`skills/selfstudyos-course-workflow/SKILL.md`
 - 定位：课程执行的入口，覆盖四个子模式
@@ -90,7 +99,7 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 ---
 
-## 2026-07-11 23:30 — 新增 study_plan 模板
+## 2026-07-13 — 新增 study_plan 模板
 
 - 路径：`vault-template/99_Meta/Templates/study_plan_template.md`
 - 原因：用户实际使用中 study_plan 格式不统一（上午下午分不清、状态标记不一致），导致 AI 读取歧义
@@ -110,3 +119,29 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 - [ ] 三处启动入口合并（COLD_START / START_HERE_FOR_AGENT / 06_启动句）
 - [ ] 状态文件重叠清理（02/03/04/05 功能交叉）
 - [ ] operating_rules 精简（只留规则定义，执行步骤移入 skill）
+
+---
+
+## 2026-07-18 — stage0 隐私清理 + workflow 精简
+
+### 改动原因
+- 消除 git 历史/vault 文件里的真实个人信息（邮箱、姓名、学校、科目+考试日期、真实路径）
+- selfstudyos-workflow 与新 skill（agent-material-intake、selfstudyos-course-workflow）职能重叠，精简
+
+### 改动清单
+
+| 对象 | 改动 |
+|------|------|
+| AgentMemory/user_profile.md | 删除（画像职能移到 learner_profile.md；该文件含 USTC + 科目+考试日期 + 真实路径）|
+| AgentMemory 11 个 feedback | 合并为 6 个：learning_method / memory_and_maintenance / paths_and_format / completion_and_exam / circuit_methodology / migration_log（保留）|
+| AgentMemory/MEMORY.md | 重写索引，user_profile 行改为指向 learner_profile.md，反映合并后结构 |
+| feedback 文件内容 | 真实路径 `<YOUR_VAULT_PATH>` → `<YOUR_VAULT_PATH>`；科目名/考试日期/个人成绩 → 泛化表述；方法论语境保留 |
+| feedback_memory_execution | 读取规则改为与 agent-memory-write skill 对齐（冷启动只读索引）|
+| skills/selfstudyos-workflow/SKILL.md | 删 Material Intake 段、CourseOS 段；Daily Learning 中文化为 8 步（step 4 半强制复习提示、step 8 半强制复习触发）；ResearchWiki/ProjectLab 改 v1.0 占位符；description 更新分流说明 |
+| SkillRegistry.md | selfstudyos-workflow 职能描述更新为精简后范围 |
+| selfstudyos-workflow/README.md | 补「职能范围」段说明精简后职责 |
+| 06_启动句 | 经检查不直接描述 selfstudyos-workflow 职能，且受「只追加不删改」规则约束，未改动 |
+
+### 待办（本次未执行，需用户开放权限后继续）
+
+- [ ] **git 历史改写（任务1，阻塞中）**：sandbox 禁止写 .git 目录，git filter-repo/filter-branch 无法执行。需用户在 HanaAgent Settings > Security 开放 .git 写权限后，再执行 author email/name 替换（noreply@example.com → noreply@example.com，Meteor_Sword → SelfStudyOS Contributor）与历史路径内容替换（<YOUR_VAULT_PATH> → <YOUR_VAULT_PATH>）。备份已在 D:\SelfStudy\v0.3-backup-20260718。
