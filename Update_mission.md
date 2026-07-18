@@ -132,7 +132,7 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 | 对象 | 改动 |
 |------|------|
-| AgentMemory/user_profile.md | 删除（画像职能移到 learner_profile.md；该文件含 USTC + 科目+考试日期 + 真实路径）|
+| AgentMemory/user_profile.md | 删除（画像职能移到 learner_profile.md；该文件含某高校名 + 科目+考试日期 + 真实路径）|
 | AgentMemory 11 个 feedback | 合并为 6 个：learning_method / memory_and_maintenance / paths_and_format / completion_and_exam / circuit_methodology / migration_log（保留）|
 | AgentMemory/MEMORY.md | 重写索引，user_profile 行改为指向 learner_profile.md，反映合并后结构 |
 | feedback 文件内容 | 真实路径 `<YOUR_VAULT_PATH>` → `<YOUR_VAULT_PATH>`；科目名/考试日期/个人成绩 → 泛化表述；方法论语境保留 |
@@ -142,6 +142,6 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 | selfstudyos-workflow/README.md | 补「职能范围」段说明精简后职责 |
 | 06_启动句 | 经检查不直接描述 selfstudyos-workflow 职能，且受「只追加不删改」规则约束，未改动 |
 
-### 待办（本次未执行，需用户开放权限后继续）
+### 已完成（用户在本地 PowerShell 终端跑 git filter-repo）
 
-- [ ] **git 历史改写（任务1，阻塞中）**：sandbox 禁止写 .git 目录，git filter-repo/filter-branch 无法执行。需用户在 HanaAgent Settings > Security 开放 .git 写权限后，再执行 author email/name 替换（noreply@example.com → noreply@example.com，Meteor_Sword → SelfStudyOS Contributor）与历史路径内容替换（<YOUR_VAULT_PATH> → <YOUR_VAULT_PATH>）。备份已在 D:\SelfStudy\v0.3-backup-20260718。
+- [x] **git 历史改写（任务1）**：sandbox 禁止写 .git 目录，改为用户在本地终端执行 git filter-repo。两轮重写后：6 个 commit 的 author 全部替换为 SelfStudyOS Contributor <noreply@example.com>，历史文件内容中的真实路径与旧邮箱已清除（git log -p 搜真实路径与旧邮箱关键词均无输出）。备份在 D:\SelfStudy\v0.3-backup-20260718。
