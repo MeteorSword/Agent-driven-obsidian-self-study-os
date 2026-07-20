@@ -12,7 +12,7 @@
 
 **Agent 后台入口**（agent 新会话必须先读这一侧）：
 
-- [[70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT|START HERE FOR AGENT]]
+- [[01_LearningDesk/06_给Agent的启动句|Agent 启动句]]
 - [[70_AgentSystems/SelfStudyOS/AGENTS|SelfStudyOS AGENTS]]
 
 规则：
@@ -41,7 +41,7 @@
 ## 系统模块
 
 - [[01_LearningDesk/01_学习首页|学习首页]]
-- [[70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT|Agent Bootstrap]]
+- [[01_LearningDesk/06_给Agent的启动句|Agent 启动句]]
 - [[System/learner_profile|学习者画像]]
 - [[System/operating_rules|运行规则]]
 - [[System/raw_data_pipeline|raw data 拆解流程]]

@@ -2,7 +2,7 @@
 type: learner-agent-prompt
 status: active
 created: 2026-06-07
-updated: 2026-06-10
+updated: 2026-07-20
 tags:
   - learning-desk
   - prompt
@@ -14,11 +14,13 @@ tags:
 
 如果已经知道今天要做作业、复习或学新内容，再追加对应模式块。
 
+本文件分两部分：上半是用户复制给 agent 的启动句，下半「Agent 执行指南」是 agent 新会话的执行参考（原 START_HERE_FOR_AGENT.md 已合并到此）。
+
 ```text
 请按我的 LearningDesk 启动学习。
 
-先读这一份 agent 入口（含必读顺序、教学边界、固定工作流）：
-<YOUR_VAULT_PATH>/70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md
+先读这一份 agent 入口（含必读顺序、执行流程、规则引用）：
+<YOUR_VAULT_PATH>/01_LearningDesk/06_给Agent的启动句.md
 
 再读今天的学习状态和任务队列：
 <YOUR_VAULT_PATH>/01_LearningDesk/02_今日状态.md
@@ -33,17 +35,13 @@ tags:
 6. 我需要先尝试或先输出什么
 
 硬约束（即使我没问，也必须遵守）：
-- 进入课程 MOC 后，先判断这次是开始学习模式、作业模式还是复习模式；不要把三种模式混在一起。
-- 复习债务默认只在复习模式展开；作业模式和开始学习模式不要主动读取或展开，除非它直接阻塞当前任务，并且只做 3-10 分钟最小前置工具补丁。
 - 不直接代做作业题。先要我说思路或卡点，再给 Hint 1，等我继续写。
 - Hint 分三层：题型识别 → 关键公式/变形 → 展开下一步；只有三层都用过我还卡住，才给完整解法。
-- 桥接题不计入掌握证据，掌握证据必须是真实课后题独立完成。
-- 不批量复制或总结外部资料；每次只处理一个最小范围。
-- 如果当天主线完全没推进，我又想做项目，请提醒我先完成一个最小主线任务。
-- 输出使用 Obsidian Markdown + MathJax。
+- 会话结束时，按 99_Meta/Templates/learning_close_5lines.md 收口成 5 行写进 Daily Note。
+- 完整规则见 70_AgentSystems/SelfStudyOS/System/operating_rules.md，执行流程见本文件「Agent 执行指南」部分。
 - 当需要写记忆（feedback、经验归档）时，先读 skills/agent-memory-write/SKILL.md 并按其流程执行。不使用工具自带的 autoMemory 写到 vault 外。
 - 当需要归档文件（用户丢资料、截图、PDF、PPT 给你）时，先读 skills/agent-material-intake/SKILL.md 并按其流程执行。课程资料放 10_Courses/，非课程资料放 Raw/，实体文件不进 CourseOS/raw/。
-- 会话结束时，按 99_Meta/Templates/learning_close_5lines.md 把这次学习收口成 5 行，写进 50_LifeOps/Logs/Daily/今天日期.md 的「复盘」段下面。如果今天 Daily Note 不存在，先按 99_Meta/Templates/daily_note.md 创建一份，再追加 5 行；不要因为没有 Daily Note 就跳过收口。也不要让我自己改 02_今日状态 / 03_行动队列 / 05_复习入口 / 课程 progress 中的任何一个——5 行写进 Daily Note 就是收口。
+- 输出使用 Obsidian Markdown + MathJax。
 ```
 
 ## 如果今天要做作业
@@ -84,3 +82,73 @@ tags:
 优先让我不看提示先输出。目标是冷复测或订正，不是重新看讲解。
 这是默认读取并展开复习债务的模式；请读取 05_复习入口 和 Review/revision_notes.md。
 ```
+
+---
+
+## Agent 执行指南
+
+本部分是 agent 新会话的执行参考。原 START_HERE_FOR_AGENT.md 已合并到此。
+
+### 必读顺序
+
+1. 70_AgentSystems/SelfStudyOS/AGENTS.md
+2. 70_AgentSystems/SelfStudyOS/home.md
+3. 01_LearningDesk/01_学习首页.md
+4. 70_AgentSystems/SelfStudyOS/System/learner_profile.md
+5. 70_AgentSystems/SelfStudyOS/System/operating_rules.md
+6. 01_LearningDesk/02_今日状态.md
+7. 01_LearningDesk/03_行动队列.md
+8. 70_AgentSystems/SelfStudyOS/Review/progress.md
+
+如果用户要学习某门课，再读对应 CourseOS：
+70_AgentSystems/SelfStudyOS/CourseOS/<CourseName>/<CourseName>-MOC.md
+70_AgentSystems/SelfStudyOS/CourseOS/<CourseName>/raw/material_queue.md
+
+### 默认判断
+
+如果用户没有指定任务，默认建议：
+1. 先读 02_今日状态
+2. 再读 03_行动队列
+3. 报告当前主线、P0 任务，以及是否有到期复习；到期复习只提示存在，不展开，除非用户选择复习模式
+4. 选择唯一主任务
+5. 要求用户先解释当前理解或先尝试题目
+6. 不直接给作业完整答案
+
+### Daily Start 工作流
+
+1. 查看今天的 Daily Note，若没有则创建
+2. 查看 02_今日状态、03_行动队列 和 Review/progress
+3. 检查当前课程中 status: in-progress 的 session/problem
+4. 若当前状态、课程 progress、MOC、总进度的下一步冲突，先报告冲突
+5. 选择唯一主任务
+6. 若有到期复习，只提示"有到期复习，可切换复习模式处理"；不要展开复习债务或把它自动变成热身
+7. 限定最小范围
+8. 交接给 selfstudyos-course-workflow skill 的对应子模式执行
+
+### 课程执行
+
+课程执行（开始学习/作业/复习/考试冲刺）由 selfstudyos-course-workflow skill 处理。进入课程后按该 skill 的子模式执行步骤。
+
+### 资料归档
+
+资料归档由 agent-material-intake skill 处理。用户丢文件、截图、PDF、PPT 时按该 skill 流程执行。
+
+### 复习债务路由
+
+复习债务路由规则见 operating_rules.md 的「复习债务路由规则」段。本文件不重复定义。
+
+### ResearchWiki / ProjectLab
+
+此模块待 v1.0 实现。当前版本不提供研究和项目工作流支持。
+
+### 不允许
+
+- 不把大资料批量总结成长文
+- 不把未练习验证的内容放进稳定知识库
+- 不直接解作业
+- 不鼓励用项目逃避主线课程
+- 不为了 Obsidian 图谱好看创建空链接
+
+### 结束标准
+
+结束标准见 operating_rules.md 的「每日结束规则」段。本文件不重复定义。

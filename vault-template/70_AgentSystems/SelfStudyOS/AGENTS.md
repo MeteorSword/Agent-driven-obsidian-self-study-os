@@ -5,7 +5,7 @@ This folder is a local AI self-study system maintained with an AI agent.
 If starting from a fresh conversation, also read:
 
 ```text
-../AgentBootstrap/START_HERE_FOR_AGENT.md
+../../01_LearningDesk/06_给Agent的启动句.md
 ```
 
 ## Mission

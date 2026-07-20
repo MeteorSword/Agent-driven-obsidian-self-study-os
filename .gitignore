@@ -49,3 +49,6 @@ vault-template/50_LifeOps/Logs/Daily/2*.md
 
 # Agent workflow transit folder (inter-agent handoff records, not template content)
 临时中转站/
+
+# Test issue file kept local, not tracked
+TEST_ISSUE 1.md

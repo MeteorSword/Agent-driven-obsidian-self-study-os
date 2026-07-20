@@ -6,7 +6,7 @@
 
 - 学生每天只打开本目录里的页面，不需要进入 `70_AgentSystems/`。
 - 这里没有任何 agent prompt 工程的细节，全部是「我今天要做什么」级别的语言。
-- `70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md` 是 agent 后台读的另一侧入口，和这里互补。
+- `01_LearningDesk/06_给Agent的启动句.md` 是 agent 新会话的唯一入口，含必读顺序和执行指南。
 
 详见 [`docs/entry-separation.md`](../../docs/entry-separation.md)。
 

@@ -13,7 +13,7 @@
 **Agent 侧新会话先读这里**：
 
 ```text
-70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md
+01_LearningDesk/06_给Agent的启动句.md
 ```
 
 两侧入口的设计动机见 [`../docs/entry-separation.md`](../docs/entry-separation.md)。

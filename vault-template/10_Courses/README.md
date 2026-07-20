@@ -16,15 +16,15 @@
 
 ```text
 10_Courses/
-  <COURSE_A>/
+  ExampleCourse/
     真题/
     PPT/
     教材/
     作业/
-  <COURSE_E>/
+  AnotherCourse/
     真题/
     PPT/
-  热学/
+  YetAnotherCourse/
     真题/
     PPT/
     教材/

@@ -6,7 +6,7 @@
 
 Agent 应该：
 
-- 新会话先读 [`vault-template/70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md`](../vault-template/70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md)，再读 `01_LearningDesk/`。
+- 新会话先读 [`vault-template/01_LearningDesk/06_给Agent的启动句.md`](../vault-template/01_LearningDesk/06_给Agent的启动句.md)。
 - 每次只推进一个最小范围（一次作业 / 一节课 / 一个概念 / 一个 Reading Mission / 一个项目任务）。
 - 先问学习者的理解、尝试或卡点。
 - 用分层提示帮助学习者继续做。

@@ -78,4 +78,4 @@
 
 ## 冷启动
 
-新对话读 `START_HERE_FOR_AGENT.md` + `AgentMemory/MEMORY.md` + 本文件 `Review/study_plan.md`。
+新对话读 `01_LearningDesk/06_给Agent的启动句.md` + `AgentMemory/MEMORY.md` + 本文件 `Review/study_plan.md`。

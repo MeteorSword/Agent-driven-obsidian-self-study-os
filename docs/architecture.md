@@ -35,7 +35,7 @@ SelfStudyOS 是一个 agent-first 的 Obsidian 学习系统，但它不要求复
   06_给Agent的启动句.md               # 复制粘贴启动 prompt
 
 70_AgentSystems/                     # Agent 侧
-  AgentBootstrap/START_HERE_FOR_AGENT.md
+  AgentBootstrap/SkillRegistry.md
   SelfStudyOS/
     AGENTS.md / home.md
     System/operating_rules.md        # Hint 分层 / 三模式 / 复习债务路由 / stale / 每日结束
