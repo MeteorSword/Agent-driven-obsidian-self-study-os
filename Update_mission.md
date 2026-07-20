@@ -177,3 +177,69 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 - 删除 START_HERE_FOR_AGENT.md
 - git rm --cached "TEST_ISSUE 1.md"
 - git add -A + git commit
+
+---
+
+## 2026-07-20 — skill 缺口修补 + 真题映射
+
+### 改动原因
+- operating_rules 精简后，course-workflow skill 缺 2 个步骤：作业模式缺“先问前置概念”，开始学习模式缺“先扫描课后习题”
+- 新建 agent-exam-mapping skill 实现真题按知识点索引，新建 exam_topic_index 模板
+- agent-material-intake 补真题归档后建立索引的提示
+
+### 改动清单
+
+| 文件 | 改动 |
+|------|------|
+| skills/selfstudyos-course-workflow/SKILL.md | 作业模式 step3 后插入“先问前置概念”新 step（原 step4-11 顺延为 5-12）；开始学习模式 step1 后插入“先扫描课后习题”新 step（原 step2-7 顺延为 3-8） |
+| skills/agent-exam-mapping/SKILL.md | 新建：真题按知识点索引唯一入口，5 步流程 + 硬约束 + 边界 + 协作 |
+| CourseOS/ExampleCourse/problems/exam_topic_index.md | 新建：真题→知识点映射模板，字段与 agent-exam-mapping 标注一致 |
+| skills/agent-material-intake/SKILL.md | 归档流程 step4 后补真题归档特殊提示（追加一行 + 不自动串联说明） |
+
+---
+
+## 2026-07-20 — SkillRegistry 同步 + 周复盘收敛
+
+### 改动原因
+- SkillRegistry 缺 4 个本地 skill 注册（course-workflow / material-intake / memory-write / exam-mapping）
+- agent-material-intake 边界段过时引用（selfstudyos-workflow → selfstudyos-course-workflow）
+- 周复盘三处冗余（System/weekly_review.md / prompts/07 / study_plan_template.md）收敛到 System/weekly_review.md 唯一定义
+
+### 改动清单
+
+| 文件 | 改动 |
+|------|------|
+| SkillRegistry.md | 补注册 4 个本地 skill（course-workflow / material-intake / memory-write / exam-mapping），插在 workflow 行后 pdf 行前 |
+| skills/agent-material-intake/SKILL.md | 边界段 selfstudyos-workflow → selfstudyos-course-workflow |
+| System/weekly_review.md | 重写为唯一定义：6 个合并后问题 + 输出格式 + 声明其他文件引用本文件 |
+| prompts/07_weekly_review.md | 问题段和输出段改为引用 System/weekly_review.md |
+| study_plan_template.md | 周复盘段改为引用 System/weekly_review.md |
+
+---
+
+## 2026-07-20 — 周复盘 skill + 题号格式
+
+### 改动原因
+- 新建 agent-weekly-review skill 将周复盘固化为完整流程（读 Daily Note + progress → 对照 6 问题 → 输出报告 → 记录 → 连续虚假进展预警）
+- 删除 prompts/07_weekly_review.md，周复盘触发改为对 AI 说“周复盘”触发 skill
+- study_plan 周复盘段从引用 System/weekly_review.md 改为引用 agent-weekly-review skill
+- operating_rules 新增题号格式规则（会话内 Q 编号 + 持久化来源格式 + 转换规则）
+- course-workflow 作业模式补题号规则一句，exam_topic_index 示例行更新为 Exam-2024-Q1
+
+### 改动清单
+
+| 文件 | 改动 |
+|------|------|
+| skills/agent-weekly-review/SKILL.md | 新建：周复盘唯一入口，5 步流程 + 硬约束 + 边界，引用 System/weekly_review.md 问题定义 |
+| SkillRegistry.md | 补注册 agent-weekly-review（插在 agent-exam-mapping 之后） |
+| prompts/00_prompt_index.md | 改写：移除 07 周复盘条目，只保留 06 入口 + 周复盘触发说明 + 收口 |
+| prompts/07_weekly_review.md | 删除（转用户终端执行） |
+| study_plan_template.md | 周复盘段改为引用 agent-weekly-review skill |
+| operating_rules.md | 末尾新增“题号格式”段（会话内编号 + 持久化格式表 + 转换规则） |
+| skills/selfstudyos-course-workflow/SKILL.md | 作业模式补题号规则一句（会话内 Q 编号，收口转来源格式） |
+| exam_topic_index.md | 示例行 2024-Q1 → Exam-2024-Q1 |
+
+### 待用户终端执行（sandbox 限制）
+
+- 删除 prompts/07_weekly_review.md
+- git add -A + git commit
