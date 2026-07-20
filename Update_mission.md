@@ -115,10 +115,10 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 - [x] agent-material-intake skill
 - [x] selfstudyos-course-workflow skill
 - [x] study_plan 模板（不是 skill，是模板）
-- [ ] prompts/ 目录清理（01/06 已被覆盖，其余被 skill 覆盖）
-- [ ] 三处启动入口合并（COLD_START / START_HERE_FOR_AGENT / 06_启动句）
-- [ ] 状态文件重叠清理（02/03/04/05 功能交叉）
-- [ ] operating_rules 精简（只留规则定义，执行步骤移入 skill）
+- [x] prompts/ 目录清理（删 01-06/08-09 共 8 个，保留 07 周复盘，00 改写为简洁索引）
+- [x] 三处启动入口合并（START_HERE_FOR_AGENT 已并入 06_给Agent的启动句.md，START_HERE 已删除）
+- [x] 状态文件重叠清理（经验证 02/03/04/05 功能不重叠，无需改动）
+- [x] operating_rules 精简（课程三模式/作业边界执行步骤移入 course-workflow skill，只留规则定义）
 
 ---
 
@@ -145,3 +145,35 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 ### 已完成（用户在本地 PowerShell 终端跑 git filter-repo）
 
 - [x] **git 历史改写（任务1）**：sandbox 禁止写 .git 目录，改为用户在本地终端执行 git filter-repo。两轮重写后：6 个 commit 的 author 全部替换为 SelfStudyOS Contributor <noreply@example.com>，历史文件内容中的真实路径与旧邮箱已清除（git log -p 搜真实路径与旧邮箱关键词均无输出）。备份在 D:\SelfStudy\v0.3-backup-20260718。
+
+---
+
+## 2026-07-20 — stage1 结构清理
+
+### 改动原因
+- 三处启动入口（START_HERE_FOR_AGENT / 06_启动句）合并为单一入口 06
+- operating_rules 精简为规则定义唯一 source of truth，执行步骤移入 skill
+- prompts 目录清理冗余文件
+- 遗留脱敏和 gitignore 补全
+
+### 改动清单
+
+| 文件 | 改动 |
+|------|------|
+| prompts/00_prompt_index.md | 改写为简洁索引，指向 06（日常学习）和 07（周复盘） |
+| prompts/07_weekly_review.md | START_HERE 引用改为 06 |
+| prompts/01-06,08-09 | 删除（已被 skill 覆盖），待用户终端执行 Remove-Item |
+| 01_LearningDesk/06_给Agent的启动句.md | 合并 START_HERE 内容：Part1 启动句（硬约束精简为 3 条底线 + 规则引用）+ Part2 Agent 执行指南（必读顺序/默认判断/Daily Start/课程执行/资料归档/复习路由/Wiki-Lab占位/不允许/结束标准） |
+| 70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md | 内容已并入 06，文件待用户终端删除 |
+| operating_rules.md | 课程三模式改为引用 skill（保留掌握等级+桥接题/补丁标记）；作业边界改为引用 skill（保留归因区分）；项目许可规则改占位 |
+| 10_Courses/README.md | 建议结构真实课程名替换为 ExampleCourse/AnotherCourse/YetAnotherCourse |
+| .gitignore | 新增 TEST_ISSUE 1.md 条目 |
+| README / vault-template/README / 01_LearningDesk/README / study_plan_template / AGENTS / home / SKILL / architecture / agent-rules / entry-separation / getting-started / windows-setup | 所有 START_HERE_FOR_AGENT 引用改为指向 01_LearningDesk/06_给Agent的启动句.md |
+| docs/entry-separation.md | 重写入口分离描述（原说两入口分离，现合并为单一入口 06） |
+
+### 待用户终端执行（sandbox 限制）
+
+- 删除 prompts/01-06、08-09 共 8 个文件
+- 删除 START_HERE_FOR_AGENT.md
+- git rm --cached "TEST_ISSUE 1.md"
+- git add -A + git commit

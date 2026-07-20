@@ -1,6 +1,6 @@
 # 入口分离（Entry Separation）
 
-SelfStudyOS 的一个核心设计是把**用户每日学习入口**和 **AI agent 后台启动入口**严格分开。
+SelfStudyOS 的一个核心设计是把**用户每日学习入口**和 **AI agent 后台系统**分开。用户每天只看 `01_LearningDesk/01-05`，agent 新会话从 `01_LearningDesk/06_给Agent的启动句.md` 开始（它含 agent 执行指南），日常不需要进 `70_AgentSystems/`。
 
 ## 为什么
 
@@ -22,11 +22,11 @@ SelfStudyOS 的一个核心设计是把**用户每日学习入口**和 **AI agen
   03_行动队列.md                         # 真正要做的任务 + stale 规则
   04_课程入口.md                         # 进入哪门课
   05_复习入口.md                         # 复习 / 冷复测 / 错题
-  06_给Agent的启动句.md                  # 新开 agent 对话时复制粘贴
+  06_给Agent的启动句.md                  # 用户复制粘贴启动句 + agent 执行指南（合并入口）
 
 70_AgentSystems/                        # Agent 侧（agent 后台读，用户不日常打开）
   AgentBootstrap/
-    START_HERE_FOR_AGENT.md             # agent 新会话第一份必读
+    SkillRegistry.md                    # agent 技能注册表
   SelfStudyOS/
     AGENTS.md
     home.md
@@ -38,8 +38,8 @@ SelfStudyOS 的一个核心设计是把**用户每日学习入口**和 **AI agen
 
 ## 规则
 
-- 用户**不要**把 `START_HERE_FOR_AGENT.md` 当作每日学习入口。
-- Agent **必须**先读 `START_HERE_FOR_AGENT.md`，再读 `01_LearningDesk/`。
+- 用户每天只打开 `01_LearningDesk/01-05`，不需要进 `70_AgentSystems/`。
+- Agent 新会话从 `01_LearningDesk/06_给Agent的启动句.md` 开始，它含必读顺序和执行指南。
 - 日常学习从 `01_LearningDesk/01_学习首页 → 02_今日状态 → 03_行动队列` 开始。
 - 当用户对 agent 教学方式有反馈，改 `operating_rules.md`，不改 `01_LearningDesk/`。
 - 当用户调整每日学习状态，改 `01_LearningDesk/02_今日状态.md` 或 `03_行动队列.md`，不改 `70_AgentSystems/`。

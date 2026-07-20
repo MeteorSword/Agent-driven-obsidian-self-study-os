@@ -16,15 +16,15 @@
 
 ```text
 10_Courses/
-  数学分析B2/
+  ExampleCourse/
     真题/
     PPT/
     教材/
     作业/
-  电路基本理论/
+  AnotherCourse/
     真题/
     PPT/
-  热学/
+  YetAnotherCourse/
     真题/
     PPT/
     教材/

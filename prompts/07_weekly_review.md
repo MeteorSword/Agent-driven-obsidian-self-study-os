@@ -8,7 +8,7 @@
 你现在进入 SelfStudyOS 的周复盘模式。
 
 请先阅读：
-<YOUR_VAULT_PATH>/70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md
+<YOUR_VAULT_PATH>/01_LearningDesk/06_给Agent的启动句.md
 <YOUR_VAULT_PATH>/70_AgentSystems/SelfStudyOS/Review/progress.md
 <YOUR_VAULT_PATH>/70_AgentSystems/SelfStudyOS/System/weekly_review.md
 

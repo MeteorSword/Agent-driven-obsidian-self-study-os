@@ -13,7 +13,7 @@ The user should provide the Vault path. If they do not, ask for it once or infer
 
 Before making recommendations or editing notes, read:
 
-1. `70_AgentSystems/AgentBootstrap/START_HERE_FOR_AGENT.md`
+1. `01_LearningDesk/06_给Agent的启动句.md`
 2. `70_AgentSystems/SelfStudyOS/AGENTS.md`
 3. `70_AgentSystems/SelfStudyOS/home.md`
 4. `70_AgentSystems/SelfStudyOS/System/learner_profile.md`

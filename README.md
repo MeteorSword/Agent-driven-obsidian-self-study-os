@@ -40,7 +40,7 @@ vault-template/
   50_LifeOps/Logs/Daily/           # 每天一份 Daily Note，5 行收口落盘处
   70_AgentSystems/
     AgentBootstrap/
-      START_HERE_FOR_AGENT.md      # agent 新会话必读
+      SkillRegistry.md             # agent 技能注册表（agent 入口见 01_LearningDesk/06_给Agent的启动句.md）
     SelfStudyOS/
       AGENTS.md
       home.md

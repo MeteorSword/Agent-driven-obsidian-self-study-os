@@ -211,7 +211,7 @@ Node.js 官方下载页：
 打开：
 
 ```text
-70_AgentSystems\AgentBootstrap\START_HERE_FOR_AGENT.md
+01_LearningDesk\06_给Agent的启动句.md
 ```
 
 然后打开：
@@ -230,7 +230,7 @@ prompts\01_general_start.md
 
 ```text
 我的 Vault 路径是 C:\Users\<YourName>\Documents\Obsidian\SelfStudyOS。
-请阅读 START_HERE_FOR_AGENT.md，并帮我启动今天唯一的学习任务。
+请阅读 01_LearningDesk\06_给Agent的启动句.md，并帮我启动今天唯一的学习任务。
 先不要整理所有资料，先问我当前理解和卡点。
 ```
 
@@ -290,7 +290,7 @@ git config --global core.quotepath false
 
 第一次试用只验证一件事：
 
-1. Agent 能读到 `START_HERE_FOR_AGENT.md`。
+1. Agent 能读到 `01_LearningDesk\06_给Agent的启动句.md`。
 2. Agent 能打开 `Review/progress.md`。
 3. Agent 能进入 `CourseOS/ExampleCourse/ExampleCourse-MOC.md`。
 4. Agent 会先问你当前理解，而不是直接总结所有资料。
