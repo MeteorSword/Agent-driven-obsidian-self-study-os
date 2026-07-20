@@ -78,6 +78,16 @@ description: 当用户丢文件、截图、PDF、PPT、真题、教材给 AI 时
 - 下次学习时可从工单取用
 ```
 
+### 真题归档的特殊提示
+
+如果归档的是真题文件（位于 `10_Courses/<课程名>/真题/` 下），报告时追加一行：
+
+```
+- 已归档真题，是否要建立知识点索引？如需要，将调用 agent-exam-mapping skill。
+```
+
+用户同意后调用 agent-exam-mapping skill。不自动串联。
+
 ### 5. 记录到 Daily Note
 
 在当天 Daily Note 里加一行：
@@ -98,7 +108,7 @@ description: 当用户丢文件、截图、PDF、PPT、真题、教材给 AI 时
 ## 边界
 
 这个 skill 只管归档。不管：
-- 学习处理（那是 selfstudyos-workflow 的事）
+- 学习处理（那是 selfstudyos-course-workflow 的事）
 - 写记忆（那是 agent-memory-write 的事）
 - 出题（以后单独的 skill）
 - 文件的"学习处理"（extract / interrogate / practice / distill 是 raw_data_pipeline 的事）
