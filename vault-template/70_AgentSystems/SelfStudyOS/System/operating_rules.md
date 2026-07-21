@@ -166,4 +166,38 @@ agent 不要让用户本人去改下列任何一个文件来完成日常收口�
 
 ### 转换规则
 
-用户用自然语言说题号（如“2024 期末第三题”），AI 在收口和索引更新时转换为来源格式（Exam-2024-Q3）。用户说“Q2”时，AI 根据会话内编号对应到具体题，收口时转换为来源格式。
+用户用自然语言说题号(如"2024 期末第三题"),AI 在收口和索引更新时转换为来源格式(Exam-2024-Q3)。用户说"Q2"时，AI 根据会话内编号对应到具体题，收口时转换为来源格式。
+
+## 路径变量表
+
+skill 和文档中引用 vault 内文件时，使用路径变量而非裸路径。路径变量在此定义一次，所有 skill 和文档引用变量名。改路径只需改本表。
+
+| 变量 | 路径 |
+|------|------|
+| ${YOUR_VAULT_PATH} | vault 根路径（用户首次使用时填入） |
+| ${TODAY_STATUS} | 01_LearningDesk/02_今日状态.md |
+| ${ACTION_QUEUE} | 01_LearningDesk/03_行动队列.md |
+| ${COURSE_ENTRY} | 01_LearningDesk/04_课程入口.md |
+| ${REVIEW_ENTRY} | 01_LearningDesk/05_复习入口.md |
+| ${STARTUP_PROMPT} | 01_LearningDesk/06_给Agent的启动句.md |
+| ${AGENTS} | 70_AgentSystems/SelfStudyOS/AGENTS.md |
+| ${HOME} | 70_AgentSystems/SelfStudyOS/home.md |
+| ${OPERATING_RULES} | 70_AgentSystems/SelfStudyOS/System/operating_rules.md |
+| ${LEARNER_PROFILE} | 70_AgentSystems/SelfStudyOS/System/learner_profile.md |
+| ${WEEKLY_REVIEW} | 70_AgentSystems/SelfStudyOS/System/weekly_review.md |
+| ${REVIEW_PROGRESS} | 70_AgentSystems/SelfStudyOS/Review/progress.md |
+| ${REVISION_NOTES} | 70_AgentSystems/SelfStudyOS/Review/revision_notes.md |
+| ${MISTAKE_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/mistakes/mistake_index.md |
+| ${DAILY_NOTE_DIR} | 50_LifeOps/Logs/Daily/ |
+| ${AGENT_MEMORY_DIR} | 70_AgentSystems/AgentMemory/ |
+| ${MEMORY_INDEX} | 70_AgentSystems/AgentMemory/MEMORY.md |
+| ${LEARNING_CLOSE_5LINES} | 99_Meta/Templates/learning_close_5lines.md |
+| ${STUDY_PLAN} | Review/study_plan.md |
+| ${COURSE_MOC} | CourseOS/<课程名>/<课程名>-MOC.md |
+| ${MATERIAL_QUEUE} | CourseOS/<课程名>/raw/material_queue.md |
+| ${EXAM_TOPIC_INDEX} | CourseOS/<课程名>/problems/exam_topic_index.md |
+| ${PROBLEM_INDEX} | CourseOS/<课程名>/problems/problem_index.md |
+| ${CONCEPT_INDEX} | CourseOS/<课程名>/concepts/concept_index.md |
+| ${EXTERNAL_MATERIAL_INDEX} | 60_Resources/ExternalIndexes/external_material_index.md |
+
+注意：含 `<课程名>` 的变量是模板路径，使用时替换为实际课程名。

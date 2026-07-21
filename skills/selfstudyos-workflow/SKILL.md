@@ -1,6 +1,6 @@
 ---
 name: selfstudyos-workflow
-description: Use this skill when working in an Obsidian SelfStudyOS vault, starting a self-study session, running daily learning scheduling, or checking what to do next. Covers Daily Learning scheduling; ResearchWiki and ProjectLab are v1.0 placeholders. Material intake is handled by the agent-material-intake skill; course execution (learning/homework/review/exam-sprint) is handled by the selfstudyos-course-workflow skill.
+description: 当用户开始新的一天、查看进度、问"今天干什么"、需要学习调度时使用。负责选任务、确认状态、半强制复习触发。资料归档由 agent-material-intake 处理，课程执行（做题/学新内容/复习/考试冲刺）由 selfstudyos-course-workflow 处理，ResearchWiki 和 ProjectLab 待 v1.0。
 ---
 
 # SelfStudyOS Workflow
@@ -13,11 +13,11 @@ The user should provide the Vault path. If they do not, ask for it once or infer
 
 Before making recommendations or editing notes, read:
 
-1. `01_LearningDesk/06_给Agent的启动句.md`
-2. `70_AgentSystems/SelfStudyOS/AGENTS.md`
-3. `70_AgentSystems/SelfStudyOS/home.md`
-4. `70_AgentSystems/SelfStudyOS/System/learner_profile.md`
-5. `70_AgentSystems/SelfStudyOS/Review/progress.md`
+1. `${STARTUP_PROMPT}`
+2. `${AGENTS}`
+3. `${HOME}`
+4. `${LEARNER_PROFILE}`
+5. `${REVIEW_PROGRESS}`
 
 Then choose the smallest relevant workflow.
 
@@ -27,14 +27,14 @@ Then choose the smallest relevant workflow.
 
 用户想学习、开始新的一天、查看进度，或问"今天干什么"时使用。
 
-1. 读 `Review/progress.md`。
-2. 读 `01_LearningDesk/02_今日状态.md` 和 `01_LearningDesk/03_行动队列.md`。
+1. 读 `${REVIEW_PROGRESS}`。
+2. 读 `${TODAY_STATUS}` 和 `${ACTION_QUEUE}`。
 3. 选一个主任务。
-4. 检查 `03_行动队列` 的 review 类任务，如有到期的，提示"有到期复习，可在今天结束时处理"，不立即展开，不打断当前模式。
+4. 检查 `${ACTION_QUEUE}` 的 review 类任务，如有到期的，提示"有到期复习，可在今天结束时处理"，不立即展开，不打断当前模式。
 5. 默认当前主线课程，除非用户指定别的课程。
-6. 打开对应 CourseOS MOC 和 `material_queue.md`。
+6. 打开对应 CourseOS MOC 和 `${MATERIAL_QUEUE}`。
 7. 问用户当前理解、第一次尝试或冷复测输出，然后交接给 selfstudyos-course-workflow skill 的"开始学习模式"执行。
-8. 结束时半强制复习触发：检查 `03_行动队列` review 类任务，有到期的提出"现在做复习还是明天"。用户选"明天"才能跳过，在 `Review/revision_notes.md` 对应条目标记延期和下次提醒日期（仅标记延期，不触发 archive；archive 规则以 `System/operating_rules.md` 的 stale 规则为准）。用户选"现在"则交接给 selfstudyos-course-workflow skill 的复习模式。
+8. 结束时半强制复习触发：检查 `${ACTION_QUEUE}` review 类任务，有到期的提出"现在做复习还是明天"。用户选"明天"才能跳过，在 `${REVISION_NOTES}` 对应条目标记延期和下次提醒日期（仅标记延期，不触发 archive；archive 规则以 `${OPERATING_RULES}` 的 stale 规则为准）。用户选"现在"则交接给 selfstudyos-course-workflow skill 的复习模式。
 
 > 资料归档（用户丢文件、截图、PDF、PPT 等）由 agent-material-intake skill 处理，不在本工作流展开。
 > 课程执行（开始学习/作业/复习/考试冲刺）由 selfstudyos-course-workflow skill 处理，本工作流只负责调度与交接。
@@ -68,4 +68,4 @@ At the end of every session, report:
 - Next smallest action
 - Files updated
 
-Update the relevant `progress.md`, queue, concept index, problem index, mistake index, or review note when meaningful.
+Update the relevant `${REVIEW_PROGRESS}`, queue, concept index, problem index, mistake index, or review note when meaningful.
