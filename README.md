@@ -4,7 +4,7 @@ An AI-agent-driven Obsidian self-study system for university learning, research 
 
 这是一个面向大学生的 Obsidian 自学系统模板。它把课程学习、论文阅读、项目能力建设放进同一个可维护的 Vault 结构里，并让 AI agent 按固定规则协助你学习，而不是替你学习。
 
-> **v0.3 Gamma 分支定位**：本仓库是项目基座，提供开发标准和封装好的模块。skill 和 prompt 是 AI 可读的原型规格，供生态开发者基于此搭建。详见 [`docs/interfaces-gamma.md`](docs/interfaces-gamma.md)。
+> **v0.95 Gamma 分支定位**：本仓库是项目基座，提供开发标准和封装好的模块。同时（by Meteor_Sword），经过我约一个月的使用及测试，重构了 skill 体系和入口结构以解决使用中遇到的问题。skill 和 prompt 是 AI 可读的原型规格，供生态开发者基于此搭建。详见 [`docs/interfaces-gamma.md`](docs/interfaces-gamma.md)。
 
 ## 这个项目解决什么问题
 
