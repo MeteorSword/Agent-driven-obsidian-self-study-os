@@ -267,3 +267,16 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 | agent-weekly-review/SKILL.md | description 去标签 + 路径引用改变量 |
 | 06_给Agent的启动句.md | <YOUR_VAULT_PATH> → ${YOUR_VAULT_PATH} + Agent 执行指南路径引用改变量 + 补路径变量表引用说明 |
 | docs/skill-reference-inventory.md | 新建：6 个 skill 外部引用清单 |
+
+---
+
+## 2026-07-21 — README 改写
+
+### 改动原因
+- README 反映 v0.3 Gamma 分支六轮迭代后的实际状态
+
+### 改动清单
+
+| 文件 | 改动 |
+|------|------|
+| README.md | 项目定位末尾加 Gamma 分支定位段；核心设计第 1 点入口分离改为单一入口；核心结构 AgentBootstrap/operating_rules 注释更新；快速开始第 5 步 <YOUR_VAULT_PATH> → ${YOUR_VAULT_PATH}；三条主线 ResearchWiki/ProjectLab 改 v1.0 占位、CourseOS 加真题索引一句；新增 Skill 体系段（6 skill 表）；仓库内容 prompts/skills/docs 描述更新；新增改动记录与接口段（changelog-gamma/interfaces-gamma/skill-reference-inventory 引用） |
