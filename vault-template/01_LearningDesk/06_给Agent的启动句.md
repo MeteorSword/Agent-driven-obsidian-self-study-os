@@ -2,7 +2,7 @@
 type: learner-agent-prompt
 status: active
 created: 2026-06-07
-updated: 2026-07-20
+updated: 2026-07-21
 tags:
   - learning-desk
   - prompt
@@ -10,7 +10,7 @@ tags:
 
 # 给 Agent 的启动句
 
-新开对话时，复制下面这一段。把 `<YOUR_VAULT_PATH>` 替换成你的 Obsidian Vault 绝对路径。
+新开对话时，复制下面这一段。把 `${YOUR_VAULT_PATH}` 替换成你的 Obsidian Vault 绝对路径。
 
 如果已经知道今天要做作业、复习或学新内容，再追加对应模式块。
 
@@ -20,11 +20,11 @@ tags:
 请按我的 LearningDesk 启动学习。
 
 先读这一份 agent 入口（含必读顺序、执行流程、规则引用）：
-<YOUR_VAULT_PATH>/01_LearningDesk/06_给Agent的启动句.md
+${YOUR_VAULT_PATH}/01_LearningDesk/06_给Agent的启动句.md
 
 再读今天的学习状态和任务队列：
-<YOUR_VAULT_PATH>/01_LearningDesk/02_今日状态.md
-<YOUR_VAULT_PATH>/01_LearningDesk/03_行动队列.md
+${YOUR_VAULT_PATH}/01_LearningDesk/02_今日状态.md
+${YOUR_VAULT_PATH}/01_LearningDesk/03_行动队列.md
 
 然后告诉我：
 1. 当前主线是什么
@@ -89,26 +89,28 @@ tags:
 
 本部分是 agent 新会话的执行参考。原 START_HERE_FOR_AGENT.md 已合并到此。
 
+路径变量定义见 `${OPERATING_RULES}` 的路径变量表段。
+
 ### 必读顺序
 
-1. 70_AgentSystems/SelfStudyOS/AGENTS.md
-2. 70_AgentSystems/SelfStudyOS/home.md
+1. ${AGENTS}
+2. ${HOME}
 3. 01_LearningDesk/01_学习首页.md
-4. 70_AgentSystems/SelfStudyOS/System/learner_profile.md
-5. 70_AgentSystems/SelfStudyOS/System/operating_rules.md
-6. 01_LearningDesk/02_今日状态.md
-7. 01_LearningDesk/03_行动队列.md
-8. 70_AgentSystems/SelfStudyOS/Review/progress.md
+4. ${LEARNER_PROFILE}
+5. ${OPERATING_RULES}
+6. ${TODAY_STATUS}
+7. ${ACTION_QUEUE}
+8. ${REVIEW_PROGRESS}
 
 如果用户要学习某门课，再读对应 CourseOS：
-70_AgentSystems/SelfStudyOS/CourseOS/<CourseName>/<CourseName>-MOC.md
-70_AgentSystems/SelfStudyOS/CourseOS/<CourseName>/raw/material_queue.md
+${COURSE_MOC}
+${MATERIAL_QUEUE}
 
 ### 默认判断
 
 如果用户没有指定任务，默认建议：
-1. 先读 02_今日状态
-2. 再读 03_行动队列
+1. 先读 ${TODAY_STATUS}
+2. 再读 ${ACTION_QUEUE}
 3. 报告当前主线、P0 任务，以及是否有到期复习；到期复习只提示存在，不展开，除非用户选择复习模式
 4. 选择唯一主任务
 5. 要求用户先解释当前理解或先尝试题目
@@ -117,7 +119,7 @@ tags:
 ### Daily Start 工作流
 
 1. 查看今天的 Daily Note，若没有则创建
-2. 查看 02_今日状态、03_行动队列 和 Review/progress
+2. 查看 ${TODAY_STATUS}、${ACTION_QUEUE} 和 ${REVIEW_PROGRESS}
 3. 检查当前课程中 status: in-progress 的 session/problem
 4. 若当前状态、课程 progress、MOC、总进度的下一步冲突，先报告冲突
 5. 选择唯一主任务
@@ -135,7 +137,7 @@ tags:
 
 ### 复习债务路由
 
-复习债务路由规则见 operating_rules.md 的「复习债务路由规则」段。本文件不重复定义。
+复习债务路由规则见 ${OPERATING_RULES} 的「复习债务路由规则」段。本文件不重复定义。
 
 ### ResearchWiki / ProjectLab
 
@@ -151,4 +153,4 @@ tags:
 
 ### 结束标准
 
-结束标准见 operating_rules.md 的「每日结束规则」段。本文件不重复定义。
+结束标准见 ${OPERATING_RULES} 的「每日结束规则」段。本文件不重复定义。

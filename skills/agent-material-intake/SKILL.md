@@ -1,6 +1,6 @@
 ---
 name: agent-material-intake
-description: 当用户丢文件、截图、PDF、PPT、真题、教材给 AI 时激活。这是文件归档的唯一入口。触发词：归档这个文件、把这个资料放进去、新增资料、材料入库、归档、放进 vault。
+description: 当用户说归档、把这个资料放进去、新增资料、材料入库、放进 vault，或丢文件、截图、PDF、PPT、真题、教材给 AI 时激活。这是文件归档的唯一入口。
 ---
 
 # 文件归档
@@ -43,7 +43,7 @@ description: 当用户丢文件、截图、PDF、PPT、真题、教材给 AI 时
 
 #### 课程资料
 
-在 `CourseOS/<课程名>/raw/material_queue.md` 的工单表里加一行：
+在 `${MATERIAL_QUEUE}` 的工单表里加一行：
 
 | ID | Source | Path | Scope | Why now | Target output | Status |
 |---|---|---|---|---|---|---|
@@ -60,7 +60,7 @@ description: 当用户丢文件、截图、PDF、PPT、真题、教材给 AI 时
 
 #### 非课程资料
 
-在 `60_Resources/ExternalIndexes/external_material_index.md` 的资料表里加一行：
+在 `${EXTERNAL_MATERIAL_INDEX}` 的资料表里加一行：
 
 | Source | Type | Linked module | Scope | Copy mode | Status |
 |---|---|---|---|---|---|
@@ -74,7 +74,7 @@ description: 当用户丢文件、截图、PDF、PPT、真题、教材给 AI 时
 ✅ 已归档
 - 文件：<文件名>
 - 位置：<完整路径>
-- 工单：<工单位置，如 CourseOS/数学分析B2/raw/material_queue.md>
+- 工单：<工单位置>
 - 下次学习时可从工单取用
 ```
 

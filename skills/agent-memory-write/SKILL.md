@@ -1,6 +1,6 @@
 ---
 name: agent-memory-write
-description: 当要记录经验、写 feedback、更新 MEMORY 索引时使用。这是写记忆的唯一入口。触发词：写记忆、记下来、记住这个、新增 feedback、更新 memory、经验归档。
+description: 当用户说写记忆、记下来、记住这个、新增 feedback、更新 memory、经验归档，或要记录经验、写 feedback、更新 MEMORY 索引时使用。这是写记忆的唯一入口。
 ---
 
 # 写记忆
@@ -24,10 +24,10 @@ AgentMemory 存的是"被真实使用中的问题打疼了之后提炼出来的�
 
 ### 2. 查重
 
-读 `AgentMemory/MEMORY.md` 索引，检查是否已有相似 feedback。
+读 `${MEMORY_INDEX}` 索引，检查是否已有相似 feedback。
 
 - 有相似的：追加到已有文件，不新建。在原有文件末尾加一个 `### 附加规则` 段落。
-- 没有相似的：新建 `AgentMemory/feedback_<主题>.md`。
+- 没有相似的：新建 `${AGENT_MEMORY_DIR}feedback_<主题>.md`。
 
 ### 3. 写 feedback 文件
 
@@ -59,7 +59,7 @@ AgentMemory 存的是"被真实使用中的问题打疼了之后提炼出来的�
 
 ### 4. 更新索引
 
-在 `AgentMemory/MEMORY.md` 里加一行：
+在 `${MEMORY_INDEX}` 里加一行：
 
 ```markdown
 - [feedback_<主题>](feedback_<主题>.md) — <一句话描述>
@@ -83,15 +83,15 @@ AgentMemory 存的是"被真实使用中的问题打疼了之后提炼出来的�
 
 ## 硬约束
 
-- **只写在 vault 内的 AgentMemory 文件夹。** 不使用工具自带的 autoMemory 写到 vault 外。
+- **只写在 `${AGENT_MEMORY_DIR}` 内。** 不使用工具自带的 autoMemory 写到 vault 外。
 - **每条 feedback 必须有 Why 和 How to apply。** 没有场景的空规则不写。
 - **feedback 是事件触发的。** 不预写可能用得上的规则，不一次性批量写多条。
-- **MEMORY.md 索引必须同步。** 不允许存在没有被索引的孤儿 feedback。
+- **`${MEMORY_INDEX}` 索引必须同步。** 不允许存在没有被索引的孤儿 feedback。
 - **命名格式：** `feedback_<主题>.md`，主题用简短关键词。
 
 ## 读取规则（供冷启动参考）
 
-冷启动时 AI 读 MEMORY.md 索引即可了解有哪些 feedback。具体 feedback 文件按需读取：
+冷启动时 AI 读 `${MEMORY_INDEX}` 即可了解有哪些 feedback。具体 feedback 文件按需读取：
 - 如果当前任务和某个 feedback 主题相关，读对应文件
 - 如果不确定是否相关，先看索引里的一句话描述再决定
 - 不需要每次冷启动都全量读取所有 feedback 文件

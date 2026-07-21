@@ -1,6 +1,6 @@
 ---
 name: agent-weekly-review
-description: 当要做每周学习复盘时使用。这是周复盘的唯一入口。触发词：周复盘、每周复盘、weekly review、本周回顾、复盘这周。
+description: 当用户说周复盘、每周复盘、weekly review、本周回顾、复盘这周，或要做每周学习复盘时使用。这是周复盘的唯一入口。
 ---
 
 # 周复盘
@@ -15,19 +15,19 @@ description: 当要做每周学习复盘时使用。这是周复盘的唯一入�
 
 ### 1. 读取本周学习证据
 
-读本周的 Daily Note（`50_LifeOps/Logs/Daily/` 下本周日期范围的文件），提取每条 5 行收口记录。
+读本周的 Daily Note（`${DAILY_NOTE_DIR}` 下本周日期范围的文件），提取每条 5 行收口记录。
 
-读 `Review/progress.md` 的学习证据段，看本周新增了哪些证据。
+读 `${REVIEW_PROGRESS}` 的学习证据段，看本周新增了哪些证据。
 
 ### 2. 对照周复盘问题逐一回答
 
-读取 `System/weekly_review.md` 的 6 个问题，逐一诚实回答。不自行定义问题，问题定义见 `System/weekly_review.md`。
+读取 `${WEEKLY_REVIEW}` 的 6 个问题，逐一诚实回答。不自行定义问题，问题定义见 `${WEEKLY_REVIEW}`。
 
 不美化，不编造。没有证据就写"无"。
 
 ### 3. 输出复盘报告
 
-按 `System/weekly_review.md` 的输出格式写：
+按 `${WEEKLY_REVIEW}` 的输出格式写：
 
 ```text
 本周有效进展：
@@ -41,16 +41,16 @@ description: 当要做每周学习复盘时使用。这是周复盘的唯一入�
 
 在当天 Daily Note 追加复盘报告。
 
-如果复盘发现下周主线变化，更新 `02_今日状态` 的主线和 `Review/progress.md` 的当前阶段。
+如果复盘发现下周主线变化，更新 `${TODAY_STATUS}` 的主线和 `${REVIEW_PROGRESS}` 的当前阶段。
 
 ### 5. 连续虚假进展预警
 
-如果连续两周复盘报告"虚假进展"非空，在 `progress.md` 当前阶段段显式标注"连续两周虚假进展，需调整学习策略"。
+如果连续两周复盘报告"虚假进展"非空，在 `${REVIEW_PROGRESS}` 当前阶段段显式标注"连续两周虚假进展，需调整学习策略"。
 
 ## 硬约束
 
 - **诚实回答，不美化进展。**
-- **基于真实证据**（Daily Note 5 行收口、progress 学习证据），不凭印象。
+- **基于真实证据**（Daily Note 5 行收口、`${REVIEW_PROGRESS}` 学习证据），不凭印象。
 - **没有证据就写"无"，不编造。**
 - **连续两周虚假进展必须报告，不隐瞒。**
 

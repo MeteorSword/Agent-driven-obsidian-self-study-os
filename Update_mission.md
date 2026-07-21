@@ -243,3 +243,27 @@ CourseOS/<课程名>/raw/material_queue.md 建工单，指向上面的路径
 
 - 删除 prompts/07_weekly_review.md
 - git add -A + git commit
+
+---
+
+## 2026-07-21 — C 类平台无关格式规范化
+
+### 改动原因
+- 6 个 skill description 语言统一为中文，去掉“触发词：”标签融入自然句
+- workflow description 收窄到调度场景，不碰“做题”“学新内容”等执行场景，消除与 course-workflow 的触发范围重叠
+- 建立 operating_rules 路径变量表（24 个变量），6 个 skill + 06_启动句内所有 vault 路径引用改为变量
+- 梳理外部引用清单供平台适配打包参考
+
+### 改动清单
+
+| 文件 | 改动 |
+|------|------|
+| operating_rules.md | 末尾新增“路径变量表”段（24 个变量） |
+| selfstudyos-workflow/SKILL.md | description 改中文收窄 + 路径引用改变量 |
+| selfstudyos-course-workflow/SKILL.md | description 去标签 + 路径引用改变量 |
+| agent-material-intake/SKILL.md | description 去标签 + 路径引用改变量 |
+| agent-memory-write/SKILL.md | description 去标签 + 路径引用改变量 |
+| agent-exam-mapping/SKILL.md | description 去标签 + 路径引用改变量 |
+| agent-weekly-review/SKILL.md | description 去标签 + 路径引用改变量 |
+| 06_给Agent的启动句.md | <YOUR_VAULT_PATH> → ${YOUR_VAULT_PATH} + Agent 执行指南路径引用改变量 + 补路径变量表引用说明 |
+| docs/skill-reference-inventory.md | 新建：6 个 skill 外部引用清单 |
