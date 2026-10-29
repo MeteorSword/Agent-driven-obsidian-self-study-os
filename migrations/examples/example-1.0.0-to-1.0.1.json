@@ -1,0 +1,53 @@
+{
+  "from": "1.0.0",
+  "to": "1.0.1",
+  "schema": 1,
+  "example": true,
+  "description": "示例步骤：仅供 upgrade.ps1 的自测使用，不登记进 index.json。四种操作各一条，用于验证 dry-run / apply / rollback。",
+  "requires": {
+    "selfstudyos_version_min": "1.0.0",
+    "schema": 1
+  },
+  "ops": [
+    {
+      "id": "op-001",
+      "type": "add",
+      "path": "05_Templates/example_note.md",
+      "source": "05_Templates/concept_page.md",
+      "onConflict": "skip",
+      "note": "目标已存在则跳过（视为已完成，保证幂等）"
+    },
+    {
+      "id": "op-002",
+      "type": "move",
+      "from": "99_Meta/example_old.md",
+      "to": "99_Meta/example_new.md",
+      "onConflict": "stop",
+      "note": "目标已存在则停止整条链，不做覆盖"
+    },
+    {
+      "id": "op-003",
+      "type": "replace",
+      "glob": "01_LearningDesk/*.md",
+      "pattern": "示例旧写法",
+      "replacement": "示例新写法",
+      "maxFiles": 50,
+      "requireDiff": true,
+      "note": "先出 diff 预览；apply 时逐文件备份"
+    },
+    {
+      "id": "op-004",
+      "type": "manual",
+      "path": "70_AgentSystems/AgentMemory/feedback_*.md",
+      "reason": "合并多条 feedback 需要理解语义，机器不可自动完成",
+      "blocksUpgrade": true,
+      "note": "阻断：把剩余步骤列出来给用户，不许跳过"
+    }
+  ],
+  "verify": {
+    "mustExist": ["05_Templates/example_note.md", "99_Meta/example_new.md"],
+    "mustNotExist": ["99_Meta/example_old.md"],
+    "versionAfter": "1.0.1",
+    "schemaAfter": 1
+  }
+}
