@@ -130,10 +130,10 @@ skill 间通过用户确认衔接，不自动串联。路径引用全部使用 `
 ```text
 docs/           # 设计说明、平台集成、版本记录、外部引用清单
 prompts/        # prompt 资产索引（日常学习入口已迁至 06_给Agent的启动句）
-templates/      # 可复用 Markdown 模板
-vault-template/ # 可复制到 Obsidian 的 Vault 骨架
+migrations/     # 每个版本一份 index（json 给机器、md 给人）与升级步骤
+vault-template/ # 可复制到 Obsidian 的 Vault 骨架（05_Templates/ 内含全部模板）
 skills/         # 6 个本地 skill（workflow/course-workflow/material-intake/memory-write/exam-mapping/weekly-review）
-scripts/        # preflight（发布前检查）与只读迁移扫描
+scripts/        # 工具：gen-index / migrate-v0.3-to-v1.0 / upgrade / preflight
 examples/       # 脱敏学习闭环示例
 ```
 

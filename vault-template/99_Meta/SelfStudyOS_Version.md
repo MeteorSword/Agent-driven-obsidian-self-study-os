@@ -21,6 +21,17 @@ released: （待发布时填写）
 schema: 1
 ```
 
+## 两个"版本"的关系
+
+| 位置 | 内容 | 谁读 |
+|---|---|---|
+| 本文件 | 版本号 + 升级说明 | 人 |
+| `.selfstudyos/index.json` | 逐文件指纹 + 上次修改版本 | 升级器 |
+
+**机器真值以 `.selfstudyos/index.json` 为准**；本文件的版本号必须与它一致，不一致时以 `.selfstudyos/` 为准并修正本文件。
+
+没有 `.selfstudyos/index.json` 说明这个 Vault 来自 v1.0 之前，需要用 `scripts/migrate-v0.3-to-v1.0.ps1` 做一次性迁移。
+
 ## 版本约定
 
 | 编号 | 含义 | 兼容性 |

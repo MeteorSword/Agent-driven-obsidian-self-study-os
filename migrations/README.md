@@ -9,7 +9,7 @@
 | `index.json` | 版本链登记表。只列**真实发布过**的版本跳跃 | `scripts/upgrade.ps1` |
 | `steps/` | 真实的升级步骤文件，如 `v1.0.0-to-v1.1.0.json`。当前为空（还没有 v1.1） | `scripts/upgrade.ps1` |
 | `examples/` | 示例步骤，**永不登记进 index.json**，只用于工具自测 | 自测流程 |
-| `manifest-<版本>.json` | 文件归属清单（owned / seeded / neverTouch）。由 `scripts/gen-manifest.ps1` 生成 | 迁移工具 |
+| `index-<版本>.json` | 该版本的完整文件清单：路径 / 归属 / sha256 / 归一化哈希 / 起始版本 / 上次修改版本。由 `scripts/gen-index.ps1` 生成；同目录 `index-<版本>.md` 是人读树形版 | `scripts/upgrade.ps1` |
 
 ## 为什么示例不能进 index.json
 
