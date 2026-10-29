@@ -126,6 +126,20 @@ if ($Previous -and (Test-Path -LiteralPath $Previous)) {
 }
 
 # ---------- 扫描 ----------
+# 归一化哈希：忽略 BOM、行尾符、行尾空白。用于判断"用户只多打了空格"这类无害差异。
+function Get-NormSha([string]$full) {
+    if ($full -notmatch '\.(md|txt|json|ps1|yml|yaml)$') { return $null }
+    try {
+        $t = [IO.File]::ReadAllText($full, [Text.Encoding]::UTF8)
+        $t = $t.TrimStart([char]0xFEFF).Replace("`r`n","`n").Replace("`r","`n")
+        $lines = $t.Split("`n") | ForEach-Object { $_.TrimEnd() }
+        $norm = ($lines -join "`n")
+        $bytes = [Text.Encoding]::UTF8.GetBytes($norm)
+        $h = [Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
+        return ([BitConverter]::ToString($h).Replace('-','').ToLower())
+    } catch { return $null }
+}
+
 $all = Get-ChildItem -LiteralPath $vaultPath -Recurse -File -Force |
        Where-Object { $_.FullName -notmatch '\\\.git\\' -and $_.Name -ne 'workspace.json' }
 
@@ -160,6 +174,7 @@ foreach ($f in $all) {
         class          = $cls
         definedBy      = $definedBy
         sha256         = $sha
+        normSha256     = (Get-NormSha $f.FullName)
         bytes          = $f.Length
         addedIn        = $addedIn
         lastModifiedIn = $lastMod
