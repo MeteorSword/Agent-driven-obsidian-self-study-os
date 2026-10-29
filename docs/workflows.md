@@ -78,7 +78,7 @@
 
 ## 收口（每次 session 结束都要做）
 
-用 [`vault-template/99_Meta/Templates/learning_close_5lines.md`](../vault-template/99_Meta/Templates/learning_close_5lines.md) 写 5 行进当天 Daily Note。详见 [`close-ritual.md`](close-ritual.md)。
+用 [`vault-template/05_Templates/learning_close_5lines.md`](../vault-template/05_Templates/learning_close_5lines.md) 写 5 行进当天 Daily Note。详见 [`close-ritual.md`](close-ritual.md)。
 
 不要让学习者手改 02 / 03 / 05 / 课程 progress。
 

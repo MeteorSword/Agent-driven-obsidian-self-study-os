@@ -155,7 +155,7 @@ Raw 是原始材料，wiki 是处理后知识。
 
 ## 每日结束规则
 
-每次学习/复习/作业结束，agent 必须用 [[99_Meta/Templates/learning_close_5lines|学习结束 5 行]] 模板把这次会话收口，并写进当天 Daily Note（`50_LifeOps/Logs/Daily/YYYY-MM-DD.md`）的「复盘」段下面。如果今天 Daily Note 不存在，先按 [[99_Meta/Templates/daily_note|daily-note 模板]] 创建一份，再追加 5 行；不要因为没有 Daily Note 就跳过收口。
+每次学习/复习/作业结束，agent 必须用 [[05_Templates/learning_close_5lines|学习结束 5 行]] 模板把这次会话收口，并写进当天 Daily Note（`50_LifeOps/Logs/Daily/YYYY-MM-DD.md`）的「复盘」段下面。如果今天 Daily Note 不存在，先按 [[05_Templates/daily_note|daily-note 模板]] 创建一份，再追加 5 行；不要因为没有 Daily Note 就跳过收口。
 
 5 行内容：
 
@@ -165,7 +165,7 @@ Raw 是原始材料，wiki 是处理后知识。
 4. 仍然不懂的（颗粒度细到可以变成下一次的复测题）
 5. 明天最小动作（30-60 分钟可完成的具体动作）
 
-5 行**不替代**结构性更新（错题卡 / revision_notes / 课程 progress / 02 主线变更）；只有发生那些事件时才另开页面。详见 [[99_Meta/Templates/learning_close_5lines|学习结束 5 行]]。
+5 行**不替代**结构性更新（错题卡 / revision_notes / 课程 progress / 02 主线变更）；只有发生那些事件时才另开页面。详见 [[05_Templates/learning_close_5lines|学习结束 5 行]]。
 
 agent 不要让用户本人去改下列任何一个文件来完成日常收口：02_今日状态 / 03_行动队列 / 05_复习入口 / 课程 progress。5 行写进 Daily Note 就是收口。
 
@@ -216,7 +216,7 @@ skill 和文档中引用 vault 内文件时，使用路径变量而非裸路径�
 | ${DAILY_NOTE_DIR} | 50_LifeOps/Logs/Daily/ |
 | ${AGENT_MEMORY_DIR} | 70_AgentSystems/AgentMemory/ |
 | ${MEMORY_INDEX} | 70_AgentSystems/AgentMemory/MEMORY.md |
-| ${LEARNING_CLOSE_5LINES} | 99_Meta/Templates/learning_close_5lines.md |
+| ${LEARNING_CLOSE_5LINES} | 05_Templates/learning_close_5lines.md |
 | ${STUDY_PLAN} | Review/study_plan.md（实例；模板在 05_Templates/study_plan_template.md） |
 | ${COURSE_MOC} | CourseOS/<课程名>/<课程名>-MOC.md |
 | ${MATERIAL_QUEUE} | CourseOS/<课程名>/raw/material_queue.md |

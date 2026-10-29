@@ -34,13 +34,13 @@
 
 通过方式可选附加在第 1 行末尾：`通过方式：无提示 / Hint 1 / Hint 2 / Hint 3 / Solution 后订正`。
 
-完整模板在 [`vault-template/99_Meta/Templates/learning_close_5lines.md`](../vault-template/99_Meta/Templates/learning_close_5lines.md)。
+完整模板在 [`vault-template/05_Templates/learning_close_5lines.md`](../vault-template/05_Templates/learning_close_5lines.md)。
 
 ## 落盘流程
 
 1. agent 确定今天日期 `YYYY-MM-DD`。
 2. 检查 `50_LifeOps/Logs/Daily/YYYY-MM-DD.md` 是否存在。
-3. **不存在则先创建**：按 [`vault-template/99_Meta/Templates/daily_note.md`](../vault-template/99_Meta/Templates/daily_note.md) 模板创建。**不要因为"今天没建 Daily Note"就跳过收口**。
+3. **不存在则先创建**：按 [`vault-template/05_Templates/daily_note.md`](../vault-template/05_Templates/daily_note.md) 模板创建。**不要因为"今天没建 Daily Note"就跳过收口**。
 4. 在「复盘」段下面追加 5 行。如果已有内容，新增 `### 学习结束 5 行 · 时间段标签` 分段。
 5. 学生本人不动 02 / 03 / 05 / progress。
 

@@ -13,6 +13,6 @@
 
 新加概念卡时：
 
-- 用 [[99_Meta/Templates/concept_page|概念卡模板]] 建文件。
+- 用 [[05_Templates/concept_page|概念卡模板]] 建文件。
 - 在卡顶部加占位标记，直到真有学习证据。
 - 完整规则见 [[70_AgentSystems/SelfStudyOS/System/wiki_maintenance_rules|wiki 维护规则]]。

@@ -4,4 +4,4 @@
 
 周复盘：对 AI 说"周复盘""weekly review"即可触发 agent-weekly-review skill。
 
-所有 session 结束按 [`vault-template/99_Meta/Templates/learning_close_5lines.md`](../vault-template/99_Meta/Templates/learning_close_5lines.md) 写 5 行进当天 Daily Note。
+所有 session 结束按 [`vault-template/05_Templates/learning_close_5lines.md`](../vault-template/05_Templates/learning_close_5lines.md) 写 5 行进当天 Daily Note。

@@ -110,7 +110,7 @@ Raw 是原始材料，wiki 是经过学习证据验证后的稳定知识。
 
 每次 session 结束，agent 把 5 行写进当天 Daily Note 的「复盘」段下面，替代手动维护 02 / 03 / 05 / 课程 progress。
 
-详见 [`close-ritual.md`](close-ritual.md) 和 [`vault-template/99_Meta/Templates/learning_close_5lines.md`](../vault-template/99_Meta/Templates/learning_close_5lines.md)。
+详见 [`close-ritual.md`](close-ritual.md) 和 [`vault-template/05_Templates/learning_close_5lines.md`](../vault-template/05_Templates/learning_close_5lines.md)。
 
 ## Agent 角色
 

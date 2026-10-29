@@ -2,9 +2,9 @@
 
 每天一份 Daily Note，文件名格式 `YYYY-MM-DD.md`。
 
-每次学习/作业/复习 session 结束时，agent 会按 [[../../../99_Meta/Templates/learning_close_5lines|学习结束 5 行]] 模板把当次 session 追加到当天 Daily Note 的「复盘」段下面。
+每次学习/作业/复习 session 结束时，agent 会按 [[../../../05_Templates/learning_close_5lines|学习结束 5 行]] 模板把当次 session 追加到当天 Daily Note 的「复盘」段下面。
 
-如果当天 Daily Note 还不存在，agent 会先用 [[../../../99_Meta/Templates/daily_note|daily-note 模板]] 创建一份，再追加 5 行。
+如果当天 Daily Note 还不存在，agent 会先用 [[../../../05_Templates/daily_note|daily-note 模板]] 创建一份，再追加 5 行。
 
 ## 为什么 Daily Note 是收口位置
 

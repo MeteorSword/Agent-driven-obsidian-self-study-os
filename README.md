@@ -57,6 +57,7 @@ vault-template/
     04_课程入口.md
     05_复习入口.md
     06_给Agent的启动句.md
+  05_Templates/                    # 全部 12 个模板；Obsidian 模板目录指向这里
   50_LifeOps/Logs/Daily/           # 每天一份 Daily Note，5 行收口落盘处
   70_AgentSystems/
     AgentBootstrap/
@@ -73,10 +74,8 @@ vault-template/
       ProjectLab/                  # 项目目标、能力树、项目复盘
       Review/                      # 总进度、复习债务、错题索引
   99_Meta/
-    SelfStudyOS_Version.md         # 版本标识（v1.0 新增）
-    Templates/
-      learning_close_5lines.md     # 5 行收口模板（canonical）
-      daily_note.md
+    SelfStudyOS_Version.md         # 版本标识与升级约定
+    README.md                      # 该目录放什么
 ```
 
 完整可复制模板在 [`vault-template/`](vault-template/)。

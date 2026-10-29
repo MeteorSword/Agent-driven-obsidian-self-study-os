@@ -25,7 +25,7 @@ description: 当用户说学新内容、做题、作业、刷题、复习、冷�
 所有子模式开始前：
 
 1. 确认课程名（用户指定或从 `${TODAY_STATUS}` 获取）。
-2. 读对应 `${COURSE_MOC}` 和 progress。
+2. 读对应 `${COURSE_MOC}`、progress，以及该课 `course_profile.md`（若存在：资料源通配、编号/页码口径、记号、勘误、**不考范围**）。
 3. 检查是否有 `status: in-progress` 的 session/problem。
 4. 如果当前状态、课程 progress、MOC 的下一步冲突，先报告冲突，再选最小学习单元。
 5. 如果 `${ACTION_QUEUE}` 中有到期复习，只简短提示"有到期复习，可切换复习模式处理"；不展开，不安排热身。

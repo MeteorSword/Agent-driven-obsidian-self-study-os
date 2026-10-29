@@ -18,7 +18,7 @@ tags:
 
 1. 确定今天日期 `YYYY-MM-DD`。
 2. 检查文件 `50_LifeOps/Logs/Daily/YYYY-MM-DD.md` 是否存在。
-3. **如果不存在**：按 [[99_Meta/Templates/daily_note|daily-note 模板]] 先创建一份；frontmatter 里的 `date` / `created` / `updated` 填今天。不要因为"没有 Daily Note"就跳过收口。
+3. **如果不存在**：按 [[05_Templates/daily_note|daily-note 模板]] 先创建一份；frontmatter 里的 `date` / `created` / `updated` 填今天。不要因为"没有 Daily Note"就跳过收口。
 4. 在「复盘」段下面追加下面的 5 行。如果「复盘」段已有内容，新增一段「### 学习结束 5 行 · 时间段标签」分隔，不要覆盖既有内容。
 5. 学生本人不需要改 02_今日状态 / 03_行动队列 / 05_复习入口 / 课程 progress 中的任何一个；5 行模板替代日常收口。
 

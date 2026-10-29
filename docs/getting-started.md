@@ -60,8 +60,8 @@
 
 session 结束时直接告诉 agent："收口"。它会：
 
-1. 找 `50_LifeOps/Logs/Daily/YYYY-MM-DD.md`，没有就按 [`vault-template/99_Meta/Templates/daily_note.md`](../vault-template/99_Meta/Templates/daily_note.md) 创建。
-2. 在「复盘」段下面追加 [`5 行收口模板`](../vault-template/99_Meta/Templates/learning_close_5lines.md)：
+1. 找 `50_LifeOps/Logs/Daily/YYYY-MM-DD.md`，没有就按 [`vault-template/05_Templates/daily_note.md`](../vault-template/05_Templates/daily_note.md) 创建。
+2. 在「复盘」段下面追加 [`5 行收口模板`](../vault-template/05_Templates/learning_close_5lines.md)：
    - 今天处理了什么
    - 我自己完成的
    - AI 帮了什么（具体到 Hint 层级）

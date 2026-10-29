@@ -50,7 +50,7 @@
 2. 先判断当前是开始学习模式、作业模式还是复习模式。
 3. 开 learning session / problem loop / course review。
 4. 如果进入题目，按 Hint 1/2/3 分层。
-5. 结束时按 [[99_Meta/Templates/learning_close_5lines|5 行收口]] 写进 Daily Note。
+5. 结束时按 [[05_Templates/learning_close_5lines|5 行收口]] 写进 Daily Note。
 6. 只有发生结构性事件时另开文件（错题卡 / revision_notes / progress 新题号）。
 
 ### 当前候选队列

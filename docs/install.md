@@ -24,7 +24,7 @@
 3. 用 Obsidian 打开，确认能看到 `01_LearningDesk/`、`70_AgentSystems/`、`99_Meta/`。
 4. 把 `70_AgentSystems/SelfStudyOS/CourseOS/ExampleCourse` 复制一份并改名成你正在学的课。
 
-> Obsidian 核心插件建议：开启「模板」（Templates）与「日记」（Daily notes）。模板目录指向 `99_Meta/Templates`，日记目录指向 `50_LifeOps/Logs/Daily`。
+> Obsidian 核心插件建议：开启「模板」（Templates）与「日记」（Daily notes）。模板目录指向 `05_Templates`，日记目录指向 `50_LifeOps/Logs/Daily`。
 >
 > 不建议一开始就把模板合并进一个已有几千篇笔记的大 Vault。先跑通一次闭环。
 

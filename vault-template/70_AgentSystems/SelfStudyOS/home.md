@@ -36,7 +36,7 @@
 2. 查看 [[01_LearningDesk/02_今日状态|今日状态]] 和 [[01_LearningDesk/03_行动队列|行动队列]]。
 3. 选择今天唯一主任务。
 4. 如果是课程学习，进入对应 CourseOS MOC。
-5. 结束前按 [[99_Meta/Templates/learning_close_5lines|学习结束 5 行]] 把会话收口写进当天 Daily Note。不要让用户自己改 02_今日状态 / 03_行动队列 / 05_复习入口 / 课程 progress 中的任何一个；只有发生结构性事件（新错题 / 新复习债务 / 新题号通过 / 主线推进 / 任务 archive）才另开文件。
+5. 结束前按 [[05_Templates/learning_close_5lines|学习结束 5 行]] 把会话收口写进当天 Daily Note。不要让用户自己改 02_今日状态 / 03_行动队列 / 05_复习入口 / 课程 progress 中的任何一个；只有发生结构性事件（新错题 / 新复习债务 / 新题号通过 / 主线推进 / 任务 archive）才另开文件。
 
 ## 系统模块
 

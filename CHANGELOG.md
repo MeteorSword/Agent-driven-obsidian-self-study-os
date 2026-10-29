@@ -65,7 +65,7 @@
 ### 新增
 
 - **`01_LearningDesk/` 六张学生侧入口页面**（01_学习首页 / 02_今日状态 / 03_行动队列 / 04_课程入口 / 05_复习入口 / 06_给Agent的启动句）。学生从此只需打开 `01_LearningDesk/`，不再面对 `70_AgentSystems/`。
-- **5 行收口模板** `99_Meta/Templates/learning_close_5lines.md` + `daily_note.md`，定义"每次 session 写 5 行进当天 Daily Note"的 canonical 收口仪式，替代手动维护 02/03/05/课程 progress 多文件。
+- **5 行收口模板** `05_Templates/learning_close_5lines.md` + `daily_note.md`，定义"每次 session 写 5 行进当天 Daily Note"的 canonical 收口仪式，替代手动维护 02/03/05/课程 progress 多文件。
 - **`50_LifeOps/Logs/Daily/`** 目录骨架，5 行收口的落盘位置。
 - **`docs/entry-separation.md`** 入口分离设计说明。
 - **`docs/close-ritual.md`** 5 行收口设计说明。
