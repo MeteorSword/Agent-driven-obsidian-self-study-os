@@ -17,7 +17,7 @@
 - ${LEARNER_PROFILE} — First Move
 
 ## selfstudyos-course-workflow
-- ${OPERATING_RULES} — 三模式规则、Hint 分层、桥接题/补丁标记、题号格式
+- ${OPERATING_RULES} — 四模式规则、Hint 分层、桥接题/补丁标记、题号格式
 - ${LEARNING_CLOSE_5LINES} — 收口段
 - ${TODAY_STATUS} — 通用前置 step1、收口（主线变更）
 - ${ACTION_QUEUE} — 通用前置 step5、复习模式 step8、收口（archive）

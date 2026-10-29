@@ -41,7 +41,7 @@ SelfStudyOS 的核心目标是：让 AI agent 成为学习系统的执行伙伴�
 五个相互独立又互相支撑的机制：
 
 1. **单一入口（Single Entry）** — `01_LearningDesk/06_给Agent的启动句.md` 是唯一的 agent 入口，合并了原 START_HERE_FOR_AGENT 的全部内容。学生侧入口和 agent 执行指南在同一文件，分上下两部分。
-2. **Hint 分层 + 三模式区分** — 作业模式严格按 Hint 1 → 2 → 3 → Solution；开始学习模式可以用桥接题但**桥接不计掌握**；复习模式优先冷复测。详见 [`docs/agent-rules.md`](docs/agent-rules.md)。
+2. **Hint 分层 + 四模式区分** — 作业模式严格按 Hint 1 → 2 → 3 → Solution；开始学习模式可以用桥接题但**桥接不计掌握**；复习模式优先冷复测；考试冲刺按分值与可提升空间排序。详见 [`docs/agent-rules.md`](docs/agent-rules.md)。
 3. **5 行收口仪式（Close Ritual）** — 每次 session 结束 agent 只写 5 行进当天 Daily Note，替代手动维护 02/03/05/progress 多个状态文件。详见 [`docs/close-ritual.md`](docs/close-ritual.md)。
 4. **stale 规则 + 占位卡** — 行动队列里逾期任务按类型治理；候选概念卡显式标 `·占位` 防止 AI 为了"补全"乱填。
 5. **复习债务路由** — Daily Start 只提示有无到期复习；复习债务默认只在复习模式展开，不打断作业和随堂学习。
@@ -96,7 +96,7 @@ Windows 用户可以从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始�
 
 ## 三条主线
 
-- **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。进入课程先区分开始学习模式 / 作业模式 / 复习模式。掌握分 4 级：预热通过 / 桥接通过 / 作业题通过 / 变式通过。真题可通过 agent-exam-mapping skill 按知识点索引，学习内容围绕真题考法反推。
+- **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。进入课程先区分四种模式：开始学习 / 作业 / 复习 / 考试冲刺。掌握分 4 级：预热通过 / 桥接通过 / 作业题通过 / 变式通过。真题可通过 agent-exam-mapping skill 按知识点索引，学习内容围绕真题考法反推。
 - **ResearchWiki**：v1.1 计划。当前版本不提供研究工作流支持。
 - **ProjectLab**：v1.1 计划。当前版本不提供项目工作流支持。
 

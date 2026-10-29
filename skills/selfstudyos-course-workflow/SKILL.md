@@ -7,7 +7,7 @@ description: 当用户说学新内容、做题、作业、刷题、复习、冷�
 
 这个 skill 是课程执行的入口。包含四个子模式，共用 Hint 分层和收口规则。
 
-`${OPERATING_RULES}` 已定义三模式和 Hint 分层的规则。这个 skill 不重复规则，只定义执行步骤。
+`${OPERATING_RULES}` 已定义四模式和 Hint 分层的规则。这个 skill 不重复规则，只定义执行步骤。
 
 ## 选择子模式
 
