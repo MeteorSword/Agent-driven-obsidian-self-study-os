@@ -217,12 +217,12 @@ skill 和文档中引用 vault 内文件时，使用路径变量而非裸路径�
 | ${AGENT_MEMORY_DIR} | 70_AgentSystems/AgentMemory/ |
 | ${MEMORY_INDEX} | 70_AgentSystems/AgentMemory/MEMORY.md |
 | ${LEARNING_CLOSE_5LINES} | 05_Templates/learning_close_5lines.md |
-| ${STUDY_PLAN} | Review/study_plan.md（实例；模板在 05_Templates/study_plan_template.md） |
-| ${COURSE_MOC} | CourseOS/<课程名>/<课程名>-MOC.md |
-| ${MATERIAL_QUEUE} | CourseOS/<课程名>/raw/material_queue.md |
-| ${EXAM_TOPIC_INDEX} | CourseOS/<课程名>/problems/exam_topic_index.md |
-| ${PROBLEM_INDEX} | CourseOS/<课程名>/problems/problem_index.md |
-| ${CONCEPT_INDEX} | CourseOS/<课程名>/concepts/concept_index.md |
+| ${STUDY_PLAN} | 70_AgentSystems/SelfStudyOS/Review/study_plan.md（实例；模板在 05_Templates/study_plan_template.md） |
+| ${COURSE_MOC} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/<课程名>-MOC.md |
+| ${MATERIAL_QUEUE} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/raw/material_queue.md |
+| ${EXAM_TOPIC_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/problems/exam_topic_index.md |
+| ${PROBLEM_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/problems/problem_index.md |
+| ${CONCEPT_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/concepts/concept_index.md |
 | ${EXTERNAL_MATERIAL_INDEX} | 60_Resources/ExternalIndexes/external_material_index.md |
 | ${SKILLS_DIR} | agent 平台的 skills 目录（**不在 vault 内**；安装见 docs/install.md） |
 
