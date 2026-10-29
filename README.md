@@ -4,7 +4,25 @@ An AI-agent-driven Obsidian self-study system for university learning, research 
 
 这是一个面向大学生的 Obsidian 自学系统模板。它把课程学习、论文阅读、项目能力建设放进同一个可维护的 Vault 结构里，并让 AI agent 按固定规则协助你学习，而不是替你学习。
 
-> **v0.95 Gamma 分支定位**：本仓库是项目基座，提供开发标准和封装好的模块。同时（by Meteor_Sword），经过我约一个月的使用及测试，重构了 skill 体系和入口结构以解决使用中遇到的问题。skill 和 prompt 是 AI 可读的原型规格，供生态开发者基于此搭建。详见 [`docs/interfaces-gamma.md`](docs/interfaces-gamma.md)。
+> **v1.0.0 定位**：第一个正式版本。首次提供安装说明、版本标识与安全迁移路径；公共模板与个人 Vault 明确分离。skill 和 prompt 仍是 AI 可读的原型规格，供生态开发者基于此搭建。
+
+## 与上游（kk）的关系
+
+本项目 fork 自 [kkLullaby/Agent-driven-obsidian-self-study-os](https://github.com/kkLullaby/Agent-driven-obsidian-self-study-os)。
+原作者 Kaifeng Li（kk）设计了 v0.1–v0.3 的骨架与核心机制：入口分离、Hint 1/2/3 分层、5 行收口、stale 规则、复习债务路由。本 fork 的改动建立在这些设计之上。
+
+| 能力 | 上游 v0.3 | 本 fork v1.0 |
+|---|---|---|
+| Agent 入口 | `START_HERE_FOR_AGENT.md` | `01_LearningDesk/06_给Agent的启动句.md`（单一入口） |
+| 本地 skill | 1 个 | 6 个（调度 / 课程 / 归档 / 记忆 / 真题映射 / 周复盘） |
+| prompt 组织 | 9 个 prompt 文件 | 9 个 prompt 收敛进 skill，仓库只留索引 |
+| 路径引用 | 硬编码相对路径 | 路径变量表（单点注入） |
+| 资料分层 | Raw 与 CourseOS/raw 并存 | `10_Courses/`（实体）/ 工单 / Raw（非课程）三层 |
+| 版本管理 | 仅 CHANGELOG 手写 | SemVer + Vault 版本标识 + 只读迁移清单 |
+
+与上游 v0.3 的差异规模：**55 个文件、+1,844 / −819 行**。
+
+两条分支的关系：`main` 保留上游 v0.1–v0.3 的完整提交历史（作者 kkLullaby）；`gamma` 是基于 v0.3 文件快照独立起步的开发线，作者 MeteorSword（剑星陨）。两条线历史不相交，因此本仓库用分支而不是 PR 来承载 fork 的演进——如果你要对比上游，请用 `git diff origin/main origin/gamma`，不要用 merge。
 
 ## 这个项目解决什么问题
 
@@ -54,9 +72,11 @@ vault-template/
       ResearchWiki/                # 论文、研究概念、连接、开放问题
       ProjectLab/                  # 项目目标、能力树、项目复盘
       Review/                      # 总进度、复习债务、错题索引
-  99_Meta/Templates/
-    learning_close_5lines.md       # 5 行收口模板（canonical）
-    daily_note.md
+  99_Meta/
+    SelfStudyOS_Version.md         # 版本标识（v1.0 新增）
+    Templates/
+      learning_close_5lines.md     # 5 行收口模板（canonical）
+      daily_note.md
 ```
 
 完整可复制模板在 [`vault-template/`](vault-template/)。
@@ -77,12 +97,12 @@ Windows 用户可以从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始�
 ## 三条主线
 
 - **CourseOS**：课程学习必须有证据，包括独立尝试、做题、错因、复述和下一步训练。进入课程先区分开始学习模式 / 作业模式 / 复习模式。掌握分 4 级：预热通过 / 桥接通过 / 作业题通过 / 变式通过。真题可通过 agent-exam-mapping skill 按知识点索引，学习内容围绕真题考法反推。
-- **ResearchWiki**：v1.0 占位。当前版本不提供研究工作流支持。
-- **ProjectLab**：v1.0 占位。当前版本不提供项目工作流支持。
+- **ResearchWiki**：v1.1 计划。当前版本不提供研究工作流支持。
+- **ProjectLab**：v1.1 计划。当前版本不提供项目工作流支持。
 
 ## Skill 体系
 
-v0.3 Gamma 分支有 6 个本地 skill，形成日常学习的完整闭环：
+v1.0 有 6 个本地 skill，形成日常学习的完整闭环：
 
 | Skill | 职责 | 触发方式 |
 |-------|------|---------|
@@ -93,7 +113,7 @@ v0.3 Gamma 分支有 6 个本地 skill，形成日常学习的完整闭环：
 | agent-exam-mapping | 真题按知识点索引：读真题内容标注知识点/考法/难度 | "索引真题""真题映射" |
 | agent-weekly-review | 周复盘：读本周证据，对照 6 个问题诚实复盘，连续虚假进展预警 | "周复盘""weekly review" |
 
-skill 间通过用户确认衔接，不自动串联。路径引用全部使用 `${VARIABLE_NAME}` 格式的路径变量，适配其他平台只需注入变量值。详见 [`docs/interfaces-gamma.md`](docs/interfaces-gamma.md)。
+skill 间通过用户确认衔接，不自动串联。路径引用全部使用 `${VARIABLE_NAME}` 格式的路径变量，适配其他平台只需注入变量值。详见 [`docs/platform-integration.md`](docs/platform-integration.md)。
 
 ## 硬规则
 
@@ -109,8 +129,8 @@ skill 间通过用户确认衔接，不自动串联。路径引用全部使用 `
 ## 仓库内容
 
 ```text
-docs/           # 设计说明、接口文档、改动记录、外部引用清单
-prompts/        # 周复盘 prompt + 索引（日常学习入口已迁至 06_给Agent的启动句）
+docs/           # 设计说明、平台集成、版本记录、外部引用清单
+prompts/        # prompt 资产索引（日常学习入口已迁至 06_给Agent的启动句）
 templates/      # 可复用 Markdown 模板
 vault-template/ # 可复制到 Obsidian 的 Vault 骨架
 skills/         # 6 个本地 skill（workflow/course-workflow/material-intake/memory-write/exam-mapping/weekly-review）
@@ -119,8 +139,8 @@ examples/       # 脱敏学习闭环示例
 
 ## 改动记录与接口
 
-- 改动总结（按方面 + 时间线）：[`docs/changelog-gamma.md`](docs/changelog-gamma.md)
-- 接口文档（触发/协作/数据/封装）：[`docs/interfaces-gamma.md`](docs/interfaces-gamma.md)
+- 版本记录（单一版本线，含上游 v0.1–v0.3）：[`CHANGELOG.md`](CHANGELOG.md)
+- 平台集成接口（触发/协作/数据/封装）：[`docs/platform-integration.md`](docs/platform-integration.md)
 - Skill 外部引用清单：[`docs/skill-reference-inventory.md`](docs/skill-reference-inventory.md)
 
 ## 不包含什么
@@ -145,6 +165,8 @@ examples/       # 脱敏学习闭环示例
 ## Acknowledgements
 
 Inspired by Erber's [如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建](https://zhuanlan.zhihu.com/p/2033334385555010512) by [Erber102](https://github.com/Erber102).
+
+Forked from [kkLullaby/Agent-driven-obsidian-self-study-os](https://github.com/kkLullaby/Agent-driven-obsidian-self-study-os) by Kaifeng Li (kk).
 
 ## Citations
 

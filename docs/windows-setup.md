@@ -113,7 +113,7 @@ SelfStudyOS
 Prompt 里会出现：
 
 ```text
-<YOUR_VAULT_PATH>
+${YOUR_VAULT_PATH}
 ```
 
 Windows 示例：
@@ -217,13 +217,13 @@ Node.js 官方下载页：
 然后打开：
 
 ```text
-prompts\01_general_start.md
+01_LearningDesk\06_给Agent的启动句.md
 ```
 
-把 prompt 复制给 Codex 或 Claude Code，并替换：
+把其中「启动句」代码块复制给 Codex 或 Claude Code，并替换：
 
 ```text
-<YOUR_VAULT_PATH>
+${YOUR_VAULT_PATH}
 ```
 
 第一次可以这样说：
@@ -282,7 +282,7 @@ git config --global core.quotepath false
 
 检查三件事：
 
-1. `<YOUR_VAULT_PATH>` 是否替换成真实路径。
+1. `${YOUR_VAULT_PATH}` 是否替换成真实路径。
 2. 路径里有空格时是否加了引号。
 3. Obsidian 打开的目录是否就是你复制模板的目录。
 

@@ -21,7 +21,7 @@
 01_LearningDesk/02_今日状态.md    # 改主线 / 今天唯一主任务 / 进展标准
 01_LearningDesk/03_行动队列.md    # 删示例行，加自己的真实任务
 01_LearningDesk/04_课程入口.md    # 改课程表
-01_LearningDesk/06_给Agent的启动句.md   # 把 <YOUR_VAULT_PATH> 替换成绝对路径
+01_LearningDesk/06_给Agent的启动句.md   # 把 ${YOUR_VAULT_PATH} 替换成绝对路径
 ```
 
 ### Agent 侧（一次性配置）

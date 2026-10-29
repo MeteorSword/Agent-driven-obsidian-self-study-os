@@ -1,6 +1,50 @@
 # Changelog
 
-## 0.3.0 - 2026-06-10
+本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 Kaifeng Li（kk）发布，之后由 MeteorSword（剑星陨）以 fork 形式继续演进。
+
+## 1.0.0（开发中）
+
+> 第一个正式版本。发布前以下条目会逐条核对完成状态。
+
+### 新增
+
+- **Vault 版本标识**：`99_Meta/SelfStudyOS_Version.md`，用于判断任意 Vault 的起点版本。
+- **安装契约**：`docs/install.md`，覆盖 Claude Code / Codex / DSH / 手动四条安装路径。
+- **只读迁移扫描**：`scripts/migrate-scan.ps1`，把旧 Vault 分成框架文件 / 用户数据 / 生成产物 / 私人资料四类，输出冲突项与哈希，不写目标目录。
+- **发布前检查**：`scripts/preflight.ps1`，检查绝对路径、邮箱、手机号、学号、大文件、断引用。
+- **冷启动触发词**：对 agent 说「冷启动」即可完成入口读取与状态报告，无需粘贴长 prompt。
+- **考试冲刺模式入口块**：补齐第 4 个模式，此前只有 skill 实现、没有启动入口。
+- **课程档案**：`CourseOS/<课程名>/course_profile.md`，记录资料源、编号/页码口径、记号、勘误、不考范围与产物位置。
+
+### 改动
+
+- Agent 入口改为三段式：冷启动协议（给 agent）/ 手动粘贴块（首次安装）/ 四个模式块。
+- 规则按"单点定义 + 多处引用"整理：`operating_rules.md` 为唯一 source of truth。
+- 掌握等级统一为 4 级；`05_复习入口.md` 的 5 级判定改为映射到 4 级的对照表。
+- 模板收拢到 `05_Templates/`，删除重复的两份。
+- `README.md` 新增「与上游（kk）的关系」段。
+- 版本号统一：不再出现 "v0.3 Gamma" / "v0.95" 与 "v1.0" 并存的表述。
+
+### 移除
+
+- `Update_mission.md`（逐日开发日志移至私有 Vault）。
+- `docs/changelog-gamma.md`（内容并入本文件）。
+- 指向已删除 prompt 文件的链接。
+
+## 0.95（fork 内部预发布，未对外发布）
+
+> 即原来的 "v0.3 Gamma" 分支定稿，本地 tag `v0.95`。这一版是六轮迭代的结果，但从未对外发布。
+
+- **单一入口**：`START_HERE_FOR_AGENT.md` 并入 `01_LearningDesk/06_给Agent的启动句.md`，删除重复入口。
+- **skill 体系**：1 个 skill 扩展为 6 个（workflow / course-workflow / material-intake / memory-write / exam-mapping / weekly-review），9 个 prompt 文件收敛进 skill。
+- **路径变量化**：新增路径变量表，skill 与文档不再写死路径。
+- **题号格式**：会话内 `Q1/Q2` 与持久化来源格式（`Exam-2024-Q3`、`Textbook-3.2-5`）的转换规则。
+- **真题映射**：新增 `exam_topic_index`，按知识点索引真题考法。
+- **周复盘**：三个文件里的问题清单收敛为 `System/weekly_review.md` 唯一定义，并由 skill 执行。
+- **资料三层分工**：`10_Courses/`（实体文件）/ `material_queue.md`（工单）/ `Raw/`（非课程资料）。
+- **隐私清理**：清除历史中的真实邮箱与本机路径，删除个人画像文件，课程名脱敏为 `ExampleCourse`。
+
+## 0.3.0 — 2026-06-10（上游 Kaifeng Li）
 
 ### 新增
 
@@ -14,7 +58,7 @@
 - `START_HERE_FOR_AGENT.md`、`operating_rules.md`、LearningDesk、公开 prompts、docs 和公开版 skill 同步三模式边界。
 - 行动队列的 review stale 处理改为只在复习模式或明确队列维护时执行，避免打断作业模式。
 
-## 0.2.0 - 2026-06-07
+## 0.2.0 — 2026-06-07（上游 Kaifeng Li）
 
 四块新增，全部来自真实使用反馈后的多轮内部评估。
 
@@ -42,7 +86,7 @@
 2. 每次结束要手改 4-5 个文件 → 5 行收口。
 3. 行动队列僵尸 P0 越积越多 → stale 规则。
 
-## 0.1.0 - 2026-05-24
+## 0.1.0 — 2026-05-24（上游 Kaifeng Li）
 
 - 建立 `obsidian-self-study-os` 开源项目骨架。
 - 加入 Vault 模板、prompt、Markdown 模板、公开版 agent workflow skill。

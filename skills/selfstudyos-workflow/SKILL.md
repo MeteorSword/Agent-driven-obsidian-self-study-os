@@ -1,6 +1,6 @@
 ---
 name: selfstudyos-workflow
-description: 当用户开始新的一天、查看进度、问"今天干什么"、需要学习调度时使用。负责选任务、确认状态、半强制复习触发。资料归档由 agent-material-intake 处理，课程执行（做题/学新内容/复习/考试冲刺）由 selfstudyos-course-workflow 处理，ResearchWiki 和 ProjectLab 待 v1.0。
+description: 当用户开始新的一天、查看进度、问"今天干什么"、需要学习调度，或说"冷启动"时使用。负责选任务、确认状态、半强制复习触发。资料归档由 agent-material-intake 处理，课程执行（做题/学新内容/复习/考试冲刺）由 selfstudyos-course-workflow 处理，ResearchWiki 和 ProjectLab 为 v1.1 计划。
 ---
 
 # SelfStudyOS Workflow
@@ -41,11 +41,11 @@ Then choose the smallest relevant workflow.
 
 ### ResearchWiki
 
-此模块待 v1.0 实现。当前版本不提供研究工作流支持。
+此模块在 v1.1 计划中。当前版本不提供研究工作流支持。
 
 ### ProjectLab
 
-此模块待 v1.0 实现。当前版本不提供项目工作流支持。
+此模块在 v1.1 计划中。当前版本不提供项目工作流支持。
 
 ## Hard Rules
 

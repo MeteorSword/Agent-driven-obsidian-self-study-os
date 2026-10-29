@@ -9,7 +9,7 @@
 使用时告诉 agent：
 
 ```text
-我的 Obsidian Vault 路径是 <YOUR_VAULT_PATH>。
+我的 Obsidian Vault 路径是 ${YOUR_VAULT_PATH}。
 请使用 selfstudyos-workflow 运行今天的学习 session。
 ```
 
@@ -17,12 +17,13 @@
 
 这个 skill 不包含任何私人路径、课程资料或个人画像。具体 Vault 路径和学习状态由用户自己的 Vault 提供。
 
-## 职能范围（v0.3 stage0 精简后）
+## 职能范围（v1.0）
 
-精简后 selfstudyos-workflow 只负责：
+selfstudyos-workflow 负责：
 
 - 日常学习调度（Daily Learning）：读状态、选主任务、半强制复习触发、交接给课程执行 skill
-- ResearchWiki / ProjectLab：v1.0 占位模块，当前不提供流程
+- 冷启动：用户说「冷启动」时完成入口读取与状态报告（v1.0 新增）
+- ResearchWiki / ProjectLab：v1.1 计划，当前不提供流程
 
 不再包含：
 
