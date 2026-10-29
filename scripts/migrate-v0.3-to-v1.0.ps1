@@ -148,28 +148,58 @@ $n = 0
 foreach ($r in $structRules) {
     if (-not $structHits.ContainsKey($r.Id)) { continue }
     $hitFiles = $structHits[$r.Id]
-    $n++
-    $taskId = ('T-{0:D3}' -f $n)
     $actions = New-Object System.Collections.ArrayList
     if ($r.Id -in 'R1','R2') {
+        # 按 课程 × 资料类型 拆成多个任务，避免一个任务塞几十个动作
         $byTarget = @{}
         foreach ($rel in $hitFiles) {
             $m = [regex]::Match($rel, $r.Rx)
             $course = $m.Groups['course'].Value
-            $kind   = if ($m.Groups['kind'].Success) { $m.Groups['kind'].Value } else { '真题' }
-            $type   = Convert-KindToType $kind
-            $key    = "$course|$type"
+            $rest   = $m.Groups['rest'].Value
+            $seg    = ''
+            if ($rest -match '/') { $seg = ($rest -split '/')[0] }
+            $leaf = Split-Path $rel -Leaf
+            $type = '待定'
+            if ($seg -match '^(PPT|slides|课件|讲义)$') { $type = 'PPT' }
+            elseif ($seg -match '^(真题|试卷|试题|exams|quizzes)$') { $type = '真题' }
+            elseif ($seg -match '^(教材|课本)$') { $type = '教材' }
+            elseif ($seg -match '^(作业)$') { $type = '作业' }
+            elseif ($leaf -match '试卷|试题|真题|期末|期中|模拟|exam|quiz') { $type = '真题' }
+            elseif ($leaf -match 'PPT|课件|讲义|slide|lecture') { $type = 'PPT' }
+            elseif ($leaf -match '教材|课本') { $type = '教材' }
+            elseif ($leaf -match '作业|HW|homework') { $type = '作业' }
+            $key = "$course|$type"
             if (-not $byTarget.ContainsKey($key)) { $byTarget[$key] = New-Object System.Collections.ArrayList }
             [void]$byTarget[$key].Add($rel)
         }
-        foreach ($k in $byTarget.Keys) {
+        foreach ($k in ($byTarget.Keys | Sort-Object)) {
             $parts = $k.Split('|'); $course = $parts[0]; $type = $parts[1]
-            [void]$actions.Add([ordered]@{ op='mkdir'; path="10_Courses/$course/$type" })
+            $n++
+            $acts = New-Object System.Collections.ArrayList
+            [void]$acts.Add([ordered]@{ op='mkdir'; path="10_Courses/$course/$type" })
             foreach ($rel in $byTarget[$k]) {
-                [void]$actions.Add([ordered]@{ op='copy'; from=$rel; to="10_Courses/$course/$type/$(Split-Path $rel -Leaf)"; verify='sha256' })
+                [void]$acts.Add([ordered]@{ op='copy'; from=$rel; to="10_Courses/$course/$type/$(Split-Path $rel -Leaf)"; verify='sha256' })
             }
+            [void]$tasks.Add([ordered]@{
+                id            = ('T-{0:D3}' -f $n)
+                rule          = 'R1+R2'
+                risk          = 'low'
+                title         = "课程资料归位：$course / $type（$($byTarget[$k].Count) 个文件）"
+                why           = 'v0.3 把课程实体资料放在 Raw/courses 与 CourseOS/<课>/raw；v1.0 统一到 10_Courses/<课程>/<类型>/'
+                target        = "10_Courses/$course/$type/"
+                preconditions = @(
+                    '目标目录下若已存在同名文件，停止并报告，不要覆盖',
+                    '每个 copy 动作完成后立即校验 sha256 与源一致'
+                )
+                actions       = @($acts)
+                verify        = '目标文件数与源一致，且 sha256 全部匹配'
+                onFailure     = 'stop-and-report'
+                rollback      = '删除本次新建的目录与文件（源文件保留不动）'
+            })
         }
-    } elseif ($r.Id -eq 'R7') {
+        continue
+    }
+    if ($r.Id -eq 'R7') {
         foreach ($rel in $hitFiles) {
             $m = [regex]::Match($rel, $r.Rx)
             [void]$actions.Add([ordered]@{ op='copy'; from=$rel; to="05_Templates/$($m.Groups['rest'].Value)"; verify='sha256' })
@@ -180,6 +210,8 @@ foreach ($r in $structRules) {
 
     $riskLevel = 'high'
     if ($r.Id -in 'R1','R2','R3','R7') { $riskLevel = 'low' }
+    $n++
+    $taskId = ('T-{0:D3}' -f $n)
 
     [void]$tasks.Add([ordered]@{
         id            = $taskId
