@@ -13,4 +13,4 @@
 
 - 实体文件只放这里。
 - 学习产出（session、错题、概念）放 `70_AgentSystems/SelfStudyOS/CourseOS/ExampleCourse/`。
-- 这两个地方的连接靠 `CourseOS/ExampleCourse/raw/material_queue.md` 工单。
+- 这两个地方的连接靠 `CourseOS/ExampleCourse/material_queue.md` 工单。

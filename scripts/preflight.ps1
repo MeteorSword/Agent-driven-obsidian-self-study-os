@@ -61,7 +61,7 @@ try {
     $textFiles = $files | Where-Object { $textExt -contains [IO.Path]::GetExtension($_).ToLower() -or (Split-Path $_ -Leaf) -in '.gitignore','.gitattributes' }
 
     # 示例路径白名单：这些文件里的绝对路径是给人看的示例，不是真实泄漏
-    $pathAllow = @('windows-setup.md','privacy-and-safety.md','publish-checklist.md','CONTRIBUTING.md','selfstudyos-course-workflow','selfstudyos-workflow','preflight.ps1')
+    $pathAllow = @('windows-setup.md','privacy-and-safety.md','publish-checklist.md','CONTRIBUTING.md','selfstudyos-course-workflow','selfstudyos-workflow','preflight.ps1','migrate-v0.3-to-v1.0.ps1','upgrade.ps1','gen-index.ps1')
 
     # ---------- 1. 敏感串（BLOCK） ----------
     $secretRules = @(

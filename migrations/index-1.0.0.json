@@ -1,15 +1,15 @@
 {
     "version":  "1.0.0",
     "schema":  1,
-    "generated_at":  "2026-10-29T21:36:38+08:00",
+    "generated_at":  "2026-10-29T22:32:07+08:00",
     "generator":  "scripts/gen-index.ps1",
     "requiresStep":  false,
     "source":  "operating_rules.md 路径变量表 + 框架文件规则",
     "counts":  {
-                   "files":  80,
+                   "files":  81,
                    "owned":  48,
-                   "seeded":  32,
-                   "opaqueSkipped":  6
+                   "seeded":  33,
+                   "opaqueSkipped":  5
                },
     "opaque":  [
                    "10_Courses/",
@@ -111,7 +111,7 @@
                       },
                       {
                           "name":  "MATERIAL_QUEUE",
-                          "path":  "70_AgentSystems/SelfStudyOS/CourseOS/\u003c课程名\u003e/raw/material_queue.md",
+                          "path":  "70_AgentSystems/SelfStudyOS/CourseOS/\u003c课程名\u003e/material_queue.md",
                           "class":  "seeded"
                       },
                       {
@@ -580,9 +580,19 @@
                       "path":  "70_AgentSystems/SelfStudyOS/CourseOS/ExampleCourse/ExampleCourse-MOC.md",
                       "class":  "seeded",
                       "definedBy":  "${COURSE_MOC}",
-                      "sha256":  "13fcb10ca89a61daa71a7489910ee28d54f7ed8e24432494a6798c97b6763fe7",
-                      "normSha256":  "13fcb10ca89a61daa71a7489910ee28d54f7ed8e24432494a6798c97b6763fe7",
-                      "bytes":  2898,
+                      "sha256":  "32d3ca35f6c7cdce0c6c0b87dc006ed931b29404ddf2ce6c72e270082f8798e1",
+                      "normSha256":  "32d3ca35f6c7cdce0c6c0b87dc006ed931b29404ddf2ce6c72e270082f8798e1",
+                      "bytes":  2894,
+                      "addedIn":  "1.0.0",
+                      "lastModifiedIn":  "1.0.0"
+                  },
+                  {
+                      "path":  "70_AgentSystems/SelfStudyOS/CourseOS/ExampleCourse/material_queue.md",
+                      "class":  "seeded",
+                      "definedBy":  "${MATERIAL_QUEUE}",
+                      "sha256":  "9b913dbaa208a25e08e7ea08a59b22a71adb67722a45ce4e086670a976b7c298",
+                      "normSha256":  "9b913dbaa208a25e08e7ea08a59b22a71adb67722a45ce4e086670a976b7c298",
+                      "bytes":  1117,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -860,9 +870,9 @@
                       "path":  "70_AgentSystems/SelfStudyOS/System/operating_rules.md",
                       "class":  "owned",
                       "definedBy":  "${OPERATING_RULES}",
-                      "sha256":  "a6344888dba79fa88ca96f12f866248b2480e018dd9d2ba203636ad8032f93c0",
-                      "normSha256":  "a6344888dba79fa88ca96f12f866248b2480e018dd9d2ba203636ad8032f93c0",
-                      "bytes":  11603,
+                      "sha256":  "db33ef9c9f85629d634efb548c7f4cad461df1c24e40c7b277a3828a469bc405",
+                      "normSha256":  "db33ef9c9f85629d634efb548c7f4cad461df1c24e40c7b277a3828a469bc405",
+                      "bytes":  11599,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -870,9 +880,9 @@
                       "path":  "70_AgentSystems/SelfStudyOS/System/raw_data_pipeline.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "361013dab3277d547115a9417606ae1f91ab74fea9d647a98ab78260e5248b97",
-                      "normSha256":  "361013dab3277d547115a9417606ae1f91ab74fea9d647a98ab78260e5248b97",
-                      "bytes":  1985,
+                      "sha256":  "9d31523ac698a0fb38ead56ee7ab2772d7fcf5f1eb039af041061dde92617bcb",
+                      "normSha256":  "9d31523ac698a0fb38ead56ee7ab2772d7fcf5f1eb039af041061dde92617bcb",
+                      "bytes":  1996,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },

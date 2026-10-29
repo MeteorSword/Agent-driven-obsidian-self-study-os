@@ -33,7 +33,7 @@
 ## 规则
 
 - 课程实体文件只放这里，不放进 70_AgentSystems。
-- 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/raw/material_queue.md 记录工单，指向这里的路径。
+- 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/material_queue.md 记录工单，指向这里的路径。
 - 文件名保持原始命名，AI 归档时不重命名。
 - 学完的科目：整个课程目录移到 90_Archive/。
 

@@ -88,6 +88,9 @@ if (-not $PackageRoot) {
     $repo = Split-Path -Parent (Split-Path -Parent $NewIndex)
     if ((Split-Path $repo -Leaf) -eq 'migrations') { $repo = Split-Path $repo -Parent }
     $PackageRoot = Join-Path $repo 'vault-template'
+    if (-not (Test-Path -LiteralPath $PackageRoot)) {
+        $PackageRoot = Join-Path (Split-Path -Parent (Split-Path -Parent $PSCommandPath)) 'vault-template'
+    }
 }
 if (-not (Test-Path -LiteralPath $PackageRoot)) { throw "找不到新版模板目录: $PackageRoot" }
 

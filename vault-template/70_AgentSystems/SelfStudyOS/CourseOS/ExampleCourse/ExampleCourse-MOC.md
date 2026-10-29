@@ -19,7 +19,7 @@
 
 | 模式 | 适用场景 | 本课入口 | 执行 skill |
 |---|---|---|---|
-| 开始学习模式 | 新概念、新小节、新公式，还没准备直接做完整作业 | [[raw/material_queue\|raw 队列]]；课程资料；课堂笔记 | selfstudyos-course-workflow（开始学习模式） |
+| 开始学习模式 | 新概念、新小节、新公式，还没准备直接做完整作业 | [[material_queue\|资料工单]]；课程资料；课堂笔记 | selfstudyos-course-workflow（开始学习模式） |
 | 作业模式 | 课后题、作业题、截图题、指定题组 | 教材/习题 PDF；[[problems/problem_index\|题组索引]]；[[progress\|progress]]；[[../../../../01_LearningDesk/03_行动队列\|行动队列]] | selfstudyos-course-workflow（作业模式） |
 | 复习模式 | 错题回看、冷复测、间隔复习、复习债务 | [[../../Review/revision_notes\|复习债务]]；[[mistakes/mistake_index\|错题索引]]；[[progress\|progress]] | selfstudyos-course-workflow（复习模式） |
 | 考试冲刺 | 考前 1-3 周，按分值与可提升空间排序 | 真题索引；错题索引；`Review/study_plan.md`（如有） | selfstudyos-course-workflow（考试冲刺） |
@@ -36,7 +36,7 @@
 - [[concepts/concept_index|概念索引]]
 - [[mistakes/mistake_index|错题索引]]
 - [[problems/problem_index|题组索引]]
-- [[raw/material_queue|raw 队列]]
+- [[material_queue|资料工单]]
 
 ---
 

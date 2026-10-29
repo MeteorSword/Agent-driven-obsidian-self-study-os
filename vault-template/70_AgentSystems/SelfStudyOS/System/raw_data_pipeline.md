@@ -22,7 +22,7 @@ Agent 负责：
 - 课程资料（真题、PPT、教材、作业）：放 `10_Courses/<课程名>/<类型>/`。
 - 非课程资料（论文、书籍、网页剪藏）：放 `70_AgentSystems/SelfStudyOS/Raw/<类型>/`。
 - 大文件优先放在 Vault 外部，只在 `60_Resources/ExternalIndexes/external_material_index.md` 中记录路径。
-- 实体文件不放进 `CourseOS/<课程名>/raw/`，那里只存 material_queue.md 工单。
+- 实体文件不放进 `CourseOS/<课程名>/`，那里只存学习产物与 material_queue.md 工单。
 
 ## 8 步流程
 

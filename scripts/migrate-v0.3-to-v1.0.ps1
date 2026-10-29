@@ -1,4 +1,4 @@
-﻿# migrate-v0.3-to-v1.0.ps1 — 一次性迁移扫描器（v0.3 结构 → v1.0 结构）
+# migrate-v0.3-to-v1.0.ps1 — 一次性迁移扫描器（v0.3 结构 → v1.0 结构）
 #
 # 定位：**考古报告生成器**。只读旧 Vault，产出交给另一个 AI / 人执行的清单。
 # 它不执行任何迁移动作，也不写旧 Vault。
@@ -73,6 +73,8 @@ $structRules = @(
        Target='（删除）'; Why='prompt 已被 skill 覆盖，仓库只保留资产索引' }
     @{ Id='R7'; Rx='^99_Meta/Templates/(?<rest>.+)$';
        Target='05_Templates/<rest>'; Why='模板已统一收拢到 05_Templates' }
+    @{ Id='R8'; Rx='^70_AgentSystems/SelfStudyOS/CourseOS/(?<course>[^/]+)/raw/material_queue\.md$';
+       Target='70_AgentSystems/SelfStudyOS/CourseOS/<course>/material_queue.md'; Why='raw/ 这个名字误导（raw 里不放原始资料），material_queue 提到课程根目录' }
 )
 
 function Convert-KindToType([string]$kind) {
