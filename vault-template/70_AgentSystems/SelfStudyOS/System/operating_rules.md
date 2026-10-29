@@ -125,6 +125,22 @@ Raw 是原始材料，wiki 是处理后知识。
 
 项目工作流在 v1.1 计划中。当前版本不启动项目工作流。如果用户想做项目，提醒先完成当天主线课程任务。
 
+## 周期切换
+
+学期开始、考试临近、或停用一段时间后重新开始学习时，走这个流程。**不要往 `06_给Agent的启动句.md` 追加任何当期内容**——它是协议文件，加了就会一层叠一层。
+
+| 步骤 | 做什么 | 落在哪 |
+|---|---|---|
+| 1 | 收集本期资料（课件、真题、教材、作业） | `10_Courses/<课程名>/<类型>/` + `${MATERIAL_QUEUE}` 工单 |
+| 2 | 写/重写本期计划（考试日历 + 按日安排） | `${STUDY_PLAN}`（实例 `Review/study_plan.md`，模板在 `05_Templates/study_plan_template.md`） |
+| 3 | 更新当前主线（学哪门、做到哪） | `${TODAY_STATUS}` 的「当前主线」 |
+| 4 | 更新课程静态事实（资料源通配、编号/页码口径、不考范围） | `CourseOS/<课程名>/course_profile.md` |
+| 5 | 清理旧周期残留（过期队列项按 stale 规则 archive） | `${ACTION_QUEUE}` → 已 archive 段 |
+
+新周期开始时，agent 应主动问："这次学什么课、有没有考试日期、资料在哪"，然后按上表落位；**不要笼统地问"你想做什么"**。
+
+判断标准：**同一个问题如果只对"本期"成立，它就不属于 06，属于 study_plan 或 02_今日状态。**
+
 ## 行动队列 stale 规则
 
 行动队列（[[01_LearningDesk/03_行动队列|03_行动队列]]）里的任务要保持新鲜：
@@ -201,7 +217,7 @@ skill 和文档中引用 vault 内文件时，使用路径变量而非裸路径�
 | ${AGENT_MEMORY_DIR} | 70_AgentSystems/AgentMemory/ |
 | ${MEMORY_INDEX} | 70_AgentSystems/AgentMemory/MEMORY.md |
 | ${LEARNING_CLOSE_5LINES} | 99_Meta/Templates/learning_close_5lines.md |
-| ${STUDY_PLAN} | Review/study_plan.md |
+| ${STUDY_PLAN} | Review/study_plan.md（实例；模板在 05_Templates/study_plan_template.md） |
 | ${COURSE_MOC} | CourseOS/<课程名>/<课程名>-MOC.md |
 | ${MATERIAL_QUEUE} | CourseOS/<课程名>/raw/material_queue.md |
 | ${EXAM_TOPIC_INDEX} | CourseOS/<课程名>/problems/exam_topic_index.md |
