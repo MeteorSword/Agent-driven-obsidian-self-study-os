@@ -134,6 +134,7 @@ prompts/        # prompt 资产索引（日常学习入口已迁至 06_给Agent�
 templates/      # 可复用 Markdown 模板
 vault-template/ # 可复制到 Obsidian 的 Vault 骨架
 skills/         # 6 个本地 skill（workflow/course-workflow/material-intake/memory-write/exam-mapping/weekly-review）
+scripts/        # preflight（发布前检查）与只读迁移扫描
 examples/       # 脱敏学习闭环示例
 ```
 

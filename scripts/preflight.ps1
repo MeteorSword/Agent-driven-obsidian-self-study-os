@@ -61,7 +61,7 @@ try {
     $textFiles = $files | Where-Object { $textExt -contains [IO.Path]::GetExtension($_).ToLower() -or (Split-Path $_ -Leaf) -in '.gitignore','.gitattributes' }
 
     # 示例路径白名单：这些文件里的绝对路径是给人看的示例，不是真实泄漏
-    $pathAllow = @('windows-setup.md','privacy-and-safety.md','publish-checklist.md','CONTRIBUTING.md','selfstudyos-course-workflow','selfstudyos-workflow')
+    $pathAllow = @('windows-setup.md','privacy-and-safety.md','publish-checklist.md','CONTRIBUTING.md','selfstudyos-course-workflow','selfstudyos-workflow','preflight.ps1')
 
     # ---------- 1. 敏感串（BLOCK） ----------
     $secretRules = @(
@@ -180,7 +180,7 @@ try {
             'HIST-COURSE' = '数学分析B2|分析化学|化学原理|电磁学|电路基本理论'
         }
         foreach ($k in $histPatterns.Keys) {
-            $out = & git grep -I -l -E $histPatterns[$k] $revs -- 2>$null
+            $out = & git grep -I -l -E $histPatterns[$k] $revs -- ':(exclude)scripts/preflight.ps1' 2>$null
             $cnt = ($out | Measure-Object).Count
             if ($cnt -gt 0) { Add-Block $k "history" "$cnt 个历史文件命中" }
             else            { [void]$script:info.Add("$k : 0") }

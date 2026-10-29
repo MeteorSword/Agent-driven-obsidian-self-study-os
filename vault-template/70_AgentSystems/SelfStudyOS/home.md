@@ -21,7 +21,7 @@
 - Agent 新会话必须先读 agent bootstrap。
 - 日常学习从 `01_LearningDesk -> 今日状态 -> 行动队列` 开始。
 
-设计理由详见 [`docs/entry-separation.md`](../../../docs/entry-separation.md)。
+设计理由：入口分离是为了让你每天只打开左边那三个文件；agent 侧永远从启动句开始，不需要你记住它内部顺序。
 
 ## 当前选择
 

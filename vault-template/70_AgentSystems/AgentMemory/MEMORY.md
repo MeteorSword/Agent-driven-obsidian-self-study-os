@@ -1,6 +1,6 @@
 # AgentMemory 索引
 
-冷启动只读本索引；具体 feedback 在相关场景按需读取。新增 feedback 先读 `skills/agent-memory-write/SKILL.md` 按其流程执行。
+冷启动只读本索引；具体 feedback 在相关场景按需读取。新增 feedback 先读 `${SKILLS_DIR}/agent-memory-write/SKILL.md` 按其流程执行。
 
 ## 学习者画像
 

@@ -8,7 +8,7 @@
 - 这里没有任何 agent prompt 工程的细节，全部是「我今天要做什么」级别的语言。
 - `01_LearningDesk/06_给Agent的启动句.md` 是 agent 新会话的唯一入口，含必读顺序和执行指南。
 
-详见 [`docs/entry-separation.md`](../../docs/entry-separation.md)。
+设计原则见下。这个目录的边界是：只要一份文件需要你每天打开，它就属于这里；只要一份文件只有 agent 需要读，它就不属于这里。
 
 ## 文件清单
 

@@ -17,11 +17,12 @@
 
 进入课程后先选模式，不把新课学习、作业推进和复习混在一起。
 
-| 模式 | 适用场景 | 本课入口 | 使用 prompt |
+| 模式 | 适用场景 | 本课入口 | 执行 skill |
 |---|---|---|---|
-| 开始学习模式 | 新概念、新小节、新公式，还没准备直接做完整作业 | [[raw/material_queue\|raw 队列]]；课程资料；课堂笔记 | [`prompts/02_course_session.md`](../../../../../prompts/02_course_session.md) |
-| 作业模式 | 课后题、作业题、截图题、指定题组 | 教材/习题 PDF；[[problems/problem_index\|题组索引]]；[[progress\|progress]]；[[../../../../01_LearningDesk/03_行动队列\|行动队列]] | [`prompts/03_problem_loop.md`](../../../../../prompts/03_problem_loop.md) |
-| 复习模式 | 错题回看、冷复测、间隔复习、复习债务 | [[../../Review/revision_notes\|复习债务]]；[[mistakes/mistake_index\|错题索引]]；[[progress\|progress]] | [`prompts/09_course_review.md`](../../../../../prompts/09_course_review.md) |
+| 开始学习模式 | 新概念、新小节、新公式，还没准备直接做完整作业 | [[raw/material_queue\|raw 队列]]；课程资料；课堂笔记 | selfstudyos-course-workflow（开始学习模式） |
+| 作业模式 | 课后题、作业题、截图题、指定题组 | 教材/习题 PDF；[[problems/problem_index\|题组索引]]；[[progress\|progress]]；[[../../../../01_LearningDesk/03_行动队列\|行动队列]] | selfstudyos-course-workflow（作业模式） |
+| 复习模式 | 错题回看、冷复测、间隔复习、复习债务 | [[../../Review/revision_notes\|复习债务]]；[[mistakes/mistake_index\|错题索引]]；[[progress\|progress]] | selfstudyos-course-workflow（复习模式） |
+| 考试冲刺 | 考前 1-3 周，按分值与可提升空间排序 | 真题索引；错题索引；`Review/study_plan.md`（如有） | selfstudyos-course-workflow（考试冲刺） |
 
 选择规则：
 

@@ -39,8 +39,8 @@ ${YOUR_VAULT_PATH}/01_LearningDesk/03_行动队列.md
 - Hint 分三层：题型识别 → 关键公式/变形 → 展开下一步；只有三层都用过我还卡住，才给完整解法。
 - 会话结束时，按 99_Meta/Templates/learning_close_5lines.md 收口成 5 行写进 Daily Note。
 - 完整规则见 70_AgentSystems/SelfStudyOS/System/operating_rules.md，执行流程见本文件「Agent 执行指南」部分。
-- 当需要写记忆（feedback、经验归档）时，先读 skills/agent-memory-write/SKILL.md 并按其流程执行。不使用工具自带的 autoMemory 写到 vault 外。
-- 当需要归档文件（用户丢资料、截图、PDF、PPT 给你）时，先读 skills/agent-material-intake/SKILL.md 并按其流程执行。课程资料放 10_Courses/，非课程资料放 Raw/，实体文件不进 CourseOS/raw/。
+- 当需要写记忆（feedback、经验归档）时，先读 `${SKILLS_DIR}/agent-memory-write/SKILL.md` 并按其流程执行。不使用工具自带的 autoMemory 写到 vault 外。
+- 当需要归档文件（用户丢资料、截图、PDF、PPT 给你）时，先读 `${SKILLS_DIR}/agent-material-intake/SKILL.md` 并按其流程执行。课程资料放 10_Courses/，非课程资料放 Raw/，实体文件不进 CourseOS/raw/。
 - 输出使用 Obsidian Markdown + MathJax。
 ```
 

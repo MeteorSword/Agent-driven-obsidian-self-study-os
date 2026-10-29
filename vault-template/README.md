@@ -16,7 +16,7 @@
 01_LearningDesk/06_给Agent的启动句.md
 ```
 
-两侧入口的设计动机见 [`../docs/entry-separation.md`](../docs/entry-separation.md)。
+两侧入口的分工：学生侧只负责"今天做什么"，agent 侧只负责"按什么规则做"。你不需要读 agent 侧的文件，agent 也不需要你手动维护它。
 
 ## 顶层目录
 
@@ -42,7 +42,7 @@
 5. 用 `01_LearningDesk/06_给Agent的启动句.md`（或 `prompts/01_general_start.md`）启动 agent。
 6. 跑一次最小学习闭环，结束时让 agent 写 5 行进当天 Daily Note 验证。
 
-详见 [`../docs/getting-started.md`](../docs/getting-started.md)。
+更详细的步骤见仓库里的 `docs/getting-started.md`（该文件属于仓库文档，不随模板复制进 Vault）。
 
 ## 引用和致谢
 

@@ -17,7 +17,7 @@ type: feedback
 - 冷启动只读 `AgentMemory/MEMORY.md` 索引，了解有哪些 feedback 及其主题
 - 具体 feedback 在相关场景触发时按需读取，不预读全部
 - 如果发现旧记忆中有矛盾的规则，优先采纳更新的那个
-- 写记忆（新增 feedback）时，先读 skills/agent-memory-write/SKILL.md 并按其流程执行，不使用工具自带的 autoMemory 写到 vault 外
+- 写记忆（新增 feedback）时，先读 `${SKILLS_DIR}/agent-memory-write/SKILL.md` 并按其流程执行，不使用工具自带的 autoMemory 写到 vault 外
 - 新 feedback 写入 `${AGENT_MEMORY_DIR}`（vault 内），这里才是 SelfStudyOS 的 source of truth
 
 > 旧规则"新对话必须完整读取所有 feedback 文件，不能只读 MEMORY.md"已作废，以 agent-memory-write skill 为准。

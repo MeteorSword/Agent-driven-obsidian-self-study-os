@@ -199,5 +199,6 @@ skill 和文档中引用 vault 内文件时，使用路径变量而非裸路径�
 | ${PROBLEM_INDEX} | CourseOS/<课程名>/problems/problem_index.md |
 | ${CONCEPT_INDEX} | CourseOS/<课程名>/concepts/concept_index.md |
 | ${EXTERNAL_MATERIAL_INDEX} | 60_Resources/ExternalIndexes/external_material_index.md |
+| ${SKILLS_DIR} | agent 平台的 skills 目录（**不在 vault 内**；安装见 docs/install.md） |
 
 注意：含 `<课程名>` 的变量是模板路径，使用时替换为实际课程名。
