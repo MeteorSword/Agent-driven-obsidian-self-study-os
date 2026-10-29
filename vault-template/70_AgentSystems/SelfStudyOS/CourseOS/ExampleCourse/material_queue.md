@@ -27,7 +27,7 @@ Status：candidate / in-progress / done / archived
 
 ## 规则
 
-- 实体文件放 `10_Courses/<课程名>/` 下，不放这里。
+- 实体文件放 `10_Courses/<课程名>/`；本文件只记工单。
 - 每次接到新资料时，在这里建一行工单。
 - AI 归档文件时必须同步更新工单状态。
 - 学完的科目：工单标记 archived，实体文件移到 90_Archive/。
