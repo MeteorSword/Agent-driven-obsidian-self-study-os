@@ -25,6 +25,8 @@ v1.0.0 是第一个正式版本。提供安装说明、版本索引与升级路�
 
 `main` 保留上游 v0.1 到 v0.3 的提交历史。`gamma` 从 v0.3 文件快照起步，是 fork 的开发线。两条线历史不相交。对比请用 `git diff origin/main origin/gamma`。
 
+GitHub 会在分支页显示领先与落后的提交数。两条历史没有共同祖先，计数按独立历史算。不要点 Sync fork，那会把上游 v0.3 的 `prompts/` 与 `START_HERE_FOR_AGENT.md` 重新引入 `gamma`。
+
 ## 这个项目解决什么问题
 
 AI 学习工作流常见的失效方式：
