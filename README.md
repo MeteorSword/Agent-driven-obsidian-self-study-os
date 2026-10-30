@@ -81,6 +81,22 @@ vault-template/
 
 完整可复制模板在 [`vault-template/`](vault-template/)。
 
+## 两种目录
+
+这个项目需要两个位置。
+
+| 位置 | 作用 |
+|---|---|
+| 仓库目录 | 存放升级包与工具。用 git clone，或下载发布包 |
+| Vault 目录 | 你的 Obsidian 库，从仓库的 vault-template/ 复制而来 |
+
+安装：把 vault-template/ 复制成 Vault 目录。
+
+升级：用仓库里的 scripts/upgrade.ps1 比对两份索引，只覆盖没有改过的文件。
+
+不要用 git pull 直接更新 Vault 目录。Vault 里的文件属于你，git 拉取会覆盖它们。
+
+
 ## 快速开始
 
 1. 复制 [`vault-template/`](vault-template/) 到你的 Obsidian Vault。

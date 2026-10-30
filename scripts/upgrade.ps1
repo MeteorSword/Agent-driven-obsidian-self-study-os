@@ -120,8 +120,8 @@ foreach ($nf in $newIdx.files) {
     $dest = Join-Path $VaultRoot ($rel -replace '/','\')
     $userExists = Test-Path -LiteralPath $dest
 
-    if ((-not ) -and (.class -eq 'example')) {
-        [void]$plan.Add([pscustomobject]@{ Action='skip'; Path=$rel; Note='样例文件，升级不新增' })
+    if ((-not $userExists) -and ($nf.class -eq 'example')) {
+        [void]$plan.Add([pscustomobject]@{ Action = 'skip'; Path = $rel; Note = '样例文件, 升级不新增' })
         continue
     }
     if (-not $userExists) {
