@@ -1,6 +1,6 @@
 # Changelog
 
-本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 Kaifeng Li（kk）发布，之后由 MeteorSword（剑星陨）以 fork 形式继续演进。
+本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 Kaifeng Li（kkLullaby）发布，之后由 MeteorSword 以 fork 形式继续演进。
 
 ## 1.0.0
 
