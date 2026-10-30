@@ -1,4 +1,4 @@
-# migrate-v0.3-to-v1.0.ps1 — 一次性迁移扫描器（v0.3 结构 → v1.0 结构）
+﻿# migrate-v0.3-to-v1.0.ps1 — 一次性迁移扫描器（v0.3 结构 → v1.0 结构）
 #
 # 定位：**考古报告生成器**。只读旧 Vault，产出交给另一个 AI / 人执行的清单。
 # 它不执行任何迁移动作，也不写旧 Vault。
@@ -14,10 +14,10 @@
 #
 # 用法：
 #   powershell -File scripts/migrate-v0.3-to-v1.0.ps1 `
-#     -VaultRoot "D:\SelfStudy\SS_OS\SelfStudyOS" `
-#     -TemplateRoot "D:\SelfStudy\Agent-driven-obsidian-self-study-os\vault-template" `
-#     -ManifestPath "D:\SelfStudy\Agent-driven-obsidian-self-study-os\migrations\manifest-1.0.0.json" `
-#     -Out "D:\SelfStudy\_archive\migrate-20261029"
+#     -VaultRoot "<你的Vault路径>" `
+#     -TemplateRoot "<仓库路径>\vault-template" `
+#     -ManifestPath "<仓库路径>\migrations\manifest-1.0.0.json" `
+#     -Out "<输出目录>"
 
 [CmdletBinding()]
 param(
