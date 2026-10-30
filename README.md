@@ -166,7 +166,7 @@ examples/       # 脱敏学习闭环示例
 
 Inspired by Erber's [如何用AI学会所有东西：基于Obsidian+Claude Code的个人知识库构建](https://zhuanlan.zhihu.com/p/2033334385555010512) by [Erber102](https://github.com/Erber102).
 
-Forked from [kkLullaby/Agent-driven-obsidian-self-study-os](https://github.com/kkLullaby/Agent-driven-obsidian-self-study-os) by Kaifeng Li (kk).
+Forked from [kkLullaby/Agent-driven-obsidian-self-study-os](https://github.com/kkLullaby/Agent-driven-obsidian-self-study-os) by kkLullaby.
 
 ## Citations
 
