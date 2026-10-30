@@ -19,6 +19,7 @@ param(
     [Parameter(Mandatory)][string]$VaultRoot,
     [string]$NewIndex = '',
     [string]$PackageRoot = '',
+    [string]$OldIndex = '',
     [switch]$Apply,
     [switch]$Rollback,
     [switch]$Force
@@ -103,8 +104,14 @@ if ($oldIdx.version -eq $newIdx.version -and -not $Force) {
     exit 0
 }
 
+if (-not $OldIndex) {
+    $repoM = Split-Path -Parent (Split-Path -Parent $PSCommandPath)
+    $OldIndex = Join-Path $repoM ("migrations\index-" + $oldIdx.version + ".json")
+}
+if (-not (Test-Path -LiteralPath $OldIndex)) { throw ("找不到旧版发布索引: " + $OldIndex) }
+$baseIdx = Get-Content -LiteralPath $OldIndex -Raw -Encoding UTF8 | ConvertFrom-Json
 $oldMap = @{}
-foreach ($f in $oldIdx.files) { $oldMap[$f.path] = $f }
+foreach ($f in $baseIdx.files) { $oldMap[$f.path] = $f }
 
 # ---------- 规划 ----------
 $plan = New-Object System.Collections.ArrayList
@@ -137,6 +144,7 @@ foreach ($nf in $newIdx.files) {
     }
 }
 foreach ($op in $oldIdx.files) {
+    if ($op.class -ne 'owned') { continue }
     if (-not ($newIdx.files | Where-Object { $_.path -eq $op.path })) {
         [void]$plan.Add([pscustomobject]@{ Action='orphan'; Path=$op.path; Note='新版已移除 → 需你确认是否删除' })
     }
