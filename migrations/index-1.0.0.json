@@ -1,7 +1,7 @@
 {
     "version":  "1.0.0",
     "schema":  1,
-    "generated_at":  "2026-10-30T08:16:13+08:00",
+    "generated_at":  "2026-10-30T10:13:57+08:00",
     "generator":  "scripts/gen-index.ps1",
     "requiresStep":  false,
     "source":  "operating_rules.md 路径变量表 + 框架文件规则",
@@ -310,9 +310,9 @@
                       "path":  "05_Templates/course_profile.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "b77e473dd8ea878a7497e02896fcbc03dbc22dd90b1e989a8deaa3f091e31abb",
+                      "sha256":  "3873ad10937ede0a201732fd3a024fcfe5b63ea0ccc2083afa6c332bd43fce14",
                       "normSha256":  "2b7205d22262e85ef96a6bd571f02392de740789f7730358b3d2cf58f8e1db03",
-                      "bytes":  1840,
+                      "bytes":  1830,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -580,9 +580,9 @@
                       "path":  "70_AgentSystems/SelfStudyOS/CourseOS/ExampleCourse/course_profile.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "d44e32e4edba24845a38e2b09f1fbcc5b8bb0d5235753b17ca77ef41a78840f5",
+                      "sha256":  "fe479d2fc464ffed299b1ca4acd0d67e028008a11d5fbe12f83d1380f5832c33",
                       "normSha256":  "fe479d2fc464ffed299b1ca4acd0d67e028008a11d5fbe12f83d1380f5832c33",
-                      "bytes":  1882,
+                      "bytes":  1872,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -880,9 +880,9 @@
                       "path":  "70_AgentSystems/SelfStudyOS/System/operating_rules.md",
                       "class":  "owned",
                       "definedBy":  "${OPERATING_RULES}",
-                      "sha256":  "db33ef9c9f85629d634efb548c7f4cad461df1c24e40c7b277a3828a469bc405",
-                      "normSha256":  "db33ef9c9f85629d634efb548c7f4cad461df1c24e40c7b277a3828a469bc405",
-                      "bytes":  11599,
+                      "sha256":  "70f7a5ac3338a993c35b0a1f371378f245da10422cf9ceec9fffc619cb895ba0",
+                      "normSha256":  "b6373e2e735c506bab71c7f8d1f52800e07ddecd521c07fb9cd05d2891532deb",
+                      "bytes":  11677,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -950,9 +950,9 @@
                       "path":  "99_Meta/SelfStudyOS_Version.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "60c3e79e13d6ed2f1343f99df2928051b64ddfebb43a8a09ae3513e4863c8edc",
-                      "normSha256":  "a31a74135593c8c31ebcf033d6bfdbcd8ffd223a31301a5fda1a1543312dc9a6",
-                      "bytes":  2383,
+                      "sha256":  "c3307d880d4b2367d474351b3a14524b85bb877688bf8efdb2fb1c315b0c0e65",
+                      "normSha256":  "c3307d880d4b2367d474351b3a14524b85bb877688bf8efdb2fb1c315b0c0e65",
+                      "bytes":  2380,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   }

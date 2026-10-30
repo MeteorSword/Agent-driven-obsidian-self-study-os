@@ -1,4 +1,4 @@
-# Operating Rules
+﻿# Operating Rules
 
 ## 当前模式
 
@@ -220,7 +220,7 @@ skill 和文档中引用 vault 内文件时，使用路径变量而非裸路径�
 | ${STUDY_PLAN} | 70_AgentSystems/SelfStudyOS/Review/study_plan.md（实例；模板在 05_Templates/study_plan_template.md） |
 | ${COURSE_MOC} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/<课程名>-MOC.md |
 | ${MATERIAL_QUEUE} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/material_queue.md |
-| ${EXAM_TOPIC_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/problems/exam_topic_index.md |
+| ${EXAM_TOPIC_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/problems/exam_topic_index.md（可选：考前需要时创建；不存在则跳过，不报缺文件） |
 | ${PROBLEM_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/problems/problem_index.md |
 | ${CONCEPT_INDEX} | 70_AgentSystems/SelfStudyOS/CourseOS/<课程名>/concepts/concept_index.md |
 | ${EXTERNAL_MATERIAL_INDEX} | 60_Resources/ExternalIndexes/external_material_index.md |
