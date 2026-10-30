@@ -160,6 +160,7 @@ foreach ($f in $all) {
         $cls = if ($isFw) { 'owned' } else { 'seeded' }
         $definedBy = if ($isFw) { 'framework' } else { 'default' }
     }
+    if ($rel -match '^70_AgentSystems/AgentMemory/feedback_.*\.md$') { $cls = 'example' }
     if ($cls -eq 'neverTouch') { $opaqueSkipped++; continue }
 
     $sha = Get-Sha $f.FullName
