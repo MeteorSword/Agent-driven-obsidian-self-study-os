@@ -100,13 +100,10 @@ vault-template/
 ## 快速开始
 
 1. 复制 [`vault-template/`](vault-template/) 到你的 Obsidian Vault。
-2. 改 `01_LearningDesk/01_学习首页.md` 的当前主线表，改 `02_今日状态.md` 和 `03_行动队列.md`，填入正在学的课。
-3. 改 `70_AgentSystems/SelfStudyOS/System/learner_profile.md`，写自己的画像。
-4. 改 `70_AgentSystems/SelfStudyOS/Review/progress.md`，写当前进度。
-5. 把 [`vault-template/01_LearningDesk/06_给Agent的启动句.md`](vault-template/01_LearningDesk/06_给Agent的启动句.md) 里的启动句复制给 AI agent，替换 `${YOUR_VAULT_PATH}`。
-6. 先选模式（开始学习 / 作业 / 复习 / 考试冲刺），再选一个最小任务（一节课的一个概念、2 到 5 道题、一个复习对象）。结束时让 agent 按 5 行收口写进当天 Daily Note。
+2. 打开 Obsidian，把 [`vault-template/01_LearningDesk/06_给Agent的启动句.md`](vault-template/01_LearningDesk/06_给Agent的启动句.md) 里的启动句复制给 AI agent，替换 `${YOUR_VAULT_PATH}`。
+3. 对 agent 说冷启动。它检测到三份文件还是空的，会依次问五个问题，问完写入课程主线、今日状态和画像。
 
-更细的步骤见 [`docs/getting-started.md`](docs/getting-started.md)。Windows 用户从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始。
+填完之后，每次说冷启动即可。想手动改，见 [`docs/getting-started.md`](docs/getting-started.md)。Windows 用户从 [`docs/windows-setup.md`](docs/windows-setup.md) 开始。
 
 ## 三条主线
 
