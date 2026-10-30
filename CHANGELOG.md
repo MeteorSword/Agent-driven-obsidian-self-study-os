@@ -1,6 +1,6 @@
 # Changelog
 
-本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 Kaifeng Li（kkLullaby）发布，之后由 MeteorSword 以 fork 形式继续演进。
+本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 kkLullaby发布，之后由 MeteorSword 以 fork 形式继续演进。
 
 ## 1.0.0
 
@@ -51,7 +51,7 @@
 - **资料三层分工**：`10_Courses/`（实体文件）/ `material_queue.md`（工单）/ `Raw/`（非课程资料）。
 - **隐私清理**：清除历史中的真实邮箱与本机路径，删除个人画像文件，课程名脱敏为 `ExampleCourse`。
 
-## 0.3.0 — 2026-06-10（上游 Kaifeng Li）
+## 0.3.0 — 2026-06-10（上游 kkLullaby）
 
 ### 新增
 
@@ -65,7 +65,7 @@
 - `START_HERE_FOR_AGENT.md`、`operating_rules.md`、LearningDesk、公开 prompts、docs 和公开版 skill 同步三模式边界。
 - 行动队列的 review stale 处理改为只在复习模式或明确队列维护时执行，避免打断作业模式。
 
-## 0.2.0 — 2026-06-07（上游 Kaifeng Li）
+## 0.2.0 — 2026-06-07（上游 kkLullaby）
 
 四块新增，全部来自真实使用反馈后的多轮内部评估。
 
@@ -93,7 +93,7 @@
 2. 每次结束要手改 4-5 个文件 → 5 行收口。
 3. 行动队列僵尸 P0 越积越多 → stale 规则。
 
-## 0.1.0 — 2026-05-24（上游 Kaifeng Li）
+## 0.1.0 — 2026-05-24（上游 kkLullaby）
 
 - 建立 `obsidian-self-study-os` 开源项目骨架。
 - 加入 Vault 模板、prompt、Markdown 模板、公开版 agent workflow skill。
