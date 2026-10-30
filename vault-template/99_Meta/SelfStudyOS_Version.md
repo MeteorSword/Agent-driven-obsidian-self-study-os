@@ -1,6 +1,6 @@
 ---
 type: system-version
-selfstudyos_version: 1.1.0
+selfstudyos_version: 1.1.1
 updated: 2026-10-29
 ---
 
@@ -16,7 +16,7 @@ updated: 2026-10-29
 ## 当前版本
 
 ```text
-selfstudyos_version: 1.1.0
+selfstudyos_version: 1.1.1
 released: 2026-10-30
 schema: 1
 ```
