@@ -6,10 +6,10 @@ An AI-agent-driven Obsidian self-study system for university learning, research 
 
 > **v1.0.0 定位**：第一个正式版本。首次提供安装说明、版本标识与安全迁移路径；公共模板与个人 Vault 明确分离。skill 和 prompt 仍是 AI 可读的原型规格，供生态开发者基于此搭建。
 
-## 与上游（kk）的关系
+## 与上游的关系
 
 本项目 fork 自 [kkLullaby/Agent-driven-obsidian-self-study-os](https://github.com/kkLullaby/Agent-driven-obsidian-self-study-os)。
-原作者 Kaifeng Li（kk）设计了 v0.1–v0.3 的骨架与核心机制：入口分离、Hint 1/2/3 分层、5 行收口、stale 规则、复习债务路由。本 fork 的改动建立在这些设计之上。
+原作者 Kaifeng Li（kkLullaby）设计了 v0.1–v0.3 的骨架与核心机制：入口分离、Hint 1/2/3 分层、5 行收口、stale 规则、复习债务路由。本 fork 的改动建立在这些设计之上。
 
 | 能力 | 上游 v0.3 | 本 fork v1.0 |
 |---|---|---|
@@ -22,7 +22,7 @@ An AI-agent-driven Obsidian self-study system for university learning, research 
 
 与上游 v0.3 的差异规模：**55 个文件、+1,844 / −819 行**。
 
-两条分支的关系：`main` 保留上游 v0.1–v0.3 的完整提交历史（作者 kkLullaby）；`gamma` 是基于 v0.3 文件快照独立起步的开发线，作者 MeteorSword（剑星陨）。两条线历史不相交，因此本仓库用分支而不是 PR 来承载 fork 的演进——如果你要对比上游，请用 `git diff origin/main origin/gamma`，不要用 merge。
+两条分支的关系：`main` 保留上游 v0.1–v0.3 的完整提交历史（作者 kkLullaby）；`gamma` 是基于 v0.3 文件快照独立起步的开发线，作者 MeteorSword。两条线历史不相交，因此本仓库用分支而不是 PR 来承载 fork 的演进——如果你要对比上游，请用 `git diff origin/main origin/gamma`，不要用 merge。
 
 ## 这个项目解决什么问题
 

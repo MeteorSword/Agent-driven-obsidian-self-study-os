@@ -2,38 +2,45 @@
 
 本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 Kaifeng Li（kk）发布，之后由 MeteorSword（剑星陨）以 fork 形式继续演进。
 
-## 1.0.0（开发中）
+## 1.0.0
 
-> 第一个正式版本。发布前以下条目会逐条核对完成状态。
+第一个正式版本。
 
 ### 新增
 
-- **Vault 版本标识**：`99_Meta/SelfStudyOS_Version.md`，用于判断任意 Vault 的起点版本。
-- **安装契约**：`docs/install.md`，覆盖 Claude Code / Codex / DSH / 手动四条安装路径。
-- **只读迁移扫描**：`scripts/migrate-scan.ps1`，把旧 Vault 分成框架文件 / 用户数据 / 生成产物 / 私人资料四类，输出冲突项与哈希，不写目标目录。
-- **发布前检查**：`scripts/preflight.ps1`，检查绝对路径、邮箱、手机号、学号、大文件、断引用。
-- **冷启动触发词**：对 agent 说「冷启动」即可完成入口读取与状态报告，无需粘贴长 prompt。
-- **考试冲刺模式入口块**：补齐第 4 个模式，此前只有 skill 实现、没有启动入口。
-- **课程档案**：`CourseOS/<课程名>/course_profile.md`，记录资料源、编号/页码口径、记号、勘误、不考范围与产物位置。
+- 版本索引：`migrations/index-<版本>.json` 记录每个框架文件的路径、归属、sha256 与上次修改版本，`.md` 是同数据的树形版。
+- 归属分类：文件分 owned、seeded、opaque。owned 可更新，seeded 只报差异，opaque 目录整块归用户。
+- 一次性迁移器：`scripts/migrate-v0.3-to-v1.0.ps1` 只读扫描旧 Vault，输出 `ai-handoff/` 五个文件。
+- 通用升级器：`scripts/upgrade.ps1` 比对两份索引，列出新增、覆盖、重写、待删四类；默认干跑，`-Apply` 前备份，`-Rollback` 可还原。
+- 迁移后工具：`scripts/bootstrap-index.ps1` 给已迁移的库建立索引；`scripts/verify-vault.ps1` 检查必需文件、旧路径残留与索引一致性。
+- 安装契约：`docs/install.md`，四条安装路径，三个验证信号，30 分钟冒烟测试。
+- 发布前检查：`scripts/preflight.ps1`，检查绝对路径、邮箱、手机号、学号、大文件、断引用。
+- 平台入口文件：`AGENTS.md`、`CLAUDE.md`。
+- 课程档案：`CourseOS/<课程名>/course_profile.md`，记录资料源、页码口径、记号、勘误、不考范围、产物位置。
+- 资料工单模板：`05_Templates/material_queue.md`。
+- 考试冲刺模式入口块。
 
 ### 改动
 
-- Agent 入口改为三段式：冷启动协议（给 agent）/ 手动粘贴块（首次安装）/ 四个模式块。
-- 规则按"单点定义 + 多处引用"整理：`operating_rules.md` 为唯一 source of truth。
-- 掌握等级统一为 4 级；`05_复习入口.md` 的 5 级判定改为映射到 4 级的对照表。
-- 模板收拢到 `05_Templates/`，删除重复的两份。
-- `README.md` 新增「与上游（kk）的关系」段。
-- 版本号统一：不再出现 "v0.3 Gamma" / "v0.95" 与 "v1.0" 并存的表述。
+- Agent 入口改为三段式：冷启动协议、手动粘贴块、四个模式块。
+- 规则以 `operating_rules.md` 为唯一定义处，其余文件引用它。
+- 掌握等级统一为 4 级，`05_复习入口.md` 的 5 级判定改为映射表。
+- 模板收拢到 `05_Templates/`。
+- 资料工单拆为资料台账与处理队列两张表：整体一行，个体一行，队列行用 `From` 指向台账编号。
+- 课程原件归位到 `10_Courses/<课程名>/<类型>/`。
+- README 增加上游关系段。
+- 版本号统一为 1.0.0。
 
 ### 移除
 
-- `Update_mission.md`（逐日开发日志移至私有 Vault）。
-- `docs/changelog-gamma.md`（内容并入本文件）。
+- `Update_mission.md`。
+- `docs/changelog-gamma.md`。
+- `START_HERE_FOR_AGENT.md`，内容并入 `01_LearningDesk/06_给Agent的启动句.md`。
 - 指向已删除 prompt 文件的链接。
 
 ## 0.95（fork 内部预发布，未对外发布）
 
-> 即原来的 "v0.3 Gamma" 分支定稿，本地 tag `v0.95`。这一版是六轮迭代的结果，但从未对外发布。
+> 即原来的 v0.3 Gamma 分支定稿，本地 tag `v0.95`。这一版是六轮迭代的结果，但从未对外发布。
 
 - **单一入口**：`START_HERE_FOR_AGENT.md` 并入 `01_LearningDesk/06_给Agent的启动句.md`，删除重复入口。
 - **skill 体系**：1 个 skill 扩展为 6 个（workflow / course-workflow / material-intake / memory-write / exam-mapping / weekly-review），9 个 prompt 文件收敛进 skill。
