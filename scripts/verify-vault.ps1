@@ -95,6 +95,22 @@ if (Test-Path -LiteralPath $rules) {
     if ($bad -eq 0) { Add-O ("路径变量全部可解析（{0} 个）" -f $checked) }
 } else { Add-E '找不到 operating_rules.md，无法检查路径变量' }
 
+# ---------- H 主线一致性 ----------
+$s02 = Join-Path $v '01_LearningDesk\02_今日状态.md'
+$sPg = Join-Path $v '70_AgentSystems\SelfStudyOS\Review\progress.md'
+if ((Test-Path -LiteralPath $s02) -and (Test-Path -LiteralPath $sPg)) {
+    $t02 = [IO.File]::ReadAllText($s02, [Text.Encoding]::UTF8)
+    $tPg = [IO.File]::ReadAllText($sPg, [Text.Encoding]::UTF8)
+    $m02 = [regex]::Match($t02, '[-*]\s*主线[：:]\s*(?<v>[^\r\n]+)')
+    $mPg = [regex]::Match($tPg, '当前主线[：:]\s*(?<v>[^\r\n]+)')
+    if ($m02.Success -and $mPg.Success) {
+        $a = ($m02.Groups['v'].Value -split '（' )[0].Trim()
+        $b = ($mPg.Groups['v'].Value -split '（' )[0].Trim()
+        if ($a -and $b -and ($b -notlike "*$a*")) { Add-W ("主线不一致: 02 今日状态写 [{0}]，progress 写 [{1}]" -f $a, $b) }
+        else { Add-O ("主线一致: {0}" -f $a) }
+    } else { Add-W '没读到主线字段，跳过一致性检查' }
+}
+
 # ---------- F 断链 ----------
 $broken = 0
 foreach ($md in ($allMd | Where-Object { $_.FullName -notmatch '\\\.selfstudyos\\' -and $_.FullName -notmatch '\\90_Archive\\' })) {
