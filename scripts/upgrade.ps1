@@ -211,7 +211,13 @@ foreach ($p in $toWrite) {
 
 # 更新本地 index
 if (-not (Test-Path -LiteralPath $stateDir)) { New-Item -ItemType Directory -Path $stateDir -Force | Out-Null }
-Copy-Item -LiteralPath $NewIndex -Destination $stateIdx -Force
+# 升级后重建库索引：口径与 bootstrap 一致（全库枚举 + 正确版本号）
+$bootScript = Join-Path (Split-Path -Parent $PSCommandPath) "bootstrap-index.ps1"
+if (Test-Path -LiteralPath $bootScript) {
+    & $bootScript -VaultRoot $VaultRoot -TemplateIndex $NewIndex -Apply | Out-Null
+} else {
+    Copy-Item -LiteralPath $NewIndex -Destination $stateIdx -Force
+}
 
 # 迁移留档
 $migDir = Join-Path $VaultRoot '99_Meta'
