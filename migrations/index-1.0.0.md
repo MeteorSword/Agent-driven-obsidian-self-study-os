@@ -2,7 +2,7 @@
 
 标记：`@版本` = 自该版本起未改动；`→版本` = 该版本改过。整块未变的目录折叠为一行。
 
-文件 82 个（owned 49 / seeded 33）；不透明目录已跳过 5 个文件。
+文件 83 个（owned 50 / seeded 33）；不透明目录已跳过 5 个文件。
 
   AGENTS.md    @1.0.0
   CLAUDE.md    @1.0.0
@@ -27,6 +27,7 @@
     concept_page.md    @1.0.0
     course_profile.md    @1.0.0
     daily_note.md    @1.0.0
+    feedback_example.md    @1.0.0
     learning_close_5lines.md    @1.0.0
     learning_session.md    @1.0.0
     material_queue.md    @1.0.0
@@ -133,4 +134,5 @@
   70_AgentSystems/SelfStudyOS/CourseOS/*/raw/
   70_AgentSystems/SelfStudyOS/CourseOS/*/sessions/
   50_LifeOps/
+  99_Meta/migration_*.md
   .selfstudyos/

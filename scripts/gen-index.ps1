@@ -58,7 +58,7 @@ $opaque = @(
     '10_Courses/',
     '70_AgentSystems/SelfStudyOS/CourseOS/*/raw/',
     '70_AgentSystems/SelfStudyOS/CourseOS/*/sessions/',
-    '50_LifeOps/',
+    '50_LifeOps/','99_Meta/migration_*.md',
     '.selfstudyos/'
 )
 

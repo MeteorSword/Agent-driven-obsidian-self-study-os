@@ -1,13 +1,13 @@
 {
     "version":  "1.0.0",
     "schema":  1,
-    "generated_at":  "2026-10-30T10:13:57+08:00",
+    "generated_at":  "2026-10-30T10:56:21+08:00",
     "generator":  "scripts/gen-index.ps1",
     "requiresStep":  false,
     "source":  "operating_rules.md 路径变量表 + 框架文件规则",
     "counts":  {
-                   "files":  82,
-                   "owned":  49,
+                   "files":  83,
+                   "owned":  50,
                    "seeded":  33,
                    "opaqueSkipped":  5
                },
@@ -16,6 +16,7 @@
                    "70_AgentSystems/SelfStudyOS/CourseOS/*/raw/",
                    "70_AgentSystems/SelfStudyOS/CourseOS/*/sessions/",
                    "50_LifeOps/",
+                   "99_Meta/migration_*.md",
                    ".selfstudyos/"
                ],
     "variables":  [
@@ -323,6 +324,16 @@
                       "sha256":  "14ed4cd6501382cb30c75901c87505e762a22ff72a7c692739bab7336f61dac5",
                       "normSha256":  "6de27ed78e36c6845e76588b9435bebd59be48f86100aeeeffc3846edecb2e2c",
                       "bytes":  456,
+                      "addedIn":  "1.0.0",
+                      "lastModifiedIn":  "1.0.0"
+                  },
+                  {
+                      "path":  "05_Templates/feedback_example.md",
+                      "class":  "owned",
+                      "definedBy":  "framework",
+                      "sha256":  "132e8ef2f32c1d65dc2d81fa9e495859829b9830a9433d4f491eb12d7f3dd851",
+                      "normSha256":  "132e8ef2f32c1d65dc2d81fa9e495859829b9830a9433d4f491eb12d7f3dd851",
+                      "bytes":  898,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
