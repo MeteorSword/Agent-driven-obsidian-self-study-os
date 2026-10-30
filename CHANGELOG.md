@@ -2,6 +2,26 @@
 
 本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 kkLullaby发布，之后由 MeteorSword 以 fork 形式继续演进。
 
+## 1.1.0
+
+### 新增
+
+- 首装协议：三份文件仍带未填写标记时，agent 依次问五个问题，写入课程主线、今日状态与画像。
+- 升级器在 `-Apply` 结束后自动重建库索引，版本号不会停在旧号。
+
+### 改动
+
+- README 快速开始从六步改为三步。
+- README 增加两种目录一节，说明仓库与 Vault 分开存放。
+- `docs/install.md` 增加升级一节。
+
+### 修复
+
+- `upgrade.ps1` 的比对基准改为发布版旧索引，避免覆盖用户已改内容。
+- `upgrade.ps1` 待删除只对 owned 文件报，修复 102 个误报。
+- 模板移除 `Raw/courses/` 与 `ExampleCourse/problems/exam_topic_index.md`。
+- 5 个 `feedback_*.md` 改为 example 类，升级时不新增。
+- `bootstrap-index` 默认取最高版本索引，`verify-vault` 增加版本落后检查。
 ## 1.0.1
 
 ### 文档
