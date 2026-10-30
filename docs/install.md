@@ -132,7 +132,7 @@ cp -r <repo>/skills/* <项目根>/.dsh/skills/
 
 ## 7. 升级
 
-1. 先跑只读扫描：`powershell -File scripts/migrate-scan.ps1 -Root <你的Vault>`（见仓库 `scripts/`）。
+1. 先跑只读扫描：`powershell -File scripts/migrate-v0.3-to-v1.0.ps1 -Root <你的Vault>`（见仓库 `scripts/`）。
 2. 看清单里的「冲突项」，逐个人工决定保留哪份。
 3. 分批合并，不整体覆盖。
 4. 升级完在 `99_Meta/` 留一份 `migration_<日期>.md`。

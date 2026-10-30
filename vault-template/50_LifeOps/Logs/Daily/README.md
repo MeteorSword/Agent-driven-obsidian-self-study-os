@@ -12,7 +12,7 @@
 - 避免 02_今日状态 / 03_行动队列 / 课程 progress 被频繁覆盖，导致 source of truth 漂移。
 - 5 行有固定结构，便于后期统计：每天有没有真实进展 / Hint 用到第几层 / 不懂的点是不是反复出现。
 
-详见 [`docs/close-ritual.md`](../../../../docs/close-ritual.md)。
+详见 `docs/close-ritual.md`（仓库内文档）。
 
 ## 本目录默认不追踪到 git
 

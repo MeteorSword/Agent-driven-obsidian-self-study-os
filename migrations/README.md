@@ -26,7 +26,7 @@
    ```json
    { "from": "1.0.0", "to": "1.1.0", "step": "steps/v1.0.0-to-v1.1.0.json" }
    ```
-3. 跑 `scripts/gen-manifest.ps1 -Version 1.1.0` 更新归属清单。
+3. 跑 `scripts/gen-index.ps1 -Version 1.1.0` 更新归属清单。
 4. 更新 `vault-template/99_Meta/SelfStudyOS_Version.md` 的版本号。
 
 ## 四种操作（只有这四种）
