@@ -49,3 +49,12 @@
 
 - P-03（真题讲解）
 - P-05（公式速查）
+
+## 资料工单
+
+本课资料台账与处理队列在 `CourseOS/<课程名>/material_queue.md`。
+
+- **台账（整体）**：一个文件 / 一套卷子 / 一本教材 = 一行
+- **队列（个体）**：一次处理动作 = 一行，`From` 必须指向台账里的 M 编号
+- 知识点不在工单里，归 `concepts/concept_index.md` 与本课 MOC
+- 空白结构见 `05_Templates/material_queue.md`

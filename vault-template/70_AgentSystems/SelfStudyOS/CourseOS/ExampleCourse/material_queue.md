@@ -1,17 +1,36 @@
-# Material Queue
+# Material Queue · ExampleCourse
 
-CourseOS 的资料接入工单。记录这门课有哪些资料要处理、处理到什么程度。
+课程资料的接入与处理队列。**记录"有什么资料"和"要拿它做什么"，不存资料本身。**
 
-本文件只存工单，实体文件在 `10_Courses/<课程名>/` 下。
+实体文件在 `10_Courses/<课程名>/<类型>/`；本文件只记台账与队列。空白结构见 `05_Templates/material_queue.md`。
 
-这里只存工单：每行指向 10_Courses 里的一个文件或一个范围。
+## 一、资料台账（整体）
 
-## 队列
+一个文件、一套卷子、一本教材 = 一行。**从它拆出来的题目不写在这里。**
 
-| ID | Source | Path | Scope | Why now | Target output | Status |
-|---|---|---|---|---|---|---|
-| Q1 | Example textbook chapter | `10_Courses/ExampleCourse/教材/` | one definition + one example | current blocker | learning session | candidate |
-| Q2 | Example homework set | `10_Courses/ExampleCourse/作业/` | 2-5 problems | practice | problem loop | candidate |
+| ID | 资料 | 类型 | 位置 | 总范围 | 状态 |
+|---|---|---|---|---|---|
+| M1 | Example textbook chapter | 教材 | `10_Courses/ExampleCourse/教材/` | 第 3 章 | 部分 |
+| M2 | Example homework set | 作业 | `10_Courses/ExampleCourse/作业/` | 5 题 | 未读 |
+
+## 二、处理队列（个体）
+
+每一行 = 一次可执行的处理动作。`From` 必须指向台账里存在的 M 编号。
+
+| ID | From | 范围 | 为什么现在 | 产出 | 状态 |
+|---|---|---|---|---|---|
+| M1.1 | M1 | 一个定义 | 卡住当前作业 | learning session | done |
+| M1.2 | M1 | 一个例题 | 验证是否真懂 | problem loop | in-progress |
+| M2.1 | M2 | 2–5 题 | 练手 | problem loop | candidate |
+
+## 三、规则
+
+1. **台账行必须先存在**，队列行才能引用它——不能凭空出现一道题。
+2. **队列行必须写 `From`**，指向某个 M 编号；归属不清时写 `?` 并留给人判断，不要猜。
+3. **知识点不在这张表里**。知识点归 `${CONCEPT_INDEX}` 与课程 MOC；这里是"资料 → 处理动作"的流水线。
+4. ID 用点号表达从属：`M1` → `M1.1`、`M1.2`。跨资料的批量动作拆成多行。
+5. 每接一批新资料：先在台账建一行，再决定要不要拆进队列。
+6. 学完一门课：状态改 `archived`，实体文件移 `90_Archive/`（见归档流程）。
 
 ## Source Card
 
@@ -24,10 +43,3 @@ Target output：
 Stop condition：
 Status：candidate / in-progress / done / archived
 ```
-
-## 规则
-
-- 实体文件放 `10_Courses/<课程名>/`；本文件只记工单。
-- 每次接到新资料时，在这里建一行工单。
-- AI 归档文件时必须同步更新工单状态。
-- 学完的科目：工单标记 archived，实体文件移到 90_Archive/。

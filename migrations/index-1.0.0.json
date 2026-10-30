@@ -1,13 +1,13 @@
 {
     "version":  "1.0.0",
     "schema":  1,
-    "generated_at":  "2026-10-29T22:32:07+08:00",
+    "generated_at":  "2026-10-30T08:16:13+08:00",
     "generator":  "scripts/gen-index.ps1",
     "requiresStep":  false,
     "source":  "operating_rules.md 路径变量表 + 框架文件规则",
     "counts":  {
-                   "files":  81,
-                   "owned":  48,
+                   "files":  82,
+                   "owned":  49,
                    "seeded":  33,
                    "opaqueSkipped":  5
                },
@@ -310,9 +310,9 @@
                       "path":  "05_Templates/course_profile.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "b00cf1ae4f9c0536255df715f6164f8bb0f28c6b30e81b6474daa3c86ccc139c",
-                      "normSha256":  "16cafe475dc59020f0e7bf04ff8e5c9d4e107bf6e37a581bc0479257d6b5a50a",
-                      "bytes":  1427,
+                      "sha256":  "b77e473dd8ea878a7497e02896fcbc03dbc22dd90b1e989a8deaa3f091e31abb",
+                      "normSha256":  "2b7205d22262e85ef96a6bd571f02392de740789f7730358b3d2cf58f8e1db03",
+                      "bytes":  1840,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -343,6 +343,16 @@
                       "sha256":  "a7b201e44274cd58d8732aae7735bae694778f686995e405b1d33a30ff5fbb7e",
                       "normSha256":  "a7b201e44274cd58d8732aae7735bae694778f686995e405b1d33a30ff5fbb7e",
                       "bytes":  903,
+                      "addedIn":  "1.0.0",
+                      "lastModifiedIn":  "1.0.0"
+                  },
+                  {
+                      "path":  "05_Templates/material_queue.md",
+                      "class":  "owned",
+                      "definedBy":  "framework",
+                      "sha256":  "df0f44d5e36e46ef9f96bd7b624016f4d74c27549d98ca87f602896cf433a4d4",
+                      "normSha256":  "df0f44d5e36e46ef9f96bd7b624016f4d74c27549d98ca87f602896cf433a4d4",
+                      "bytes":  1796,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -570,9 +580,9 @@
                       "path":  "70_AgentSystems/SelfStudyOS/CourseOS/ExampleCourse/course_profile.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "2672dfcfb02e35cbfdbc1733c600eebc9d66ec5f118aeb1218a2cc16dc10e7f3",
-                      "normSha256":  "2672dfcfb02e35cbfdbc1733c600eebc9d66ec5f118aeb1218a2cc16dc10e7f3",
-                      "bytes":  1469,
+                      "sha256":  "d44e32e4edba24845a38e2b09f1fbcc5b8bb0d5235753b17ca77ef41a78840f5",
+                      "normSha256":  "fe479d2fc464ffed299b1ca4acd0d67e028008a11d5fbe12f83d1380f5832c33",
+                      "bytes":  1882,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -590,9 +600,9 @@
                       "path":  "70_AgentSystems/SelfStudyOS/CourseOS/ExampleCourse/material_queue.md",
                       "class":  "seeded",
                       "definedBy":  "${MATERIAL_QUEUE}",
-                      "sha256":  "9b913dbaa208a25e08e7ea08a59b22a71adb67722a45ce4e086670a976b7c298",
-                      "normSha256":  "9b913dbaa208a25e08e7ea08a59b22a71adb67722a45ce4e086670a976b7c298",
-                      "bytes":  1117,
+                      "sha256":  "5af80d76dc3543716867328a152c752731e0d954c94baf11e3cfc7a1ff7cd302",
+                      "normSha256":  "5af80d76dc3543716867328a152c752731e0d954c94baf11e3cfc7a1ff7cd302",
+                      "bytes":  1975,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -880,9 +890,9 @@
                       "path":  "70_AgentSystems/SelfStudyOS/System/raw_data_pipeline.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "9d31523ac698a0fb38ead56ee7ab2772d7fcf5f1eb039af041061dde92617bcb",
-                      "normSha256":  "9d31523ac698a0fb38ead56ee7ab2772d7fcf5f1eb039af041061dde92617bcb",
-                      "bytes":  1996,
+                      "sha256":  "837ae84a4bf3a59172dedde86945473110db6b43e2ceaac1c075954e26d4aeae",
+                      "normSha256":  "837ae84a4bf3a59172dedde86945473110db6b43e2ceaac1c075954e26d4aeae",
+                      "bytes":  2138,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   },
@@ -940,9 +950,9 @@
                       "path":  "99_Meta/SelfStudyOS_Version.md",
                       "class":  "owned",
                       "definedBy":  "framework",
-                      "sha256":  "3c6d4e1657dfcd3b781a87616fa93b101a6ef201cc66ec499db8575b1f9f42d0",
-                      "normSha256":  "3c6d4e1657dfcd3b781a87616fa93b101a6ef201cc66ec499db8575b1f9f42d0",
-                      "bytes":  1873,
+                      "sha256":  "60c3e79e13d6ed2f1343f99df2928051b64ddfebb43a8a09ae3513e4863c8edc",
+                      "normSha256":  "a31a74135593c8c31ebcf033d6bfdbcd8ffd223a31301a5fda1a1543312dc9a6",
+                      "bytes":  2383,
                       "addedIn":  "1.0.0",
                       "lastModifiedIn":  "1.0.0"
                   }
