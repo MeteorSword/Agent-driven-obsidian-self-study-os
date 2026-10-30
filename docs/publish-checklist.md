@@ -29,3 +29,6 @@ git push -u origin main
 
 如果你用 GitHub 网页上传，请确认 `.gitignore` 和 `LICENSE` 一起上传。
 
+## 已知项
+
+- preflight -History 会报 19 个历史文件命中 HIST-PATH。这些路径不含用户名与个人信息，决定接受，不重写历史。当前文件树已全部改为占位路径。

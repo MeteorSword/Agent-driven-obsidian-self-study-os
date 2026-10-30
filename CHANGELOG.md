@@ -2,6 +2,16 @@
 
 本文件是唯一的版本记录。上游 v0.1.0–v0.3.0 由 kkLullaby发布，之后由 MeteorSword 以 fork 形式继续演进。
 
+## 1.0.1
+
+### 文档
+
+- README 说明分支页的领先与落后计数：两条历史没有共同祖先，计数按独立历史算。不点 Sync fork。
+- `docs/publish-checklist.md` 记录 `preflight -History` 的 19 项历史命中为已知项，接受不修。
+
+### 版本
+
+- 版本号从 1.0.0 升到 1.0.1。新增 `migrations/index-1.0.1.json`，只有改过的文件 `lastModifiedIn` 变成 1.0.1。
 ## 1.0.0
 
 第一个正式版本。
