@@ -150,7 +150,7 @@ Vault 是普通 Markdown 目录，删掉即可。skill 从平台的 skills 目�
 需要两个位置：仓库目录放升级包与工具，Vault 目录是你的库。
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/upgrade.ps1 -VaultRoot <你的Vault> -NewIndex migrations/index-<新版本>.json -PackageRoot vault-template
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/upgrade.ps1 -VaultRoot <你的Vault> -NewIndex migrations/index-1.0.1.json -PackageRoot vault-template
 ``````
 
 默认只做干跑，列出将新增、将覆盖、需重写、待删除四类。确认后加 -Apply。
