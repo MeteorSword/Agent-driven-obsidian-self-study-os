@@ -18,7 +18,11 @@ param(
 $ErrorActionPreference = 'Stop'
 $v = (Resolve-Path -LiteralPath $VaultRoot).Path
 $repo = Split-Path -Parent (Split-Path -Parent $PSCommandPath)
-if (-not $TemplateIndex) { $TemplateIndex = Join-Path $repo 'migrations\index-1.0.0.json' }
+if (-not $TemplateIndex) {
+    $cands = @(Get-ChildItem (Join-Path $repo "migrations") -Filter "index-*.json" | Sort-Object { [version]($_.BaseName.Replace("index-","")) } -Descending)
+    if ($cands.Count -eq 0) { throw "找不到 migrations/index-*.json" }
+    $TemplateIndex = $cands[0].FullName
+}
 if (-not (Test-Path -LiteralPath $TemplateIndex)) { throw "找不到模板索引: $TemplateIndex" }
 $tidx = Get-Content -LiteralPath $TemplateIndex -Raw -Encoding UTF8 | ConvertFrom-Json
 if (-not $TemplateRoot) { $TemplateRoot = Join-Path $repo 'vault-template' }
