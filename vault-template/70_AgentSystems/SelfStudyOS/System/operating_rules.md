@@ -264,3 +264,5 @@ minutes: 本轮时长
 ```
 
 mastery 只能从这五个值里选，不写自由文本。
+
+会话节奏、题源变体、冷复测防火墙、同题重写禁令、时间不由 agent 估算，见 `System/session_rhythm.md`。

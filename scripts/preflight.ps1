@@ -12,6 +12,9 @@
 
 [CmdletBinding()]
 param(
+    [string[]]$Terms = @()   # 可选：额外需要拦截的词，如真实课程名
+)
+param(
     [string]$Root = (Get-Location).Path,
     [switch]$History,
     [string]$Json
