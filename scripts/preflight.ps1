@@ -12,12 +12,10 @@
 
 [CmdletBinding()]
 param(
-    [string[]]$Terms = @()   # 可选：额外需要拦截的词，如真实课程名
-)
-param(
     [string]$Root = (Get-Location).Path,
     [switch]$History,
-    [string]$Json
+    [string]$Json,
+    [string[]]$Terms = @()   # 可选：需要拦截的词，如真实课程名
 )
 
 $ErrorActionPreference = 'Stop'
@@ -189,6 +187,22 @@ try {
             else            { [void]$script:info.Add("$k : 0") }
         }
     }
+
+# ---------- 6.5 自定义词拦截（-Terms，可选）----------
+if ($Terms.Count -gt 0) {
+    $termHits = 0
+    foreach ($f in $textFiles) {
+        $rel = Get-Rel $f
+        $ln = 0
+        foreach ($line in (Get-Content -LiteralPath $f -Encoding UTF8 -ErrorAction SilentlyContinue)) {
+            $ln++
+            foreach ($term in $Terms) {
+                if ($term -and $line.Contains($term)) { Add-Block 'TERM-HIT' "${rel}:$ln" ("命中拦截词 " + $term); $termHits++; break }
+            }
+        }
+    }
+    [void]$script:info.Add(("TERM-HIT : {0}（检查 {1} 个词）" -f $termHits, $Terms.Count))
+}
 
     # ---------- 输出 ----------
     Write-Host ''
